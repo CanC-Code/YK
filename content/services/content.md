@@ -1,5 +1,5 @@
 We provide the following services:
 
-*   Weekly mowing
+*   Mowing
 *   Hedge trimming
-*   Fall leaf removal
+*   Debris removal
