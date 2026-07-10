@@ -5,28 +5,237 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services - Yard Keepers</title>
     <style>
-        body { font-family: system-ui, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
-        .tags { display: flex; gap: 10px; list-style: none; padding: 0; }
-        .tags li { background: #eee; padding: 5px 10px; border-radius: 4px; font-size: 0.9em; }
+        :root {
+            --bg-color: #121212;
+            --surface-color: #1e1e1e;
+            --primary-color: #4caf50;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --border-color: #333333;
+            --header-height: 60px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-top: var(--header-height);
+        }
+
+        /* Sticky Scrolling Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background-color: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 1000;
+        }
+
+        .logo a {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.3rem;
+            text-decoration: none;
+        }
+
+        /* Hamburger Button */
+        .hamburger {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+            z-index: 1100;
+        }
+
+        .hamburger span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background-color: var(--text-color);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* Hamburger Animation when Active */
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Sliding Navigation Drawer */
+        nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background-color: var(--surface-color);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+            transition: right 0.3s ease;
+            padding: calc(var(--header-height) + 20px) 20px 20px 20px;
+            z-index: 1050;
+        }
+
+        nav.active {
+            right: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: block;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Main Content Layout */
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        /* Tags Theme Styling */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .tags li {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        article {
+            font-size: 1.05rem;
+        }
+
+        article p {
+            margin-bottom: 20px;
+        }
+
+        article ul, article ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        article li {
+            margin-bottom: 8px;
+        }
+
+        article a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        article a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="/">Home</a> | <a href="/services/">Services</a>
+
+    <header>
+        <div class="logo">
+            <a href="/YK/">Yard Keepers</a>
+        </div>
+        <button class="hamburger" id="menuToggle" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <nav id="sideNav">
+        <ul>
+            <li><a href="/YK/">Home</a></li>
+            <li><a href="/YK/services/">Services</a></li>
+        </ul>
     </nav>
+
     <main>
         <h1>Our Services</h1>
         <div class="tag-container">
             <ul class='tags'><li>landscaping</li><li>lawn mowing</li><li>seasonal</li></ul>
         </div>
         <article>
-            <p>We provide the following services:</p>
+            <p>We provide high-quality residential maintenance options tailored to your environment:</p>
 <ul>
-<li>Mowing</li>
-<li>Hedge trimming</li>
-<li>Debris removal</li>
+<li><strong>Precision Mowing</strong></li>
+<li><strong>Hedge Trimming</strong></li>
+<li><strong>Debris Removal</strong></li>
 </ul>
+<p>Return to the <a href="/YK/">Home Page</a>.</p>
         </article>
     </main>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const sideNav = document.getElementById('sideNav');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            sideNav.classList.toggle('active');
+        });
+
+        // Close menu if clicking outside of it
+        document.addEventListener('click', (e) => {
+            if (!sideNav.contains(e.target) && !menuToggle.contains(e.target) && sideNav.classList.contains('active')) {
+                menuToggle.classList.remove('active');
+                sideNav.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
