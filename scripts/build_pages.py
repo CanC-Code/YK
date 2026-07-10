@@ -6,25 +6,26 @@ import shutil
 CONTENT_DIR = 'content'
 DOCS_DIR = 'docs'
 TEMPLATE_FILE = 'templates/base.html'
+ASSETS_DIR = 'assets'
 BASE_URL = '/YK'
 
-# 1. Clean clear-down and initialization of the target environment
 if os.path.exists(DOCS_DIR):
     shutil.rmtree(DOCS_DIR)
 os.makedirs(DOCS_DIR, exist_ok=True)
 
-# 2. Open layout template with absolute UTF-8 encoding safety
+# Automatically sync source assets directory into the public target folder
+if os.path.exists(ASSETS_DIR):
+    shutil.copytree(ASSETS_DIR, os.path.join(DOCS_DIR, 'assets'))
+
 with open(TEMPLATE_FILE, 'r', encoding='utf-8') as f:
     template_html = f.read()
 
-# 3. Walk through all assets within the content tree
 for root, dirs, files in os.walk(CONTENT_DIR):
     for file in files:
         if file.endswith('.md'):
             md_path = os.path.join(root, file)
             rel_path = os.path.relpath(root, CONTENT_DIR)
             
-            # Map out exact deployment boundaries for subpages
             if rel_path == '.':
                 out_dir = DOCS_DIR
                 out_file = file.replace('.md', '.html')
@@ -35,17 +36,12 @@ for root, dirs, files in os.walk(CONTENT_DIR):
             os.makedirs(out_dir, exist_ok=True)
             out_path = os.path.join(out_dir, out_file)
             
-            # Read source content file safely
             with open(md_path, 'r', encoding='utf-8') as f:
                 raw_markdown = f.read()
                 
-            # Compile markdown syntax to HTML
             html_content = markdown.markdown(raw_markdown)
-            
-            # Seamless routing correction for raw absolute asset anchors
             html_content = html_content.replace('href="/', f'href="{BASE_URL}/')
                 
-            # Locate and resolve associated structural metadata
             meta_path = os.path.join(root, 'meta.json')
             title = "Yard Keepers"
             tags_html = ""
@@ -58,18 +54,15 @@ for root, dirs, files in os.walk(CONTENT_DIR):
                     if tags:
                         tags_html = "<ul class='tags'>" + "".join([f"<li>{t}</li>" for t in tags]) + "</ul>"
             else:
-                # Fallback title evaluation based on subpage folder name if meta is absent
                 if rel_path != '.':
                     title = rel_path.replace('-', ' ').title()
             
-            # Master template substitution pass
             page_html = template_html.replace('{{base_url}}', BASE_URL)
             page_html = page_html.replace('{{title}}', title)
             page_html = page_html.replace('{{content}}', html_content)
             page_html = page_html.replace('{{tags}}', tags_html)
             
-            # Write out completely stylized file directly into deployment target
             with open(out_path, 'w', encoding='utf-8') as f:
                 f.write(page_html)
 
-print(f"Build complete. Every asset has been bound into the dark layout inside /{DOCS_DIR}")
+print(f"Build complete. All graphics mirrored to /{DOCS_DIR}/assets/")
