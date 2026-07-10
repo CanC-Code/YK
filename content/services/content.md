@@ -1,5 +1,8 @@
-We provide the following services:
+We provide high-quality residential maintenance options tailored to your environment:
 
-*   Mowing
-*   Hedge trimming
-*   Debris removal
+*   **Precision Mowing**
+*   **Hedge Trimming**
+*   **Debris Removal**
+
+
+Return to the [Home Page](/).
