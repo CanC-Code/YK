@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}} - Yard Keepers</title>
+    <style>
+        body { font-family: system-ui, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .tags { display: flex; gap: 10px; list-style: none; padding: 0; }
+        .tags li { background: #eee; padding: 5px 10px; border-radius: 4px; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a> | <a href="/services/">Services</a>
+    </nav>
+    <main>
+        <h1>{{title}}</h1>
+        <div class="tag-container">
+            {{tags}}
+        </div>
+        <article>
+            {{content}}
+        </article>
+    </main>
+</body>
+</html>
