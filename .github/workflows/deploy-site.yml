@@ -1,6 +1,10 @@
 name: Deploy Yard Keepers
 on:
-  workflow_dispatch:  # Enables the manual trigger button
+  workflow_dispatch:
+
+# Add this block to grant push access
+permissions:
+  contents: write
 
 jobs:
   build-and-deploy:
