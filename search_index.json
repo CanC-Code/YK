@@ -8,5 +8,15 @@
       "seasonal"
     ],
     "description": "Lawn care, landscaping, and seasonal cleanups."
+  },
+  {
+    "url": "/contact/",
+    "title": "Contact Us",
+    "tags": [
+      "contact",
+      "support",
+      "socials"
+    ],
+    "description": "Get in touch with Yard Keepers via phone or social media."
   }
 ]
