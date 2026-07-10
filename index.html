@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yard Keepers - Yard Keepers</title>
+    
+    <!-- Dynamic Context-Aware Favicon Insertion -->
+    <link rel="icon" type="image/png" href="/YK/assets/YK_favicon.png">
+
     <style>
         :root {
             --bg-color: #121212;
@@ -29,7 +33,6 @@
             padding-top: var(--header-height);
         }
 
-        /* Sticky Scrolling Header */
         header {
             position: fixed;
             top: 0;
@@ -47,14 +50,20 @@
             z-index: 1000;
         }
 
+        /* Image-Based Logo Container Constraints */
         .logo a {
-            color: var(--primary-color);
-            font-weight: 700;
-            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            height: var(--header-height);
             text-decoration: none;
         }
 
-        /* Hamburger Button */
+        .logo img {
+            height: 42px; /* Scales down cleanly to prevent navigation bleeding */
+            width: auto;
+            object-fit: contain;
+        }
+
         .hamburger {
             background: none;
             border: none;
@@ -75,18 +84,10 @@
             transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
-        /* Hamburger Animation when Active */
-        .hamburger.active span:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
-        }
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger.active span:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
-        }
+        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-        /* Sliding Navigation Drawer */
         nav {
             position: fixed;
             top: 0;
@@ -100,95 +101,33 @@
             z-index: 1050;
         }
 
-        nav.active {
-            right: 0;
-        }
+        nav.active { right: 0; }
+        nav ul { list-style: none; display: flex; flex-direction: column; gap: 15px; }
+        nav a { color: var(--text-color); text-decoration: none; font-size: 1.1rem; display: block; padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); transition: color 0.2s; }
+        nav a:hover { color: var(--primary-color); }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+        main { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        h1 { font-size: 2.2rem; margin-bottom: 10px; color: #ffffff; }
 
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 1.1rem;
-            display: block;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            transition: color 0.2s;
-        }
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin-bottom: 30px; }
+        .tags li { background-color: var(--surface-color); border: 1px solid var(--border-color); color: var(--primary-color); padding: 4px 12px; border-radius: 16px; font-size: 0.85rem; font-weight: 500; }
 
-        nav a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Main Content Layout */
-        main {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
-
-        /* Tags Theme Styling */
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            list-style: none;
-            margin-bottom: 30px;
-        }
-
-        .tags li {
-            background-color: var(--surface-color);
-            border: 1px solid var(--border-color);
-            color: var(--primary-color);
-            padding: 4px 12px;
-            border-radius: 16px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        article {
-            font-size: 1.05rem;
-        }
-
-        article p {
-            margin-bottom: 20px;
-        }
-
-        article ul, article ol {
-            margin-bottom: 20px;
-            padding-left: 20px;
-        }
-
-        article li {
-            margin-bottom: 8px;
-        }
-
-        article a {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        article a:hover {
-            text-decoration: underline;
-        }
+        article { font-size: 1.05rem; }
+        article p { margin-bottom: 20px; }
+        article ul, article ol { margin-bottom: 20px; padding-left: 20px; }
+        article li { margin-bottom: 8px; }
+        article a { color: var(--primary-color); text-decoration: none; }
+        article a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
 
     <header>
         <div class="logo">
-            <a href="/YK/">Yard Keepers</a>
+            <!-- Dynamic context target tracking back to root safely -->
+            <a href="/YK/">
+                <img src="/YK/assets/Yard Keepers.png" alt="Yard Keepers Logo">
+            </a>
         </div>
         <button class="hamburger" id="menuToggle" aria-label="Toggle Menu">
             <span></span>
@@ -224,7 +163,6 @@
             sideNav.classList.toggle('active');
         });
 
-        // Close menu if clicking outside of it
         document.addEventListener('click', (e) => {
             if (!sideNav.contains(e.target) && !menuToggle.contains(e.target) && sideNav.classList.contains('active')) {
                 menuToggle.classList.remove('active');
