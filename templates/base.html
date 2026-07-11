@@ -8,6 +8,9 @@
     <!-- Dynamic Context-Aware Favicon Insertion -->
     <link rel="icon" type="image/png" href="{{base_url}}/assets/YK_favicon.png">
 
+    <!-- Font Awesome Kit for High-Quality Brand Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
         :root {
             --bg-color: #121212;
@@ -17,6 +20,12 @@
             --text-muted: #a0a0a0;
             --border-color: #333333;
             --header-height: 60px;
+            
+            /* Social Brand Color Profiles */
+            --instagram-color: #e1306c;
+            --facebook-color: #1877f2;
+            --pinterest-color: #bd081c;
+            --youtube-color: #ff0000;
         }
 
         * {
@@ -50,7 +59,6 @@
             z-index: 1000;
         }
 
-        /* Image-Based Logo Container Constraints */
         .logo a {
             display: flex;
             align-items: center;
@@ -59,7 +67,7 @@
         }
 
         .logo img {
-            height: 42px; /* Scales down cleanly to prevent navigation bleeding */
+            height: 42px;
             width: auto;
             object-fit: contain;
         }
@@ -118,13 +126,53 @@
         article li { margin-bottom: 8px; }
         article a { color: var(--primary-color); text-decoration: none; }
         article a:hover { text-decoration: underline; }
+
+        /* Custom Social UI Component Styling */
+        .social-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+            list-style: none !important;
+            padding-left: 0 !important;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            padding: 12px 20px;
+            border-radius: 8px;
+            color: var(--text-color) !important;
+            text-decoration: none !important;
+            font-weight: 500;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .social-link:hover {
+            background-color: #252525;
+            transform: translateX(4px);
+            text-decoration: none !important;
+        }
+
+        .social-link i {
+            font-size: 1.4rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        .social-link.instagram i { color: var(--instagram-color); }
+        .social-link.facebook i { color: var(--facebook-color); }
+        .social-link.pinterest i { color: var(--pinterest-color); }
+        .social-link.youtube i { color: var(--youtube-color); }
     </style>
 </head>
 <body>
 
     <header>
         <div class="logo">
-            <!-- Dynamic context target tracking back to root safely -->
             <a href="{{base_url}}/">
                 <img src="{{base_url}}/assets/Yard_Keepers.png" alt="Yard Keepers Logo">
             </a>
@@ -141,7 +189,6 @@
             <li><a href="{{base_url}}/">Home</a></li>
             <li><a href="{{base_url}}/services/">Services</a></li>
             <li><a href="{{base_url}}/contact/">Contact Us</a></li>
- 
         </ul>
     </nav>
 
