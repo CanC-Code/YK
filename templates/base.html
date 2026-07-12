@@ -122,12 +122,14 @@
 
         article { font-size: 1.05rem; }
         article p { margin-bottom: 20px; }
+        article h2 { margin: 30px 0 15px 0; color: #ffffff; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
+        article h3 { margin: 20px 0 10px 0; color: var(--primary-color); }
         article ul, article ol { margin-bottom: 20px; padding-left: 20px; }
         article li { margin-bottom: 8px; }
         article a { color: var(--primary-color); text-decoration: none; }
         article a:hover { text-decoration: underline; }
 
-        /* Custom Social UI Component Styling */
+        /* Social UI Component Styling */
         .social-grid {
             display: flex;
             flex-direction: column;
@@ -157,16 +159,26 @@
             text-decoration: none !important;
         }
 
-        .social-link i {
-            font-size: 1.4rem;
-            width: 24px;
-            text-align: center;
-        }
-
+        .social-link i { font-size: 1.4rem; width: 24px; text-align: center; }
         .social-link.instagram i { color: var(--instagram-color); }
         .social-link.facebook i { color: var(--facebook-color); }
         .social-link.pinterest i { color: var(--pinterest-color); }
         .social-link.youtube i { color: var(--youtube-color); }
+
+        /* Map Responsive Container Element */
+        .map-container {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background-color: var(--surface-color);
+            margin: 20px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .map-container iframe {
+            display: block;
+            filter: grayscale(0.2) invert(0.9) hue-rotate(60deg); /* Blends standard map colors subtly into dark layouts */
+        }
     </style>
 </head>
 <body>
@@ -188,6 +200,7 @@
         <ul>
             <li><a href="{{base_url}}/">Home</a></li>
             <li><a href="{{base_url}}/services/">Services</a></li>
+            <li><a href="{{base_url}}/area/">Service Area</a></li>
             <li><a href="{{base_url}}/contact/">Contact Us</a></li>
         </ul>
     </nav>
