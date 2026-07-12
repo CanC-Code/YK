@@ -18,5 +18,15 @@
       "socials"
     ],
     "description": "Get in touch with Yard Keepers via phone or social media."
+  },
+  {
+    "url": "/area/",
+    "title": "Service Area",
+    "tags": [
+      "service area",
+      "locations",
+      "alberta"
+    ],
+    "description": "Regions, counties, and towns serviced by Yard Keepers across Central Alberta."
   }
 ]
