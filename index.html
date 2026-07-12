@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yard Keepers - Yard Keepers</title>
     
-    <!-- Dynamic Context-Aware Favicon Insertion -->
     <link rel="icon" type="image/png" href="/YK/assets/YK_favicon.png">
-
-    <!-- Font Awesome Kit for High-Quality Brand Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
@@ -21,18 +18,13 @@
             --border-color: #333333;
             --header-height: 60px;
             
-            /* Social Brand Color Profiles */
             --instagram-color: #e1306c;
             --facebook-color: #1877f2;
             --pinterest-color: #bd081c;
             --youtube-color: #ff0000;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -43,72 +35,26 @@
         }
 
         header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: var(--header-height);
-            background-color: rgba(30, 30, 30, 0.8);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 20px;
-            z-index: 1000;
+            position: fixed; top: 0; left: 0; width: 100%; height: var(--header-height);
+            background-color: rgba(30, 30, 30, 0.8); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color); display: flex; align-items: center;
+            justify-content: space-between; padding: 0 20px; z-index: 1000;
         }
 
-        .logo a {
-            display: flex;
-            align-items: center;
-            height: var(--header-height);
-            text-decoration: none;
-        }
+        .logo a { display: flex; align-items: center; height: var(--header-height); text-decoration: none; }
+        .logo img { height: 42px; width: auto; object-fit: contain; }
 
-        .logo img {
-            height: 42px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .hamburger {
-            background: none;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 24px;
-            height: 18px;
-            z-index: 1100;
-        }
-
-        .hamburger span {
-            display: block;
-            height: 2px;
-            width: 100%;
-            background-color: var(--text-color);
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-
+        .hamburger { background: none; border: none; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; width: 24px; height: 18px; z-index: 1100; }
+        .hamburger span { display: block; height: 2px; width: 100%; background-color: var(--text-color); transition: transform 0.3s ease, opacity 0.3s ease; }
         .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
         .hamburger.active span:nth-child(2) { opacity: 0; }
         .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
         nav {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 280px;
-            height: 100vh;
-            background-color: var(--surface-color);
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
-            transition: right 0.3s ease;
-            padding: calc(var(--header-height) + 20px) 20px 20px 20px;
-            z-index: 1050;
+            position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
+            background-color: var(--surface-color); box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+            transition: right 0.3s ease; padding: calc(var(--header-height) + 20px) 20px 20px 20px; z-index: 1050;
         }
-
         nav.active { right: 0; }
         nav ul { list-style: none; display: flex; flex-direction: column; gap: 15px; }
         nav a { color: var(--text-color); text-decoration: none; font-size: 1.1rem; display: block; padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); transition: color 0.2s; }
@@ -129,56 +75,52 @@
         article a { color: var(--primary-color); text-decoration: none; }
         article a:hover { text-decoration: underline; }
 
-        /* Social UI Component Styling */
-        .social-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 20px;
-            list-style: none !important;
-            padding-left: 0 !important;
+        /* Map Interactive Styling Buttons */
+        .map-btn {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 2px 0;
+            text-align: left;
+            text-decoration: underline dotted;
+            transition: color 0.2s;
+        }
+        .map-btn:hover {
+            color: #ffffff;
+            text-decoration: underline solid;
         }
 
-        .social-link {
-            display: flex;
-            align-items: center;
-            gap: 15px;
+        /* Custom Travel Quote Callout */
+        .quote-box {
             background-color: var(--surface-color);
-            border: 1px solid var(--border-color);
-            padding: 12px 20px;
-            border-radius: 8px;
-            color: var(--text-color) !important;
-            text-decoration: none !important;
-            font-weight: 500;
-            transition: background-color 0.2s, transform 0.2s;
+            border-left: 4px solid var(--primary-color);
+            border-top: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 30px 0;
         }
+        .quote-box h3 { margin-top: 0 !important; }
+        .quote-box p { margin-bottom: 0 !important; }
 
-        .social-link:hover {
-            background-color: #252525;
-            transform: translateX(4px);
-            text-decoration: none !important;
+        .map-container {
+            width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color);
+            background-color: var(--surface-color); margin: 20px 0; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
+        .map-container iframe { display: block; filter: grayscale(0.2) invert(0.9) hue-rotate(60deg); }
 
+        .social-grid { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; list-style: none !important; padding-left: 0 !important; }
+        .social-link { display: flex; align-items: center; gap: 15px; background-color: var(--surface-color); border: 1px solid var(--border-color); padding: 12px 20px; border-radius: 8px; color: var(--text-color) !important; text-decoration: none !important; font-weight: 500; transition: background-color 0.2s, transform 0.2s; }
+        .social-link:hover { background-color: #252525; transform: translateX(4px); text-decoration: none !important; }
         .social-link i { font-size: 1.4rem; width: 24px; text-align: center; }
         .social-link.instagram i { color: var(--instagram-color); }
         .social-link.facebook i { color: var(--facebook-color); }
         .social-link.pinterest i { color: var(--pinterest-color); }
         .social-link.youtube i { color: var(--youtube-color); }
-
-        /* Map Responsive Container Element */
-        .map-container {
-            width: 100%;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            background-color: var(--surface-color);
-            margin: 20px 0;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-        .map-container iframe {
-            display: block;
-            filter: grayscale(0.2) invert(0.9) hue-rotate(60deg); /* Blends standard map colors subtly into dark layouts */
-        }
     </style>
 </head>
 <body>
@@ -190,9 +132,7 @@
             </a>
         </div>
         <button class="hamburger" id="menuToggle" aria-label="Toggle Menu">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </button>
     </header>
 
@@ -207,16 +147,13 @@
 
     <main>
         <h1>Yard Keepers</h1>
-        <div class="tag-container">
-            
-        </div>
-        <article>
-            <p>Welcome to <strong>Yard Keepers</strong>. We manage properties professionally, ensuring your outdoor spaces stay pristine and well-maintained.</p>
-<p>You can view our collection of custom optimizations on our <a href="/YK/services/">Services</a> page.</p>
-        </article>
+        <div class="tag-container"></div>
+        <article><p>Welcome to <strong>Yard Keepers</strong>. We manage properties professionally, ensuring your outdoor spaces stay pristine and well-maintained.</p>
+<p>You can view our collection of custom optimizations on our <a href="/YK/services/">Services</a> page.</p></article>
     </main>
 
     <script>
+        // Drawer Menu Logic
         const menuToggle = document.getElementById('menuToggle');
         const sideNav = document.getElementById('sideNav');
 
@@ -231,6 +168,23 @@
                 sideNav.classList.remove('active');
             }
         });
+
+        // Dynamic Embedded Map Router Maps
+        const embeddedLocations = {
+            stettler: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d77322.25368545802!2d-112.75659850549071!3d52.32832822498263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5373a4dfbfad0c51%3A0xc4842d039f9b57bd!2sStettler%2C%20AB!5e0!3m2!1sen!2sca!4v1710000000000!5m2!1sen!2sca",
+            reddeer: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d154446.591024623!2d-113.91899166708316!3d52.26629983995806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x537456b3e9a5d39d%3A0xa19a4fcbb1ffde36!2sRed%20Deer%2C%20AB!5e0!3m2!1sen!2sca!4v1710000000000!5m2!1sen!2sca",
+            castor: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9673.74315354972!2d-111.93605481283626!3d52.22320531980845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5372138b7244eb1d%3A0x86bb665f577f8ecb!2sCastor%2C%20AB!5e0!3m2!1sen!2sca!4v1710000000000!5m2!1sen!2sca",
+            coronation: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9680.057393282305!2d-111.45423871279284!3d52.1895656209569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x530c333a38ff13a3%3A0x6b4dbdaef7c70f!2sCoronation%2C%20AB!5e0!3m2!1sen!2sca!4v1710000000000!5m2!1sen!2sca",
+            consort: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9692.646872659109!2d-110.79374181270562!3d52.12218822295604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x530be90800652bf1%3A0x4a187d7b27520e5!2sConsort%2C%20AB!5e0!3m2!1sen!2sca!4v1710000000000!5m2!1sen!2sca",
+            lacombe: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d38556.74567406282!2d-113.77196238685161!3d52.46467009497042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53748e76fb2bd04f%3A0xae7fb932782e4431!2sLacombe%2C%20AB!5e0!3m2!1sen!2sca!4v1710000000000!5m2!1sen!2sca"
+        };
+
+        function changeLocation(key) {
+            const frame = document.getElementById('map-frame');
+            if(embeddedLocations[key]) {
+                frame.src = embeddedLocations[key];
+            }
+        }
     </script>
 </body>
 </html>
