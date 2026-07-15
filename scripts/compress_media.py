@@ -1,4 +1,5 @@
 import os
+import shutil
 from PIL import Image
 
 MEDIA_SRC = 'media'
@@ -14,25 +15,31 @@ os.makedirs(MEDIA_DIST, exist_ok=True)
 
 def compress_image(src_path, dest_path_base):
     try:
+        # If the committed file is already a WebP, skip re-compression and copy directly
+        if src_path.lower().endswith('.webp'):
+            shutil.copy2(src_path, f"{dest_path_base}.webp")
+            print(f"Copied pre-optimized WebP: {os.path.basename(src_path)}")
+            return
+
         with Image.open(src_path) as img:
-            # 1. Handle EXIF rotation data automatically
+            # Handle EXIF rotation data automatically
             img = img.convert("RGB")
             
-            # 2. Downscale only if exceptionally large to preserve crisp resolution
+            # Downscale only if exceptionally large to preserve crisp resolution
             if img.width > MAX_WIDTH:
                 ratio = MAX_WIDTH / float(img.width)
                 new_height = int(float(img.height) * float(ratio))
                 img = img.resize((MAX_WIDTH, new_height), Image.Resampling.LANCZOS)
             
-            # 3. Output as next-gen WebP (Lossless-like compression at 82% quality)
+            # Save compressed WebP
             webp_path = f"{dest_path_base}.webp"
             img.save(webp_path, "WEBP", quality=82, method=6)
             
-            # 4. Save a highly optimized fall-back JPG for safety
+            # Save optimized fallback JPG
             jpg_path = f"{dest_path_base}.jpg"
             img.save(jpg_path, "JPEG", quality=80, optimize=True)
             
-            print(f"Compressed: {os.path.basename(src_path)} -> WebP/JPG")
+            print(f"Compressed non-WebP: {os.path.basename(src_path)} -> WebP/JPG")
     except Exception as e:
         print(f"Failed to process {src_path}: {e}")
 
@@ -42,7 +49,6 @@ for root, dirs, files in os.walk(MEDIA_SRC):
         if file.lower().endswith(('.png', '.jpg', '.jpeg', '.webp')):
             src_file_path = os.path.join(root, file)
             
-            # Maintain structural directories if you organize by folders
             rel_path = os.path.relpath(root, MEDIA_SRC)
             target_dir = MEDIA_DIST if rel_path == '.' else os.path.join(MEDIA_DIST, rel_path)
             os.makedirs(target_dir, exist_ok=True)
