@@ -14,30 +14,30 @@ Our services are engineered to keep your landscaping looking immaculate througho
 Maintaining expansive lawns and larger landscapes requires consistent care and professional planning. We provide dependable grooming schedules to keep estates, acreage layouts, and large residential properties looking pristine.
 
 <div class="media-grid">
-    <a href="/services/mowing/" class="media-card" title="Click to view our lawn maintenance services">
+    <div class="media-card gallery-trigger" title="Click to view full image">
         <div class="media-placeholder">
             <img src="/media/commercial-five-foot-mowing-1.webp" alt="Commercial Mower on Property" onerror="this.style.display='none'">
         </div>
-        <span class="card-caption">Lawn Maintenance <i class="fa-solid fa-arrow-right"></i></span>
-    </a>
+        <span class="card-caption">Lawn Maintenance <i class="fa-solid fa-expand"></i></span>
+    </div>
 </div>
 
 ### Tree Trimming, Hedges & Ornamental Plants
-Our trimming operations restore overgrown perimeters, maintain tidy boundaries, and care for ornamental plants. Click on our featured projects below to learn more about our specific care methods and pruning cycles.
+Our trimming operations restore overgrown perimeters, maintain tidy boundaries, and care for ornamental plants. Click on our featured projects below to expand the gallery.
 
 <div class="media-grid">
-    <a href="/services/hedges/" class="media-card" title="Click to view our hedge care services">
+    <div class="media-card gallery-trigger" title="Click to view full image">
         <div class="media-placeholder">
             <img src="/media/tall-shaped-lilac-laneway-accent-5.webp" alt="Tall Shaped Lilac Accent" onerror="this.style.display='none'">
         </div>
-        <span class="card-caption">Lilac Property Line <i class="fa-solid fa-arrow-right"></i></span>
-    </a>
-    <a href="/services/hedges/" class="media-card" title="Click to view our hedge care services">
+        <span class="card-caption">Lilac Property Line <i class="fa-solid fa-expand"></i></span>
+    </div>
+    <div class="media-card gallery-trigger" title="Click to view full image">
         <div class="media-placeholder">
             <img src="/media/Caragana-trim-final.webp" alt="Caragana Final Trim" onerror="this.style.display='none'">
         </div>
-        <span class="card-caption">Caragana Perimeters <i class="fa-solid fa-arrow-right"></i></span>
-    </a>
+        <span class="card-caption">Caragana Perimeters <i class="fa-solid fa-expand"></i></span>
+    </div>
 </div>
 
 ---
