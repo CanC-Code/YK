@@ -1,8 +1,8 @@
-Hedges serve as beautiful, natural property borders, keeping your perimeter growing back healthy and green year after year. At Yard Keepers, we provide expert pruning, thinning, and boundary shaping services across Central Alberta.
+Hedges and ornamental plants serve as beautiful, natural property borders, keeping your perimeter growing back healthy and green year after year. At Yard Keepers, we provide expert pruning, thinning, and boundary shaping services across Central Alberta.
 
 ---
 
-## Specialty Hedge Maintenance
+## Specialty Tree Trimming & Hedge Maintenance
 
 Different species of hedge plants require distinct trimming schedules and structural cuts to prevent inner wood decay and promote rich, outward foliage.
 
@@ -18,7 +18,7 @@ Lilacs are loved for their vibrant blooms, but overgrown branches can quickly bl
     </div>
     <div class="media-card">
         <div class="media-placeholder">
-            <img src="/media/perimeter-lilac-2-1.webp" alt="Perimeter Lilac Pruning" onerror="this.style.display='none'">
+            <img src="/media/perimeter-lilac-2(1).webp" alt="Perimeter Lilac Pruning" onerror="this.style.display='none'">
         </div>
         <span class="card-caption">Perimeter Lilac</span>
     </div>
@@ -52,7 +52,7 @@ Cotoneaster hedges are highly versatile and form fantastic, dense privacy screen
 
 ---
 
-## Get a Custom Hedge Estimate
+## Get a Custom Estimate
 
 Need your property lines manicured, or have a wild, overgrown hedge that needs to be reclaimed? We are here to help.
 
