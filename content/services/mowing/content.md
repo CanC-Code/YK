@@ -1,4 +1,4 @@
-For larger landscapes, acreage properties, and commercial perimeters, regular maintenance is essential to prevent wild overgrowth and keep boundaries looking pristine. We provide dependable, scheduled mowing solutions tailored to Central Alberta properties.
+For larger landscapes, acreage properties, and commercial perimeters, regular maintenance is essential to prevent wild overgrowth and keep boundaries looking pristine. We provide dependable, scheduled lawn maintenance solutions tailored to Central Alberta properties.
 
 ---
 
@@ -7,7 +7,7 @@ For larger landscapes, acreage properties, and commercial perimeters, regular ma
 Wide lawns require efficient handling to maintain an even, healthy cut. We structure our scheduled routes to keep your grass manicured and structurally healthy year after year.
 
 <div class="media-placeholder">
-    <img src="/media/commercial-acreage-mowing.webp" alt="Manicured Acreage Property" onerror="this.style.display='none'">
+    <img src="/media/commercial-mowing-cut.webp" alt="Manicured Acreage Property" onerror="this.style.display='none'">
 </div>
 
 ---
@@ -22,13 +22,13 @@ Our scheduled maintenance safely controls wild grasses and weeds before they tak
 <div class="media-grid">
     <div class="media-card">
         <div class="media-placeholder">
-            <img src="/media/uncut-grass-1.webp" alt="Overgrown Property Uncut Grass Site" onerror="this.style.display='none'">
+            <img src="/media/uncut-commercial-lot-1.webp" alt="Overgrown Property Uncut Grass Site" onerror="this.style.display='none'">
         </div>
         <span class="card-caption">Uncut Field Overgrowth</span>
     </div>
     <div class="media-card">
         <div class="media-placeholder">
-            <img src="/media/cut-grass-1.webp" alt="Clean Cut Property Maintenance Site" onerror="this.style.display='none'">
+            <img src="/media/cut-commercial-lot-1.webp" alt="Clean Cut Property Maintenance Site" onerror="this.style.display='none'">
         </div>
         <span class="card-caption">Reclaimed & Cut Ground</span>
     </div>
