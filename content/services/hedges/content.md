@@ -1,4 +1,4 @@
-Hedges serve as beautiful, natural property borders, but keeping them structurally sound and dense requires professional, species-specific care. At Yard Keepers, we provide expert pruning, thinning, and boundary shaping services across Central Alberta.
+Hedges serve as beautiful, natural property borders, keeping your perimeter growing back healthy and green year after year. At Yard Keepers, we provide expert pruning, thinning, and boundary shaping services across Central Alberta.
 
 ---
 
@@ -18,7 +18,7 @@ Lilacs are loved for their vibrant blooms, but overgrown branches can quickly bl
     </div>
     <div class="media-card">
         <div class="media-placeholder">
-            <img src="/media/perimeter-lilac-2(1).webp" alt="Perimeter Lilac Pruning" onerror="this.style.display='none'">
+            <img src="/media/perimeter-lilac-2-1.webp" alt="Perimeter Lilac Pruning" onerror="this.style.display='none'">
         </div>
         <span class="card-caption">Perimeter Lilac</span>
     </div>
