@@ -1,8 +1,7 @@
-We provide high-quality residential maintenance options tailored to your environment:
+We provide high-quality residential and commercial maintenance options tailored to your specific environment. Select a service category below to learn more:
 
-*   **Precision Mowing**
-*   **Hedge Trimming**
-*   **Debris Removal**
-
+*   **[Lawn Maintenance & Property Mowing](/services/mowing/)**
+*   **[Hedge Care, Tree Trimming & Ornamental Plants](/services/hedges/)**
+*   **Debris Removal & Seasonal Cleanups**
 
 Return to the [Home Page](/).
