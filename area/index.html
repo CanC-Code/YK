@@ -1,84 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service Area - Yard Keepers</title>
-
-    <!-- Meta Descriptions for Local SEO Indexing -->
-    <meta name="description" content="Regions, counties, and towns serviced by Yard Keepers across Central Alberta.">
-    <meta name="robots" content="index, follow">
-
-    <link rel="icon" type="image/png" href="/YK/assets/YK_favicon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <style>
-        :root {
-            --bg-color: #121212;
-            --surface-color: #1e1e1e;
-            --primary-color: #4caf50;
-            --text-color: #e0e0e0;
-            --text-muted: #a0a0a0;
-            --border-color: #333333;
-            --header-height: 60px;
-
-            --instagram-color: #e1306c;
-            --facebook-color: #1877f2;
-            --pinterest-color: #bd081c;
-            --youtube-color: #ff0000;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            padding-top: var(--header-height);
-        }
-
-        header {
-            position: fixed; top: 0; left: 0; width: 100%; height: var(--header-height);
-            background-color: rgba(30, 30, 30, 0.8); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color); display: flex; align-items: center;
-            justify-content: space-between; padding: 0 20px; z-index: 1000;
-        }
-
-        .logo a { display: flex; align-items: center; height: var(--header-height); text-decoration: none; }
-        .logo img { height: 42px; width: auto; object-fit: contain; }
-
-        .hamburger { background: none; border: none; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; width: 24px; height: 18px; z-index: 1100; }
-        .hamburger span { display: block; height: 2px; width: 100%; background-color: var(--text-color); transition: transform 0.3s ease, opacity 0.3s ease; }
-        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-        nav {
-            position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
-            background-color: var(--surface-color); box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
-            transition: right 0.3s ease; padding: calc(var(--header-height) + 20px) 20px 20px 20px; z-index: 1050;
-        }
-        nav.active { right: 0; }
-        nav ul { list-style: none; display: flex; flex-direction: column; gap: 15px; }
-        nav a { color: var(--text-color); text-decoration: none; font-size: 1.1rem; display: block; padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); transition: color 0.2s; }
-        nav a:hover { color: var(--primary-color); }
-
-        main { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
-        h1 { font-size: 2.2rem; margin-bottom: 10px; color: #ffffff; }
-
-        .tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin-bottom: 30px; }
-        .tags li { background-color: var(--surface-color); border: 1px solid var(--border-color); color: var(--primary-color); padding: 4px 12px; border-radius: 16px; font-size: 0.85rem; font-weight: 500; }
-
-        article { font-size: 1.05rem; }
-        article p { margin-bottom: 20px; }
-        article h2 { margin: 30px 0 15px 0; color: #ffffff; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
-        article h3 { margin: 20px 0 10px 0; color: var(--primary-color); }
-        article ul, article ol { margin-bottom: 20px; padding-left: 20px; }
-        article li { margin-bottom: 8px; }
-        article a { color: var(--primary-color); text-decoration: none; }
-        article a:hover { text-decoration: underline; }
-
         /* Media Placeholder Styling (Black Square Fallback) */
         .media-placeholder {
             width: 100%;
@@ -87,7 +6,7 @@
             border: 1px solid var(--border-color);
             border-radius: 8px;
             overflow: hidden;
-            margin: 25px 0;
+            margin: 15px 0;
             position: relative;
         }
         .media-placeholder img {
@@ -97,149 +16,57 @@
             position: absolute;
             top: 0;
             left: 0;
+            transition: transform 0.3s ease;
         }
 
-        /* Map Interactive Styling Buttons */
-        .map-btn {
-            background: none;
-            border: none;
-            color: var(--primary-color);
-            font-size: 1.05rem;
-            font-weight: 600;
-            cursor: pointer;
-            padding: 2px 0;
-            text-align: left;
-            text-decoration: underline dotted;
+        /* Modern Multi-Column Grid Layout */
+        .media-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0 35px 0;
+        }
+
+        @media (max-width: 600px) {
+            .media-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
+        /* Interactive Card Component */
+        .media-card {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none !important;
+            color: var(--text-color) !important;
             transition: color 0.2s;
         }
-        .map-btn:hover {
-            color: #ffffff;
-            text-decoration: underline solid;
+
+        .media-card:hover .media-placeholder img {
+            transform: scale(1.03);
         }
 
-        /* Custom Travel Quote Callout */
-        .quote-box {
-            background-color: var(--surface-color);
-            border-left: 4px solid var(--primary-color);
-            border-top: 1px solid var(--border-color);
-            border-right: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            padding: 20px;
-            border-radius: 0 8px 8px 0;
-            margin: 30px 0;
+        .media-card:hover .card-caption {
+            color: var(--primary-color);
         }
-        .quote-box h3 { margin-top: 0 !important; }
-        .quote-box p { margin-bottom: 0 !important; }
 
-        .map-container {
-            width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color);
-            background-color: var(--surface-color); margin: 20px 0; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        .card-caption {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-top: -5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 4px;
+            transition: color 0.2s;
         }
-        .map-container iframe { display: block; filter: grayscale(0.2) invert(0.9) hue-rotate(60deg); }
 
-        .social-grid { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; list-style: none !important; padding-left: 0 !important; }
-        .social-link { display: flex; align-items: center; gap: 15px; background-color: var(--surface-color); border: 1px solid var(--border-color); padding: 12px 20px; border-radius: 8px; color: var(--text-color) !important; text-decoration: none !important; font-weight: 500; transition: background-color 0.2s, transform 0.2s; }
-        .social-link:hover { background-color: #252525; transform: translateX(4px); text-decoration: none !important; }
-        .social-link i { font-size: 1.4rem; width: 24px; text-align: center; }
-        .social-link.instagram i { color: var(--instagram-color); }
-        .social-link.facebook i { color: var(--facebook-color); }
-        .social-link.pinterest i { color: var(--pinterest-color); }
-        .social-link.youtube i { color: var(--youtube-color); }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="logo">
-            <a href="/YK/">
-                <img src="/YK/assets/Yard_Keepers.png" alt="Yard Keepers Logo">
-            </a>
-        </div>
-        <button class="hamburger" id="menuToggle" aria-label="Toggle Menu">
-            <span></span><span></span><span></span>
-        </button>
-    </header>
-
-    <nav id="sideNav">
-        <ul>
-            <li><a href="/YK/">Home</a></li>
-            <li><a href="/YK/services/">Services</a></li>
-            <li><a href="/YK/area/">Service Area</a></li>
-            <li><a href="/YK/contact/">Contact Us</a></li>
-        </ul>
-    </nav>
-
-    <main>
-        <h1>Service Area</h1>
-        <div class="tag-container"><ul class='tags'><li>service area</li><li>locations</li><li>alberta</li></ul></div>
-        <article><p>We proudly provide professional property and yard maintenance services across a wide footprint in Central Alberta. Click on any town below to view its location on the map.</p>
-<h2>Interactive Coverage Map</h2>
-<div class="map-container">
-    <iframe 
-        id="map-frame"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d77322.25368545802!2d-112.75659850549071!3d52.32832822498263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5373a4dfbfad0c51%3A0xc4842d039f9b57bd!2sStettler%2C%20AB!5e0!3m2!1sen!2sca!4v1710000000000!5m2!1sen!2sca" 
-        width="100%" 
-        height="450" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-</div>
-
-<h2>Regions We Serve</h2>
-<p>Click a location below to focus the map interface:</p>
-<h3>Core Municipalities &amp; Towns</h3>
-<ul>
-<li><button class="map-btn" onclick="changeLocation('stettler')">Stettler County</button></li>
-<li><button class="map-btn" onclick="changeLocation('reddeer')">Red Deer</button></li>
-<li><button class="map-btn" onclick="changeLocation('castor')">Castor</button></li>
-<li><button class="map-btn" onclick="changeLocation('coronation')">Coronation</button></li>
-<li><button class="map-btn" onclick="changeLocation('consort')">Consort</button></li>
-<li><button class="map-btn" onclick="changeLocation('lacombe')">Lacombe</button></li>
-</ul>
-<div class="quote-box">
-    <h3>Outside Our Standard Radius?</h3>
-    <p>If your property is located further than 3 hours from Stettler travel, we may still be able to accommodate you. Please visit our <a href="/YK/contact/">Contact Us</a> page to request a custom travel quote.</p>
-</div>
-
-<h3>Property Types Covered</h3>
-<p>If your property falls within our service perimeter, we offer scheduled seasonal management for residential yards, larger acreage layouts, historical preservation sites, and commercial lots.</p></article>
-    </main>
-
-    <script>
-        // Drawer Menu Logic
-        const menuToggle = document.getElementById('menuToggle');
-        const sideNav = document.getElementById('sideNav');
-
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            sideNav.classList.toggle('active');
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!sideNav.contains(e.target) && !menuToggle.contains(e.target) && sideNav.classList.contains('active')) {
-                menuToggle.classList.remove('active');
-                sideNav.classList.remove('active');
-            }
-        });
-
-        // Dynamic Embedded Map Router Maps
-        const embeddedLocations = {
-            stettler: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d77322.25368545802!2d-112.75659850549071!3d52.32832822498263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5373a4dfbfad0c51%3A0xc4842d039f9b57bd!2sStettler%2C%20AB!5e0!3m2!1sen!2sca!4v1710000000000!5m2!1sen!2sca",
-            reddeer: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d154446.591024623!2d-113.91899166708316!3d52.26629983995806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x537456b3e9a5d39d%3A0xa19a4fcbb1ffde36!2sRed%20Deer%2C%20AB!5e0!3m2!1sen!2sca!4v1710000000000!5m2!1sen!2sca",
-            castor: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9673.74315354972!2d-111.93605481283626!3d52.22320531980845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5372138b7244eb1d%3A0x86bb665f577f8ecb!2sCastor%2C%20AB!5e0!3m2!1sen!2sca!4v1710000000000!5m2!1sen!2sca",
-            coronation: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9680.057393282305!2d-111.45423871279284!3d52.1895656209569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x530c333a38ff13a3%3A0x6b4dbdaef7c70f!2sCoronation%2C%20AB!5e0!3m2!1sen!2sca!4v1710000000000!5m2!1sen!2sca",
-            consort: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9692.646872659109!2d-110.79374181270562!3d52.12218822295604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x530be90800652bf1%3A0x4a187d7b27520e5!2sConsort%2C%20AB!5e0!3m2!1sen!2sca!4v1710000000000!5m2!1sen!2sca",
-            lacombe: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d38556.74567406282!2d-113.77196238685161!3d52.46467009497042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53748e76fb2bd04f%3A0xae7fb932782e4431!2sLacombe%2C%20AB!5e0!3m2!1sen!2sca!4v1710000000000!5m2!1sen!2sca"
-        };
-
-        function changeLocation(key) {
-            const frame = document.getElementById('map-frame');
-            if(embeddedLocations[key]) {
-                frame.src = embeddedLocations[key];
-            }
+        .card-caption i {
+            font-size: 0.85rem;
+            transition: transform 0.2s;
         }
-    </script>
-</body>
-</html>
+
+        .media-card:hover .card-caption i {
+            transform: translateX(3px);
+        }
