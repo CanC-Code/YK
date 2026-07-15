@@ -2,7 +2,6 @@ name: Deploy Yard Keepers
 on:
   workflow_dispatch:
 
-# Add this block to grant push access
 permissions:
   contents: write
 
@@ -21,10 +20,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
           
-      - name: Run Build Scripts
-        run: |
-          python scripts/build_pages.py
-          python scripts/indexer.py
+      - name: Run Media Optimization Pipeline
+        run: python scripts/compress_media.py
+          
+      - name: Run Build Page Compiler
+        run: python scripts/build_pages.py
           
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
