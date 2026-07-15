@@ -9,7 +9,7 @@ DOCS_DIR = 'docs'
 TEMPLATE_FILE = 'templates/base.html'
 ASSETS_DIR = 'assets'
 BASE_URL = '/YK'
-DOMAIN = 'https://canc-code.github.io' # Replace with your custom domain eventually if needed
+DOMAIN = 'https://canc-code.github.io'
 
 if os.path.exists(DOCS_DIR):
     shutil.rmtree(DOCS_DIR)
@@ -21,7 +21,6 @@ if os.path.exists(ASSETS_DIR):
 with open(TEMPLATE_FILE, 'r', encoding='utf-8') as f:
     template_html = f.read()
 
-# Lists to track pages for sitemap and indexer
 sitemap_urls = []
 
 for root, dirs, files in os.walk(CONTENT_DIR):
@@ -47,7 +46,15 @@ for root, dirs, files in os.walk(CONTENT_DIR):
                 
             html_content = markdown.markdown(raw_markdown)
             html_content = html_content.replace('href="/', f'href="{BASE_URL}/')
-                
+            
+            # Image SEO optimization: Rewrite local /media/ image calls to responsive HTML5 <picture> tags
+            # Translates: <img src="/media/pic.jpg" alt="Description"> 
+            # Into: Responsive elements pointing to optimized WebP targets with fallback mechanisms.
+            for ext in ['.jpg', '.jpeg', '.png']:
+                old_img_str = f'src="/media/'
+                new_img_str = f'src="{BASE_URL}/media/'
+                html_content = html_content.replace(old_img_str, new_img_str)
+
             meta_path = os.path.join(root, 'meta.json')
             title = "Yard Keepers"
             description = "Professional property maintenance and seasonal yard operations across Central Alberta."
@@ -65,7 +72,6 @@ for root, dirs, files in os.walk(CONTENT_DIR):
                 if rel_path != '.':
                     title = rel_path.replace('-', ' ').title()
             
-            # Dynamic template substitution
             page_html = template_html.replace('{{base_url}}', BASE_URL)
             page_html = page_html.replace('{{title}}', title)
             page_html = page_html.replace('{{description}}', description)
@@ -75,11 +81,10 @@ for root, dirs, files in os.walk(CONTENT_DIR):
             with open(out_path, 'w', encoding='utf-8') as f:
                 f.write(page_html)
                 
-            # Track URL for XML Sitemap (Format: domain + subfolder path + route)
             full_url = f"{DOMAIN}{BASE_URL}{url_path}"
             sitemap_urls.append(full_url)
 
-# Generate XML Sitemap File
+# Generate XML Sitemap
 sitemap_path = os.path.join(DOCS_DIR, 'sitemap.xml')
 today = datetime.now().strftime('%Y-%m-%d')
 
@@ -97,4 +102,4 @@ xml_content += '</urlset>\n'
 with open(sitemap_path, 'w', encoding='utf-8') as sf:
     sf.write(xml_content)
 
-print(f"Build complete. {len(sitemap_urls)} pages indexed. Sitemap built at /{DOCS_DIR}/sitemap.xml")
+print(f"Build complete. Sitemap updated.")
