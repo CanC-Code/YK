@@ -25,6 +25,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://canc-code.github.io/YK/services/mowing/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://canc-code.github.io/YK/contact/</loc>
     <lastmod>2026-07-15</lastmod>
     <changefreq>weekly</changefreq>
