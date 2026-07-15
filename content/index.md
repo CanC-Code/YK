@@ -16,7 +16,7 @@ Maintaining expansive lawns and larger landscapes requires consistent care and p
 <div class="media-grid">
     <a href="/services/mowing/" class="media-card" title="Click to view our lawn maintenance services">
         <div class="media-placeholder">
-            <img src="/media/commercial-mowing-cut.webp" alt="Lawn and Acreage Maintenance" onerror="this.style.display='none'">
+            <img src="/media/commercial-five-foot-mowing-1.webp" alt="Commercial Mower on Property" onerror="this.style.display='none'">
         </div>
         <span class="card-caption">Lawn Maintenance <i class="fa-solid fa-arrow-right"></i></span>
     </a>
@@ -28,15 +28,15 @@ Our trimming operations restore overgrown perimeters, maintain tidy boundaries, 
 <div class="media-grid">
     <a href="/services/hedges/" class="media-card" title="Click to view our hedge care services">
         <div class="media-placeholder">
-            <img src="/media/lilac-property-line-1.webp" alt="Lilac Property Line Trimming" onerror="this.style.display='none'">
+            <img src="/media/tall-shaped-lilac-laneway-accent-5.webp" alt="Tall Shaped Lilac Accent" onerror="this.style.display='none'">
         </div>
         <span class="card-caption">Lilac Property Line <i class="fa-solid fa-arrow-right"></i></span>
     </a>
     <a href="/services/hedges/" class="media-card" title="Click to view our hedge care services">
         <div class="media-placeholder">
-            <img src="/media/perimeter-lilac-2 (1).webp" alt="Perimeter Lilac Pruning" onerror="this.style.display='none'">
+            <img src="/media/Caragana-trim-final.webp" alt="Caragana Final Trim" onerror="this.style.display='none'">
         </div>
-        <span class="card-caption">Perimeter Lilac <i class="fa-solid fa-arrow-right"></i></span>
+        <span class="card-caption">Caragana Perimeters <i class="fa-solid fa-arrow-right"></i></span>
     </a>
 </div>
 
@@ -47,5 +47,4 @@ Our trimming operations restore overgrown perimeters, maintain tidy boundaries, 
 Whether you require scheduled seasonal maintenance or one-off estate restoration, we can accommodate your property's needs.
 
 *   Explore our detailed service categories on the [Our Services](/services/) page.
-*   Confirm our regional service limits on our [Service Area](/area/) page.
 *   For questions or a custom property estimate, please visit our [Contact Us](/contact/) page.
