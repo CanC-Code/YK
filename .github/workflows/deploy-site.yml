@@ -20,11 +20,13 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
           
-      - name: Run Media Optimization Pipeline
-        run: python scripts/compress_media.py
-          
+      # 1. RUN PAGE COMPILER FIRST (Wipes docs/ folder, generates HTML)
       - name: Run Build Page Compiler
         run: python scripts/build_pages.py
+          
+      # 2. RUN MEDIA PIPELINE SECOND (Populates docs/media/ safely)
+      - name: Run Media Optimization Pipeline
+        run: python scripts/compress_media.py
           
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
