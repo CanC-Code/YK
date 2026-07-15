@@ -2,6 +2,6 @@ We provide high-quality residential and commercial maintenance options tailored 
 
 *   **[Lawn Maintenance & Property Mowing](/services/mowing/)**
 *   **[Hedge Care, Tree Trimming & Ornamental Plants](/services/hedges/)**
-*   **Debris Removal & Seasonal Cleanups**
+*   **[Brush & Steep Hillside Clearing](/services/clearing/)**
 
 Return to the [Home Page](/).
