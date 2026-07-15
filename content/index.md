@@ -16,7 +16,7 @@ Maintaining expansive lawns and larger landscapes requires consistent care and p
 <div class="media-grid">
     <a href="/services/mowing/" class="media-card" title="Click to view our lawn maintenance services">
         <div class="media-placeholder">
-            <img src="/media/commercial-acreage-mowing.webp" alt="Lawn and Acreage Maintenance" onerror="this.style.display='none'">
+            <img src="/media/commercial-mowing-cut.webp" alt="Lawn and Acreage Maintenance" onerror="this.style.display='none'">
         </div>
         <span class="card-caption">Lawn Maintenance <i class="fa-solid fa-arrow-right"></i></span>
     </a>
@@ -34,7 +34,7 @@ Our trimming operations restore overgrown perimeters, maintain tidy boundaries, 
     </a>
     <a href="/services/hedges/" class="media-card" title="Click to view our hedge care services">
         <div class="media-placeholder">
-            <img src="/media/perimeter-lilac-2(1).webp" alt="Perimeter Lilac Pruning" onerror="this.style.display='none'">
+            <img src="/media/perimeter-lilac-2 (1).webp" alt="Perimeter Lilac Pruning" onerror="this.style.display='none'">
         </div>
         <span class="card-caption">Perimeter Lilac <i class="fa-solid fa-arrow-right"></i></span>
     </a>
