@@ -4,33 +4,53 @@ For larger landscapes, acreage properties, and commercial perimeters, regular ma
 
 ## Precision Acreage Grooming
 
-Wide lawns require efficient handling to maintain an even, healthy cut. We structure our scheduled routes to keep your grass manicured and structurally healthy year after year.
+Wide lawns require efficient handling to maintain an even, healthy cut. We utilize commercial equipment to structure our scheduled routes, keeping your grass manicured and structurally healthy year after year.
 
-<div class="media-placeholder">
-    <img src="/media/commercial-mowing-cut.webp" alt="Manicured Acreage Property" onerror="this.style.display='none'">
+<div class="media-grid">
+    <div class="media-card gallery-trigger">
+        <div class="media-placeholder">
+            <img src="/media/commercial-five-foot-mowing-1.webp" alt="Manicured Acreage Property" onerror="this.style.display='none'">
+        </div>
+        <span class="card-caption">Commercial Acreage Mowing <i class="fa-solid fa-expand"></i></span>
+    </div>
+    <div class="media-card gallery-trigger">
+        <div class="media-placeholder">
+            <img src="/media/commercial-five-foot-mowing-2.webp" alt="Property Maintenance Machinery" onerror="this.style.display='none'">
+        </div>
+        <span class="card-caption">Heavy Duty Mowing Solutions <i class="fa-solid fa-expand"></i></span>
+    </div>
 </div>
 
 ---
 
-## Commercial Field Reclamation (Before & After)
+## Field Reclamation & Cut Comparisons
 
-When properties are left unmanaged, standard lawn equipment cannot handle the tall, woody brush. We specialize in reclaiming overgrown spaces, cutting through thick overgrowth to bring your property back to a tidy baseline.
-
-### Cut / Uncut Comparisons
-Our scheduled maintenance safely controls wild grasses and weeds before they take over your boundaries.
+When properties are left unmanaged, standard lawn equipment cannot handle the tall, woody brush. We specialize in reclaiming overgrown spaces, cutting through thick overgrowth to bring your property back to a tidy baseline. Click the images below to expand our before-and-after results.
 
 <div class="media-grid">
-    <div class="media-card">
+    <div class="media-card gallery-trigger">
         <div class="media-placeholder">
-            <img src="/media/uncut-commercial-lot-1.webp" alt="Overgrown Property Uncut Grass Site" onerror="this.style.display='none'">
+            <img src="/media/tall-grass-untrimmed-1.webp" alt="Tall Grass Untrimmed Field" onerror="this.style.display='none'">
         </div>
-        <span class="card-caption">Uncut Field Overgrowth</span>
+        <span class="card-caption">Uncut Field Overgrowth <i class="fa-solid fa-expand"></i></span>
     </div>
-    <div class="media-card">
+    <div class="media-card gallery-trigger">
         <div class="media-placeholder">
-            <img src="/media/cut-commercial-lot-1.webp" alt="Clean Cut Property Maintenance Site" onerror="this.style.display='none'">
+            <img src="/media/tall-grass-trimmed-1.webp" alt="Tall Grass Trimmed Field" onerror="this.style.display='none'">
         </div>
-        <span class="card-caption">Reclaimed & Cut Ground</span>
+        <span class="card-caption">Reclaimed & Cut Ground <i class="fa-solid fa-expand"></i></span>
+    </div>
+    <div class="media-card gallery-trigger">
+        <div class="media-placeholder">
+            <img src="/media/commercial-mowing-uncut.webp" alt="Overgrown Commercial Site" onerror="this.style.display='none'">
+        </div>
+        <span class="card-caption">Commercial Site (Before) <i class="fa-solid fa-expand"></i></span>
+    </div>
+    <div class="media-card gallery-trigger">
+        <div class="media-placeholder">
+            <img src="/media/commercial-mowing-cut.webp" alt="Clean Cut Commercial Site" onerror="this.style.display='none'">
+        </div>
+        <span class="card-caption">Commercial Site (After) <i class="fa-solid fa-expand"></i></span>
     </div>
 </div>
 
@@ -40,5 +60,4 @@ Our scheduled maintenance safely controls wild grasses and weeds before they tak
 
 Whether you require seasonal mowing routes or a one-off reclamation project, we have the setup to manage your land.
 
-*   Verify if your property falls within our standard service boundaries on our [Service Area](/area/) page.
 *   Request a direct estimate for your acreage size on our [Contact Us](/contact/) page.
