@@ -79,6 +79,26 @@
         article a { color: var(--primary-color); text-decoration: none; }
         article a:hover { text-decoration: underline; }
 
+        /* Media Placeholder Styling (Black Square Fallback) */
+        .media-placeholder {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: #000000;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 25px 0;
+            position: relative;
+        }
+        .media-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
         /* Map Interactive Styling Buttons */
         .map-btn {
             background: none;
