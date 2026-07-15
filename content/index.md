@@ -21,10 +21,15 @@ We care for your property with the utmost attention to detail. We handle residen
 Our services are engineered to keep your landscaping looking immaculate throughout the changing seasons.
 
 ### Acreages & Estate Properties
-Maintaining expansive lawns and larger landscapes requires consistent care and professional planning. We provide dependable grooming schedules to keep estates, acreage layouts, and large residential properties looking pristine.
+Maintaining expansive lawns and larger landscapes requires consistent care and professional planning. Click on our featured acreage link below to view our lawn reclamation, cut comparisons, and acreage maintenance packages.
 
-<div class="media-placeholder">
-    <img src="/media/commercial-acreage-mowing.webp" alt="Acreage Property Maintenance" onerror="this.style.display='none'">
+<div class="media-grid">
+    <a href="/services/mowing/" class="media-card" title="Click to view our lawn mowing and acreage maintenance services">
+        <div class="media-placeholder">
+            <img src="/media/commercial-acreage-mowing.webp" alt="Acreage Property Maintenance" onerror="this.style.display='none'">
+        </div>
+        <span class="card-caption">Lawn Mowing & Maintenance <i class="fa-solid fa-arrow-right"></i></span>
+    </a>
 </div>
 
 ---
