@@ -21,11 +21,6 @@
             --text-muted: #a0a0a0;
             --border-color: #333333;
             --header-height: 60px;
-
-            --instagram-color: #e1306c;
-            --facebook-color: #1877f2;
-            --pinterest-color: #bd081c;
-            --youtube-color: #ff0000;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -67,137 +62,70 @@
         main { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
         h1 { font-size: 2.2rem; margin-bottom: 10px; color: #ffffff; }
 
-        .tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin-bottom: 30px; }
-        .tags li { background-color: var(--surface-color); border: 1px solid var(--border-color); color: var(--primary-color); padding: 4px 12px; border-radius: 16px; font-size: 0.85rem; font-weight: 500; }
-
         article { font-size: 1.05rem; }
         article p { margin-bottom: 20px; }
         article h2 { margin: 30px 0 15px 0; color: #ffffff; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
         article h3 { margin: 20px 0 10px 0; color: var(--primary-color); }
-        article ul, article ol { margin-bottom: 20px; padding-left: 20px; }
-        article li { margin-bottom: 8px; }
+        article ul { margin-bottom: 20px; padding-left: 20px; }
         article a { color: var(--primary-color); text-decoration: none; }
-        article a:hover { text-decoration: underline; }
 
-        /* Media Placeholder Styling (Black Square Fallback) */
+        /* Media Placeholder Styling */
         .media-placeholder {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            background-color: #000000;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            overflow: hidden;
-            margin: 15px 0;
-            position: relative;
+            width: 100%; aspect-ratio: 16 / 9; background-color: #000000;
+            border: 1px solid var(--border-color); border-radius: 8px;
+            overflow: hidden; margin: 15px 0; position: relative;
         }
         .media-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            transition: transform 0.3s ease;
+            width: 100%; height: 100%; object-fit: cover;
+            position: absolute; top: 0; left: 0; transition: transform 0.3s ease;
         }
 
-        /* Modern Multi-Column Grid Layout */
-        .media-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin: 20px 0 35px 0;
-        }
+        .media-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0 35px 0; }
+        @media (max-width: 600px) { .media-grid { grid-template-columns: 1fr; gap: 15px; } }
 
-        @media (max-width: 600px) {
-            .media-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-        }
-
-        /* Interactive Card Component */
         .media-card {
-            display: flex;
-            flex-direction: column;
-            text-decoration: none !important;
-            color: var(--text-color) !important;
-            transition: color 0.2s;
+            display: flex; flex-direction: column; text-decoration: none !important;
+            color: var(--text-color) !important; cursor: pointer; transition: color 0.2s;
         }
-
-        .media-card:hover .media-placeholder img {
-            transform: scale(1.03);
-        }
-
-        .media-card:hover .card-caption {
-            color: var(--primary-color);
-        }
-
+        .media-card:hover .media-placeholder img { transform: scale(1.03); }
+        .media-card:hover .card-caption { color: var(--primary-color); }
+        
         .card-caption {
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-top: -5px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 4px;
-            transition: color 0.2s;
+            font-size: 0.95rem; font-weight: 600; margin-top: -5px;
+            display: flex; align-items: center; justify-content: space-between; padding: 0 4px;
         }
 
-        .card-caption i {
-            font-size: 0.85rem;
-            transition: transform 0.2s;
+        /* LIGHTBOX GALLERY STYLES */
+        .lightbox {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.95); z-index: 2000;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
         }
+        .lightbox.active { opacity: 1; pointer-events: all; }
+        
+        .lightbox-img {
+            max-width: 90%; max-height: 80vh; object-fit: contain;
+            border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        .lightbox-caption { color: #fff; margin-top: 15px; font-size: 1.1rem; font-weight: 500; text-align: center; }
+        
+        .lightbox-close { position: absolute; top: 20px; right: 30px; font-size: 2.5rem; color: #fff; cursor: pointer; z-index: 2010; }
+        .lightbox-prev, .lightbox-next {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(30, 30, 30, 0.7); color: #fff; border: none;
+            width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s; z-index: 2010;
+        }
+        .lightbox-prev:hover, .lightbox-next:hover { background: var(--primary-color); }
+        .lightbox-prev { left: 20px; }
+        .lightbox-next { right: 20px; }
 
-        .media-card:hover .card-caption i {
-            transform: translateX(3px);
+        @media (max-width: 768px) {
+            .lightbox-prev, .lightbox-next { display: none; /* Rely on swipe for mobile */ }
         }
-
-        /* Map Interactive Styling Buttons */
-        .map-btn {
-            background: none;
-            border: none;
-            color: var(--primary-color);
-            font-size: 1.05rem;
-            font-weight: 600;
-            cursor: pointer;
-            padding: 2px 0;
-            text-align: left;
-            text-decoration: underline dotted;
-            transition: color 0.2s;
-        }
-        .map-btn:hover {
-            color: #ffffff;
-            text-decoration: underline solid;
-        }
-
-        /* Custom Travel Quote Callout */
-        .quote-box {
-            background-color: var(--surface-color);
-            border-left: 4px solid var(--primary-color);
-            border-top: 1px solid var(--border-color);
-            border-right: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            padding: 20px;
-            border-radius: 0 8px 8px 0;
-            margin: 30px 0;
-        }
-        .quote-box h3 { margin-top: 0 !important; }
-        .quote-box p { margin-bottom: 0 !important; }
-
-        .map-container {
-            width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color);
-            background-color: var(--surface-color); margin: 20px 0; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-        .map-container iframe { display: block; filter: grayscale(0.2) invert(0.9) hue-rotate(60deg); }
-
-        .social-grid { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; list-style: none !important; padding-left: 0 !important; }
-        .social-link { display: flex; align-items: center; gap: 15px; background-color: var(--surface-color); border: 1px solid var(--border-color); padding: 12px 20px; border-radius: 8px; color: var(--text-color) !important; text-decoration: none !important; font-weight: 500; transition: background-color 0.2s, transform 0.2s; }
-        .social-link:hover { background-color: #252525; transform: translateX(4px); text-decoration: none !important; }
-        .social-link i { font-size: 1.4rem; width: 24px; text-align: center; }
-        .social-link.instagram i { color: var(--instagram-color); }
-        .social-link.facebook i { color: var(--facebook-color); }
-        .social-link.pinterest i { color: var(--pinterest-color); }
-        .social-link.youtube i { color: var(--youtube-color); }
     </style>
 </head>
 <body>
@@ -219,14 +147,12 @@
             <li><a href="/YK/services/">Services Overview</a></li>
             <li><a href="/YK/services/mowing/">Lawn Maintenance</a></li>
             <li><a href="/YK/services/hedges/">Hedge Care</a></li>
-            <li><a href="/YK/area/">Service Area</a></li>
             <li><a href="/YK/contact/">Contact Us</a></li>
         </ul>
     </nav>
 
     <main>
         <h1>Service Area</h1>
-        <div class="tag-container"><ul class='tags'><li>service area</li><li>locations</li><li>alberta</li></ul></div>
         <article><p>We proudly provide professional property and yard maintenance services across a wide footprint in Central Alberta. Click on any town below to view its location on the map.</p>
 <h2>Interactive Coverage Map</h2>
 <div class="map-container">
@@ -262,6 +188,15 @@
 <p>If your property falls within our service perimeter, we offer scheduled seasonal management for residential yards, larger acreage layouts, historical preservation sites, and commercial lots.</p></article>
     </main>
 
+    <!-- Lightbox Modal DOM -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close" id="lb-close">&times;</span>
+        <button class="lightbox-prev" id="lb-prev"><i class="fa-solid fa-chevron-left"></i></button>
+        <img class="lightbox-img" id="lb-img" src="" alt="">
+        <button class="lightbox-next" id="lb-next"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="lightbox-caption" id="lb-cap"></div>
+    </div>
+
     <script>
         // Drawer Menu Logic
         const menuToggle = document.getElementById('menuToggle');
@@ -272,29 +207,69 @@
             sideNav.classList.toggle('active');
         });
 
-        document.addEventListener('click', (e) => {
-            if (!sideNav.contains(e.target) && !menuToggle.contains(e.target) && sideNav.classList.contains('active')) {
-                menuToggle.classList.remove('active');
-                sideNav.classList.remove('active');
-            }
+        // Lightbox Gallery Logic
+        const lightbox = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lb-img');
+        const lbCap = document.getElementById('lb-cap');
+        const triggers = document.querySelectorAll('.gallery-trigger');
+        let currentIndex = 0;
+        let galleryItems = [];
+
+        if(triggers.length > 0) {
+            triggers.forEach((trigger, index) => {
+                const img = trigger.querySelector('img');
+                const cap = trigger.querySelector('.card-caption').innerText;
+                galleryItems.push({ src: img.src, alt: img.alt, caption: cap });
+
+                trigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    currentIndex = index;
+                    updateLightbox();
+                    lightbox.classList.add('active');
+                });
+            });
+        }
+
+        function updateLightbox() {
+            lbImg.src = galleryItems[currentIndex].src;
+            lbImg.alt = galleryItems[currentIndex].alt;
+            lbCap.innerText = galleryItems[currentIndex].caption;
+        }
+
+        function nextImg() {
+            currentIndex = (currentIndex + 1) % galleryItems.length;
+            updateLightbox();
+        }
+
+        function prevImg() {
+            currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+            updateLightbox();
+        }
+
+        document.getElementById('lb-close').addEventListener('click', () => lightbox.classList.remove('active'));
+        document.getElementById('lb-next').addEventListener('click', (e) => { e.stopPropagation(); nextImg(); });
+        document.getElementById('lb-prev').addEventListener('click', (e) => { e.stopPropagation(); prevImg(); });
+        
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) lightbox.classList.remove('active');
         });
 
-        // Dynamic Embedded Map Router Maps
-        const embeddedLocations = {
-            stettler: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d77322.25368545802!2d-112.75659850549071!3d52.32832822498263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5373a4dfbfad0c51%3A0xc4842d039f9b57bd!2sStettler%2C%20AB!5e0!3m2!1sen!2sca!4v1710000000000!5m2!1sen!2sca",
-            reddeer: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d154446.591024623!2d-113.91899166708316!3d52.26629983995806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x537456b3e9a5d39d%3A0xa19a4fcbb1ffde36!2sRed%20Deer%2C%20AB!5e0!3m2!1sen!2sca!4v1710000000000!5m2!1sen!2sca",
-            castor: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9673.74315354972!2d-111.93605481283626!3d52.22320531980845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5372138b7244eb1d%3A0x86bb665f577f8ecb!2sCastor%2C%20AB!5e0!3m2!1sen!2sca!4v1710000000000!5m2!1sen!2sca",
-            coronation: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9680.057393282305!2d-111.45423871279284!3d52.1895656209569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x530c333a38ff13a3%3A0x6b4dbdaef7c70f!2sCoronation%2C%20AB!5e0!3m2!1sen!2sca!4v1710000000000!5m2!1sen!2sca",
-            consort: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9692.646872659109!2d-110.79374181270562!3d52.12218822295604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x530be90800652bf1%3A0x4a187d7b27520e5!2sConsort%2C%20AB!5e0!3m2!1sen!2sca!4v1710000000000!5m2!1sen!2sca",
-            lacombe: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d38556.74567406282!2d-113.77196238685161!3d52.46467009497042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53748e76fb2bd04f%3A0xae7fb932782e4431!2sLacombe%2C%20AB!5e0!3m2!1sen!2sca!4v1710000000000!5m2!1sen!2sca"
-        };
+        // Swipe & Keyboard support
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') lightbox.classList.remove('active');
+            if (e.key === 'ArrowRight') nextImg();
+            if (e.key === 'ArrowLeft') prevImg();
+        });
 
-        function changeLocation(key) {
-            const frame = document.getElementById('map-frame');
-            if(embeddedLocations[key]) {
-                frame.src = embeddedLocations[key];
-            }
-        }
+        let touchstartX = 0;
+        let touchendX = 0;
+        lightbox.addEventListener('touchstart', e => { touchstartX = e.changedTouches[0].screenX; });
+        lightbox.addEventListener('touchend', e => {
+            touchendX = e.changedTouches[0].screenX;
+            if (touchendX < touchstartX - 40) nextImg();
+            if (touchendX > touchstartX + 40) prevImg();
+        });
     </script>
 </body>
 </html>
