@@ -18,7 +18,7 @@ Lilacs are loved for their vibrant blooms, but overgrown branches can quickly bl
     </div>
     <div class="media-card">
         <div class="media-placeholder">
-            <img src="/media/perimeter-lilac-2(1).webp" alt="Perimeter Lilac Pruning" onerror="this.style.display='none'">
+            <img src="/media/perimeter-lilac-2 (1).webp" alt="Perimeter Lilac Pruning" onerror="this.style.display='none'">
         </div>
         <span class="card-caption">Perimeter Lilac</span>
     </div>
@@ -30,13 +30,13 @@ Cotoneaster hedges are highly versatile and form fantastic, dense privacy screen
 <div class="media-grid">
     <div class="media-card">
         <div class="media-placeholder">
-            <img src="/media/perimeter-cotoneaster.webp" alt="Perimeter Cotoneaster Shaping" onerror="this.style.display='none'">
+            <img src="/media/perimeter-Cotoneaster.webp" alt="Perimeter Cotoneaster Shaping" onerror="this.style.display='none'">
         </div>
         <span class="card-caption">Perimeter Cotoneaster</span>
     </div>
     <div class="media-card">
         <div class="media-placeholder">
-            <img src="/media/cottoneaster-property-line-trimmed-2.webp" alt="Trimmed Cotoneaster Property Line" onerror="this.style.display='none'">
+            <img src="/media/Cotoneasters-property-line-trimmed-2.webp" alt="Trimmed Cotoneaster Property Line" onerror="this.style.display='none'">
         </div>
         <span class="card-caption">Cotoneaster Property Line</span>
     </div>
