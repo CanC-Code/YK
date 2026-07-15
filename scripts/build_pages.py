@@ -47,13 +47,8 @@ for root, dirs, files in os.walk(CONTENT_DIR):
             html_content = markdown.markdown(raw_markdown)
             html_content = html_content.replace('href="/', f'href="{BASE_URL}/')
             
-            # Image SEO optimization: Rewrite local /media/ image calls to responsive HTML5 <picture> tags
-            # Translates: <img src="/media/pic.jpg" alt="Description"> 
-            # Into: Responsive elements pointing to optimized WebP targets with fallback mechanisms.
-            for ext in ['.jpg', '.jpeg', '.png']:
-                old_img_str = f'src="/media/'
-                new_img_str = f'src="{BASE_URL}/media/'
-                html_content = html_content.replace(old_img_str, new_img_str)
+            # Auto-route local image links inside HTML to use base URL and compiled webp path extension
+            html_content = html_content.replace('src="/media/', f'src="{BASE_URL}/media/')
 
             meta_path = os.path.join(root, 'meta.json')
             title = "Yard Keepers"
