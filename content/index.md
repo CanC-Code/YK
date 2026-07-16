@@ -8,10 +8,10 @@ Since **2018**, Yard Keepers has delivered reliable, high-end property preservat
 
 ## Professional Property Services
 
-Our services are engineered to keep your landscaping looking immaculate throughout the changing seasons. Click any image to expand the project gallery.
+Our services are engineered to keep your landscaping looking immaculate throughout the changing seasons. Click any image to expand the project gallery, or click a section heading to view full service details.
 
-### Tree Trimming, Hedges & Ornamental Plants
-Our trimming operations restore overgrown perimeters, maintain tidy boundaries, and care for ornamental plants.
+### [Tree Trimming, Hedges & Ornamental Plants](/services/hedges/)
+Our trimming operations restore overgrown perimeters, maintain tidy boundaries, and care for ornamental plants. **[View our full Hedge Care & Pruning services >](/services/hedges/)**
 
 <div class="media-grid">
     <div class="media-card gallery-trigger" title="Click to view full image">
@@ -28,8 +28,8 @@ Our trimming operations restore overgrown perimeters, maintain tidy boundaries, 
     </div>
 </div>
 
-### Lawn Maintenance & Acreage Care
-We provide dependable grooming schedules to keep estates, acreage layouts, and large residential properties looking pristine.
+### [Lawn Maintenance & Acreage Care](/services/mowing/)
+We provide dependable grooming schedules to keep estates, acreage layouts, and large residential properties looking pristine. **[View our full Lawn Maintenance services >](/services/mowing/)**
 
 <div class="media-grid">
     <div class="media-card gallery-trigger" title="Click to view full image">
@@ -46,8 +46,8 @@ We provide dependable grooming schedules to keep estates, acreage layouts, and l
     </div>
 </div>
 
-### Property Enhancements & Reclamation
-Beyond routine maintenance, we provide structural landscape upgrades and heavy clearing.
+### [Property Enhancements & Reclamation](/services/hardscaping/)
+Beyond routine maintenance, we provide **[structural landscape upgrades](/services/hardscaping/)** and **[heavy brush clearing](/services/clearing/)**. 
 
 <div class="media-grid">
     <div class="media-card gallery-trigger" title="Click to view full image">
