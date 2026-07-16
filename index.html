@@ -57,7 +57,7 @@
         nav {
             position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
             background-color: var(--surface-color); box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
-            transition: right 0.3s ease; padding: calc(var(--header-height) + 20px) 20px 20px 20px; z-index: 1050;
+            transition: right 0.3s ease; padding: calc(var(--header-height) + 20px) 20px 20px 20px; overflow-y: auto; z-index: 1050;
         }
         nav.active { right: 0; }
         nav ul { list-style: none; display: flex; flex-direction: column; gap: 15px; }
@@ -167,7 +167,7 @@
         .lightbox-next { right: 20px; }
 
         @media (max-width: 768px) {
-            .lightbox-prev, .lightbox-next { display: none; /* Rely on swipe for mobile */ }
+            .lightbox-prev, .lightbox-next { display: none; }
         }
     </style>
 </head>
@@ -191,6 +191,8 @@
             <li><a href="/YK/services/mowing/">Lawn Maintenance</a></li>
             <li><a href="/YK/services/hedges/">Hedge Care</a></li>
             <li><a href="/YK/services/clearing/">Brush Clearing</a></li>
+            <li><a href="/YK/services/hardscaping/">Hardscaping</a></li>
+            <li><a href="/YK/services/seasonal/">Seasonal & Snow</a></li>
             <li><a href="/YK/area/">Service Area</a></li>
             <li><a href="/YK/contact/">Contact Us</a></li>
         </ul>
@@ -200,30 +202,30 @@
         <h1>Professional Hedge Care & Acreage Lawn Mowing</h1>
         <div class="tag-container"><ul class='tags'><li>hedge care</li><li>fruit tree trimming</li><li>acreage mowing</li><li>since 2018</li></ul></div>
         <article><h1>Welcome to Yard Keepers</h1>
-<p>We specialize in comprehensive property services, including <strong>lawn maintenance, tree trimming, and ornamental plant care</strong> across Central Alberta. </p>
+<p>We specialize in comprehensive property services, including <strong>lawn maintenance, tree trimming, ornamental plant care, and hardscaping</strong> across Central Alberta. </p>
 <p>Since <strong>2018</strong>, Yard Keepers has delivered reliable, high-end property preservation services, ensuring your outdoor spaces stay clean, healthy, and manicured year-round.</p>
 <hr />
 <h2>Professional Property Services</h2>
-<p>Our services are engineered to keep your landscaping looking immaculate throughout the changing seasons.</p>
+<p>Our services are engineered to keep your landscaping looking immaculate throughout the changing seasons. Click any image to expand the project gallery.</p>
 <h3>Tree Trimming, Hedges &amp; Ornamental Plants</h3>
-<p>Our trimming operations restore overgrown perimeters, maintain tidy boundaries, and care for ornamental plants. Click on our featured projects below to expand the gallery.</p>
+<p>Our trimming operations restore overgrown perimeters, maintain tidy boundaries, and care for ornamental plants.</p>
 <div class="media-grid">
     <div class="media-card gallery-trigger" title="Click to view full image">
         <div class="media-placeholder">
-            <img src="/YK/media/Cotoneaster-privacy-hedge-1.webp" alt="Cotoneaster Privacy Hedge" onerror="this.style.display='none'">
+            <img src="/YK/media/Cotoneaster-privacy-hedge-2.webp" alt="Cotoneaster Privacy Hedge" onerror="this.style.display='none'">
         </div>
         <span class="card-caption">Privacy Hedges <i class="fa-solid fa-expand"></i></span>
     </div>
     <div class="media-card gallery-trigger" title="Click to view full image">
         <div class="media-placeholder">
-            <img src="/YK/media/tall-shaped-lilac-laneway-accent-5.webp" alt="Tall Shaped Lilac Accent" onerror="this.style.display='none'">
+            <img src="/YK/media/tall-shaped-lilac-laneway-accent-4.webp" alt="Tall Shaped Lilac Accent" onerror="this.style.display='none'">
         </div>
         <span class="card-caption">Lilac Property Line <i class="fa-solid fa-expand"></i></span>
     </div>
 </div>
 
 <h3>Lawn Maintenance &amp; Acreage Care</h3>
-<p>Maintaining expansive lawns and larger landscapes requires consistent care and professional planning. We provide dependable grooming schedules to keep estates, acreage layouts, and large residential properties looking pristine.</p>
+<p>We provide dependable grooming schedules to keep estates, acreage layouts, and large residential properties looking pristine.</p>
 <div class="media-grid">
     <div class="media-card gallery-trigger" title="Click to view full image">
         <div class="media-placeholder">
@@ -233,9 +235,26 @@
     </div>
     <div class="media-card gallery-trigger" title="Click to view full image">
         <div class="media-placeholder">
-            <img src="/YK/media/commercial-five-foot-mowing-1.webp" alt="Commercial Mower on Property" onerror="this.style.display='none'">
+            <img src="/YK/media/commercial-five-foot-mowing-2.webp" alt="Commercial Mower on Property" onerror="this.style.display='none'">
         </div>
         <span class="card-caption">Acreage Solutions <i class="fa-solid fa-expand"></i></span>
+    </div>
+</div>
+
+<h3>Property Enhancements &amp; Reclamation</h3>
+<p>Beyond routine maintenance, we provide structural landscape upgrades and heavy clearing.</p>
+<div class="media-grid">
+    <div class="media-card gallery-trigger" title="Click to view full image">
+        <div class="media-placeholder">
+            <img src="/YK/media/stone-hardscaping-liner-1.webp" alt="Stone Hardscaping Project" onerror="this.style.display='none'">
+        </div>
+        <span class="card-caption">Hardscaping & Liners <i class="fa-solid fa-expand"></i></span>
+    </div>
+    <div class="media-card gallery-trigger" title="Click to view full image">
+        <div class="media-placeholder">
+            <img src="/YK/media/apple-tree-stump-removal.webp" alt="Apple Tree Stump Removal" onerror="this.style.display='none'">
+        </div>
+        <span class="card-caption">Stump Removal <i class="fa-solid fa-expand"></i></span>
     </div>
 </div>
 

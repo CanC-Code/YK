@@ -57,7 +57,7 @@
         nav {
             position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
             background-color: var(--surface-color); box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
-            transition: right 0.3s ease; padding: calc(var(--header-height) + 20px) 20px 20px 20px; z-index: 1050;
+            transition: right 0.3s ease; padding: calc(var(--header-height) + 20px) 20px 20px 20px; overflow-y: auto; z-index: 1050;
         }
         nav.active { right: 0; }
         nav ul { list-style: none; display: flex; flex-direction: column; gap: 15px; }
@@ -167,7 +167,7 @@
         .lightbox-next { right: 20px; }
 
         @media (max-width: 768px) {
-            .lightbox-prev, .lightbox-next { display: none; /* Rely on swipe for mobile */ }
+            .lightbox-prev, .lightbox-next { display: none; }
         }
     </style>
 </head>
@@ -191,6 +191,8 @@
             <li><a href="/YK/services/mowing/">Lawn Maintenance</a></li>
             <li><a href="/YK/services/hedges/">Hedge Care</a></li>
             <li><a href="/YK/services/clearing/">Brush Clearing</a></li>
+            <li><a href="/YK/services/hardscaping/">Hardscaping</a></li>
+            <li><a href="/YK/services/seasonal/">Seasonal & Snow</a></li>
             <li><a href="/YK/area/">Service Area</a></li>
             <li><a href="/YK/contact/">Contact Us</a></li>
         </ul>
@@ -218,6 +220,18 @@
             <img src="/YK/media/brush-clearing-cut-3.webp" alt="Steep Hillside Brush Clearing" onerror="this.style.display='none'">
         </div>
         <span class="card-caption">Brush & Hillside Clearing <i class="fa-solid fa-arrow-right"></i></span>
+    </a>
+    <a href="/YK/services/hardscaping/" class="media-card" title="Click to view our hardscaping services">
+        <div class="media-placeholder">
+            <img src="/YK/media/stone-hardscaping-liner-1.webp" alt="Stone Hardscaping Project" onerror="this.style.display='none'">
+        </div>
+        <span class="card-caption">Hardscaping & Ground Cover <i class="fa-solid fa-arrow-right"></i></span>
+    </a>
+    <a href="/YK/services/seasonal/" class="media-card" title="Click to view our seasonal services">
+        <div class="media-placeholder">
+            <img src="/YK/media/snow-removal.webp" alt="Snow Removal Service" onerror="this.style.display='none'">
+        </div>
+        <span class="card-caption">Seasonal & Snow Removal <i class="fa-solid fa-arrow-right"></i></span>
     </a>
 </div>
 
