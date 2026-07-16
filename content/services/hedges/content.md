@@ -60,6 +60,36 @@ A classic boundary staple in Alberta. We provide sharp, consistent leveling acro
     </div>
 </div>
 
+### Maple & Juniper Detail Pruning
+We safely shape and reduce ornamental junipers and dense maple hedges, carefully managing the structural wood to ensure continuous, healthy growth.
+
+<div class="media-grid">
+    <div class="media-card gallery-trigger">
+        <div class="media-placeholder">
+            <img src="/media/junipers-untrimmed-1.webp" alt="Overgrown Juniper Bushes" onerror="this.style.display='none'">
+        </div>
+        <span class="card-caption">Overgrown Junipers <i class="fa-solid fa-expand"></i></span>
+    </div>
+    <div class="media-card gallery-trigger">
+        <div class="media-placeholder">
+            <img src="/media/junipers-trimmed-1.webp" alt="Trimmed Juniper Bushes" onerror="this.style.display='none'">
+        </div>
+        <span class="card-caption">Shaped Junipers <i class="fa-solid fa-expand"></i></span>
+    </div>
+    <div class="media-card gallery-trigger">
+        <div class="media-placeholder">
+            <img src="/media/uncut-maple-lilac-hedge-1.webp" alt="Overgrown Maple Hedge" onerror="this.style.display='none'">
+        </div>
+        <span class="card-caption">Overgrown Maple <i class="fa-solid fa-expand"></i></span>
+    </div>
+    <div class="media-card gallery-trigger">
+        <div class="media-placeholder">
+            <img src="/media/cut-maple-1.webp" alt="Trimmed Maple Hedge" onerror="this.style.display='none'">
+        </div>
+        <span class="card-caption">Cut Maple Line <i class="fa-solid fa-expand"></i></span>
+    </div>
+</div>
+
 ---
 
 ## Our Pruning Standards
