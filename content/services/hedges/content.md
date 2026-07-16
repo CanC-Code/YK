@@ -48,7 +48,7 @@ A classic boundary staple in Alberta. We provide sharp, consistent leveling acro
 <div class="media-grid">
     <div class="media-card gallery-trigger">
         <div class="media-placeholder">
-            <img src="/media/Caragana-trim-final.webp" alt="Caragana Final Trim" onerror="this.style.display='none'">
+            <img src="/media/Caragana-trim-final .webp" alt="Caragana Final Trim" onerror="this.style.display='none'">
         </div>
         <span class="card-caption">Caragana Final Cut <i class="fa-solid fa-expand"></i></span>
     </div>
