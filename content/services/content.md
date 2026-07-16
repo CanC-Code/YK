@@ -19,6 +19,18 @@ We provide high-quality residential and commercial maintenance options tailored 
         </div>
         <span class="card-caption">Brush & Hillside Clearing <i class="fa-solid fa-arrow-right"></i></span>
     </a>
+    <a href="/services/hardscaping/" class="media-card" title="Click to view our hardscaping services">
+        <div class="media-placeholder">
+            <img src="/media/stone-hardscaping-liner-1.webp" alt="Stone Hardscaping Project" onerror="this.style.display='none'">
+        </div>
+        <span class="card-caption">Hardscaping & Ground Cover <i class="fa-solid fa-arrow-right"></i></span>
+    </a>
+    <a href="/services/seasonal/" class="media-card" title="Click to view our seasonal services">
+        <div class="media-placeholder">
+            <img src="/media/snow-removal.webp" alt="Snow Removal Service" onerror="this.style.display='none'">
+        </div>
+        <span class="card-caption">Seasonal & Snow Removal <i class="fa-solid fa-arrow-right"></i></span>
+    </a>
 </div>
 
 Return to the [Home Page](/).
