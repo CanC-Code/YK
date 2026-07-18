@@ -1,7 +1,7 @@
 We would love to hear from you! Whether you need a customized seasonal quote or have general questions about property maintenance, reach out to us directly or follow our social updates.
 
 ## Phone Number
-*   **Main Line:** [Insert Phone Number Here]
+*   **Main Line:** 587 282 8608
 
 ## Connect With Us
 <ul class="social-grid">
