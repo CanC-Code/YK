@@ -99,4 +99,11 @@ xml_content += '</urlset>\n'
 with open(sitemap_path, 'w', encoding='utf-8') as sf:
     sf.write(xml_content)
 
-print(f"Build complete. Sitemap updated with canonical indexing parameters.")
+# Generate robots.txt
+robots_path = os.path.join(DOCS_DIR, 'robots.txt')
+robots_content = f"User-agent: *\nAllow: /\n\nSitemap: {DOMAIN}/sitemap.xml\n"
+
+with open(robots_path, 'w', encoding='utf-8') as rf:
+    rf.write(robots_content)
+
+print(f"Build complete. Sitemap and robots.txt updated with canonical indexing parameters.")
