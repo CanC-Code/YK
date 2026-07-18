@@ -1,13 +1,13 @@
-Hedges and ornamental plants serve as beautiful, natural property borders, keeping your perimeter growing back healthy and green year after year. At Yard Keepers, we provide expert pruning, thinning, and boundary shaping services across Central Alberta. Click any image to open the gallery.
+Hedges and ornamental plants serve as beautiful, natural property borders, keeping your perimeter growing back healthy, vibrant, and dense year after year. At Yard Keepers, we provide deeply expert pruning, complex thinning operations, and precise boundary shaping services for properties entirely across Central Alberta. Click any image within our project comparisons to open the full-resolution gallery.
 
 ---
 
-## Specialty Hedge Maintenance & Trimming
+## Specialty Hedge Maintenance & Structural Trimming
 
-Different species of hedge plants require distinct trimming schedules and structural cuts to prevent inner wood decay and promote rich, outward foliage.
+Different species of woody hedge plants fundamentally require distinct trimming schedules and specific structural cuts. Ignoring these unique botanical demands can lead to inner wood decay, sparse leafing, and eventual plant failure. Our methodical approach ensures maximum outward foliage and total plant longevity.
 
 ### Lilac Property Lines & Perimeters
-Lilacs are loved for their vibrant blooms, but overgrown branches can quickly block sunlight from reaching the inner plant. We specialize in thinning out heavy, old woody structures to keep the canopy flowering cleanly.
+Lilacs are widely loved across Alberta for their incredibly vibrant spring blooms and sweet aromatics, but neglected, overgrown branches can rapidly block crucial sunlight from ever reaching the inner plant structure. We specialize in methodically thinning out heavy, old woody structures, which dramatically stimulates fresh, young stems to shoot upward and keeps the entire upper canopy flowering cleanly and consistently.
 
 <div class="media-grid">
     <div class="media-card gallery-trigger">
@@ -25,7 +25,7 @@ Lilacs are loved for their vibrant blooms, but overgrown branches can quickly bl
 </div>
 
 ### Cotoneaster Boundary Shaping
-Cotoneaster hedges are highly versatile and form fantastic, dense privacy screens. To keep them looking their best, we execute formal, crisp geometric trims to build a tight, deep green wall of foliage.
+Cotoneaster hedges are highly versatile, incredibly hardy, and form fantastic, dense privacy screens that are nearly impossible to see through during the summer months. To keep them looking their absolute best and to prevent them from becoming top-heavy, we execute formal, remarkably crisp geometric trims. Regular shearing by our crews encourages the outer layer to bud closely, building a tight, deep green wall of protective foliage.
 
 <div class="media-grid">
     <div class="media-card gallery-trigger">
@@ -42,10 +42,22 @@ Cotoneaster hedges are highly versatile and form fantastic, dense privacy screen
     </div>
 </div>
 
-### Caragana Trimming
-A classic boundary staple in Alberta. We provide sharp, consistent leveling across expansive Caragana borders to maintain robust windbreaks and beautiful estate lines.
+### Expansive Caragana Treelines & Windbreaks
+The Caragana is a classic, virtually indestructible boundary staple in rural and suburban Alberta. Because of their aggressive growth habits, unmanaged Caraganas can quickly look unkempt and wild, bleeding heavily into usable lawn space. We provide sharp, incredibly consistent leveling across massive, expansive Caragana borders to maintain robust, highly functional windbreaks that seamlessly double as beautiful, organized estate lines.
 
 <div class="media-grid">
+    <div class="media-card gallery-trigger">
+        <div class="media-placeholder">
+            <img src="/media/Caragana-treeline-untrimmed.webp" alt="Massive Untrimmed Caragana Treeline" onerror="this.style.display='none'">
+        </div>
+        <span class="card-caption">Untrimmed Treeline <i class="fa-solid fa-expand"></i></span>
+    </div>
+    <div class="media-card gallery-trigger">
+        <div class="media-placeholder">
+            <img src="/media/Caragana-treeline-trimmed.webp" alt="Manicured Caragana Treeline" onerror="this.style.display='none'">
+        </div>
+        <span class="card-caption">Manicured Windbreak <i class="fa-solid fa-expand"></i></span>
+    </div>
     <div class="media-card gallery-trigger">
         <div class="media-placeholder">
             <img src="/media/Caragana-trim-final .webp" alt="Caragana Final Trim" onerror="this.style.display='none'">
@@ -61,7 +73,7 @@ A classic boundary staple in Alberta. We provide sharp, consistent leveling acro
 </div>
 
 ### Maple & Juniper Detail Pruning
-We safely shape and reduce ornamental junipers and dense maple hedges, carefully managing the structural wood to ensure continuous, healthy growth.
+We safely shape, thin, and drastically reduce overgrown ornamental junipers and aggressively dense maple hedges. We carefully manage the inner structural wood during these reductions to ensure continuous, healthy growth that won't shock the plant or leave ugly, barren patches of deadwood.
 
 <div class="media-grid">
     <div class="media-card gallery-trigger">
@@ -92,13 +104,14 @@ We safely shape and reduce ornamental junipers and dense maple hedges, carefully
 
 ---
 
-## Our Pruning Standards
+## Our Exacting Pruning Standards
 
-*   **Tapered Trimming:** We prune hedges slightly wider at the bottom than the top to ensure sunlight reaches lower branches.
-*   **Thorough Clean-up:** Once our precise trimming work is finished, we gather all raw clippings, branches, and woody material, ensuring your yard is completely clear of debris.
+*   **Tapered Structural Trimming:** We consistently prune hedges so that they are slightly wider at the bottom than at the top. This critical angle ensures that natural sunlight effectively reaches the lower branches, actively preventing bottom-heavy leaf loss and keeping the screen incredibly full from the soil to the peak.
+*   **Disease & Health Assessment:** Before any aggressive cuts are made, our crews check for signs of pest damage, blight, or diseased wood, safely isolating and removing troubled branches to keep the entire connected hedge line vibrantly healthy.
+*   **Thorough, Uncompromising Clean-up:** Once our highly precise trimming and shaping work is finished, we meticulously gather all raw clippings, heavy branches, and woody material, ensuring your yard is completely clear of debris and looks instantly transformed.
 
 ---
 
-## Get a Custom Estimate
+## Get a Custom Hedge Estimate
 
-Need your property lines manicured, or have a wild, overgrown hedge that needs to be reclaimed? Send over details about your property lines and request an estimate on our [Contact Us](/contact/) page.
+Do you desperately need your property lines manicured, or have a wild, massively overgrown hedge system that needs to be permanently reclaimed and brought back to a manageable size? Send over details about your property lines and request a direct estimate on our [Contact Us](/contact/) page today.
