@@ -91,29 +91,32 @@
         article a { color: var(--primary-color); text-decoration: none; }
         article a:hover { text-decoration: underline; }
 
-        /* Media Placeholder Styling */
+        /* Enhanced Media Placeholder Styling */
         .media-placeholder {
             width: 100%; aspect-ratio: 16 / 9; background-color: #000000;
             border: 1px solid var(--border-color); border-radius: 8px;
             overflow: hidden; margin: 15px 0; position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
         }
         .media-placeholder img {
             width: 100%; height: 100%; object-fit: cover;
-            position: absolute; top: 0; left: 0; transition: transform 0.3s ease;
+            position: absolute; top: 0; left: 0; transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        .media-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0 35px 0; }
-        @media (max-width: 600px) { .media-grid { grid-template-columns: 1fr; gap: 15px; } }
+        .media-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 20px 0 40px 0; }
+        @media (max-width: 600px) { .media-grid { grid-template-columns: 1fr; gap: 18px; } }
 
         .media-card {
             display: flex; flex-direction: column; text-decoration: none !important;
             color: var(--text-color) !important; cursor: pointer; transition: color 0.2s;
         }
-        .media-card:hover .media-placeholder img { transform: scale(1.03); }
+        .media-card:hover .media-placeholder { box-shadow: 0 8px 20px rgba(0,0,0,0.4); border-color: #4a4a4a; }
+        .media-card:hover .media-placeholder img { transform: scale(1.04); }
         .media-card:hover .card-caption { color: var(--primary-color); }
         
         .card-caption {
-            font-size: 0.95rem; font-weight: 600; margin-top: -5px;
+            font-size: 0.95rem; font-weight: 600; margin-top: -2px;
             display: flex; align-items: center; justify-content: space-between; padding: 0 4px;
         }
 
@@ -161,12 +164,13 @@
         
         .lightbox-img {
             max-width: 90%; max-height: 80vh; object-fit: contain;
-            border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border-radius: 4px; box-shadow: 0 10px 40px rgba(0,0,0,0.6);
         }
         
         .lightbox-caption { color: #fff; margin-top: 15px; font-size: 1.1rem; font-weight: 500; text-align: center; }
         
-        .lightbox-close { position: absolute; top: 20px; right: 30px; font-size: 2.5rem; color: #fff; cursor: pointer; z-index: 2010; }
+        .lightbox-close { position: absolute; top: 20px; right: 30px; font-size: 2.5rem; color: #fff; cursor: pointer; z-index: 2010; transition: color 0.2s; }
+        .lightbox-close:hover { color: var(--primary-color); }
         .lightbox-prev, .lightbox-next {
             position: absolute; top: 50%; transform: translateY(-50%);
             background: rgba(30, 30, 30, 0.7); color: #fff; border: none;
@@ -214,10 +218,10 @@
     <main>
         <h1>Hedge Care & Pruning Services</h1>
         <div class="tag-container"><ul class='tags'><li>hedge care</li><li>pruning</li><li>lilac</li><li>cotoneaster</li></ul></div>
-        <article><p>Hedges and ornamental plants serve as beautiful, natural property borders, keeping your perimeter growing back healthy and dense year after year. At Yard Keepers, we provide expert pruning, thinning operations, and precise boundary shaping services across Central Alberta. Click any image within our project comparisons to open the full gallery.</p>
+        <article><p>Hedges and ornamental plants serve as beautiful, natural property borders. At Yard Keepers, we provide expert pruning, thinning operations, and comprehensive hedge maintenance services across Central Alberta. Click any image within our project comparisons to open the full gallery.</p>
 <hr />
-<h2>Specialty Hedge Maintenance &amp; Structural Trimming</h2>
-<p>Different species of woody hedge plants require distinct trimming schedules and specific structural cuts. Our methodical approach ensures proper outward foliage and long-term plant stability.</p>
+<h2>Specialty Hedge Maintenance &amp; Pruning</h2>
+<p>We actively maintain, trim, and cut back a wide variety of hedge plants and ornamental barriers. Different species require specific attention to ensure proper outward foliage and long-term plant stability.</p>
 <h3>Lilac Property Lines &amp; Perimeters</h3>
 <p>Lilacs are known for their vibrant spring blooms, but overgrown branches can block sunlight from reaching the inner plant structure. We specialize in thinning out heavy, old woody structures, which stimulates fresh stems to grow and keeps the upper canopy flowering cleanly.</p>
 <div class="media-grid">
@@ -235,14 +239,14 @@
     </div>
 </div>
 
-<h3>Cotoneaster Boundary Shaping</h3>
-<p>Cotoneaster hedges form fantastic, dense privacy screens. To keep them looking their best and to prevent them from becoming top-heavy, we execute formal geometric trims. Regular shearing encourages the outer layer to bud closely, building a tight green wall.</p>
+<h3>Cotoneaster Trimming</h3>
+<p>Cotoneaster hedges form fantastic, dense privacy screens. To keep them looking their best, we execute formal, consistent trimming to maintain a tidy green wall. Regular shearing encourages the outer layer to bud closely and uniformly.</p>
 <div class="media-grid">
     <div class="media-card gallery-trigger">
         <div class="media-placeholder">
             <img src="/YK/media/Cotoneasters-property-line-trimmed.webp" alt="Trimmed Cotoneaster Property Line" onerror="this.style.display='none'">
         </div>
-        <span class="card-caption">Cotoneaster Shaping <i class="fa-solid fa-expand"></i></span>
+        <span class="card-caption">Cotoneaster Trimming <i class="fa-solid fa-expand"></i></span>
     </div>
     <div class="media-card gallery-trigger">
         <div class="media-placeholder">
@@ -277,12 +281,12 @@
         <div class="media-placeholder">
             <img src="/YK/media/Caragana-property-line-1.webp" alt="Caragana Property Boundary" onerror="this.style.display='none'">
         </div>
-        <span class="card-caption">Property Boundary Shaping <i class="fa-solid fa-expand"></i></span>
+        <span class="card-caption">Property Boundary Trimming <i class="fa-solid fa-expand"></i></span>
     </div>
 </div>
 
 <h3>Maple &amp; Juniper Detail Pruning</h3>
-<p>We safely shape and reduce overgrown ornamental junipers and dense maple hedges. We manage the inner structural wood during these reductions to ensure continuous growth that won't shock the plant or leave barren patches.</p>
+<p>We safely trim and reduce overgrown ornamental junipers and dense maple hedges. We manage the inner structural wood during these reductions to ensure continuous growth that keeps the plant full.</p>
 <div class="media-grid">
     <div class="media-card gallery-trigger">
         <div class="media-placeholder">
@@ -294,7 +298,7 @@
         <div class="media-placeholder">
             <img src="/YK/media/junipers-trimmed-1.webp" alt="Trimmed Juniper Bushes" onerror="this.style.display='none'">
         </div>
-        <span class="card-caption">Shaped Junipers <i class="fa-solid fa-expand"></i></span>
+        <span class="card-caption">Trimmed Junipers <i class="fa-solid fa-expand"></i></span>
     </div>
     <div class="media-card gallery-trigger">
         <div class="media-placeholder">
@@ -311,11 +315,10 @@
 </div>
 
 <hr />
-<h2>Our Exacting Pruning Standards</h2>
+<h2>Our Pruning Standards</h2>
 <ul>
-<li><strong>Tapered Structural Trimming:</strong> We consistently prune hedges so that they are slightly wider at the bottom than at the top. This ensures that natural sunlight effectively reaches the lower branches, actively preventing bottom-heavy leaf loss.</li>
-<li><strong>Structural Evaluation:</strong> Before aggressive cuts are made, our crews evaluate the plant to safely isolate and remove dead wood, keeping the hedge line tidy and structurally sound.</li>
-<li><strong>Thorough Clean-up:</strong> Once our precise trimming work is finished, we gather all raw clippings, heavy branches, and woody material, ensuring your yard is completely clear of debris.</li>
+<li><strong>Structural Trimming:</strong> Before aggressive cuts are made, the plant is evaluated to safely isolate and remove dead wood, keeping the hedge line tidy and structurally sound.</li>
+<li><strong>Thorough Clean-up:</strong> Once the trimming work is finished, all raw clippings, heavy branches, and woody material are gathered, ensuring your yard is completely clear of debris.</li>
 </ul>
 <hr />
 <h2>Get a Custom Hedge Estimate</h2>
