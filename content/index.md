@@ -1,18 +1,19 @@
 # Welcome to Yard Keepers
 
-We specialize in comprehensive property services, including **lawn maintenance, tree trimming, ornamental plant care, hardscaping, and seasonal snow removal** across Central Alberta. 
+We specialize in comprehensive, high-tier property services, including **meticulous lawn maintenance, precise tree trimming, ornamental plant care, and structural hardscaping** across Central Alberta. 
 
-Since **2018**, Yard Keepers has delivered reliable, high-end property preservation services, ensuring your outdoor spaces stay clean, healthy, and manicured year-round.
+Since **2018**, Yard Keepers has delivered reliable, detail-oriented property preservation services. Our core operational philosophy centers on maintaining your outdoor environments so that they remain immaculately clean, botanically healthy, and perfectly manicured throughout the intense shifts of our regional seasons. Whether tackling severe overgrowth or executing routine grooming, our methods prioritize the long-term structural integrity of your landscape.
 
 ---
 
 ## Professional Property Services
 
-Our services are engineered to keep your landscaping looking immaculate throughout the changing seasons. Click any image to expand the project gallery, or click the service links to view full details.
+Our broad suite of services is specifically engineered to keep your landscaping looking flawless and resilient. We focus on consistent quality control, utilizing well-maintained equipment and proven horticultural techniques to manage estate properties of all sizes. 
 
-### Tree Trimming, Hedges & Ornamental Plants
-Our trimming operations restore overgrown perimeters, maintain tidy boundaries, and care for ornamental plants. 
-**[View our Hedge Care & Pruning services &rarr;](/services/hedges/)**
+*Click any image below to instantly expand the high-resolution project gallery, or click a highlighted section heading to dive into the full details of a specific service category.*
+
+### [Tree Trimming, Hedges & Ornamental Plants](/services/hedges/)
+Our highly specialized trimming operations restore heavily overgrown perimeters, establish beautifully tidy boundary lines, and care for delicate ornamental plants to prevent structural decay. **[View our complete Hedge Care & Pruning portfolio >](/services/hedges/)**
 
 <div class="media-grid">
     <div class="media-card gallery-trigger" title="Click to view full image">
@@ -29,9 +30,8 @@ Our trimming operations restore overgrown perimeters, maintain tidy boundaries, 
     </div>
 </div>
 
-### Lawn Maintenance & Acreage Care
-We provide dependable grooming schedules to keep estates, acreage layouts, and large residential properties looking pristine. 
-**[View our Lawn Maintenance services &rarr;](/services/mowing/)**
+### [Lawn Maintenance & Acreage Care](/services/mowing/)
+We provide completely dependable, highly structured grooming schedules designed to keep expansive estates, complex acreage layouts, and large residential properties looking pristine and healthy year after year. **[View our full Lawn Maintenance and Acreage services >](/services/mowing/)**
 
 <div class="media-grid">
     <div class="media-card gallery-trigger" title="Click to view full image">
@@ -48,28 +48,8 @@ We provide dependable grooming schedules to keep estates, acreage layouts, and l
     </div>
 </div>
 
-### Brush Clearing & Steep Hillside Reclamation
-When properties are overtaken by wild brush, we provide heavy clearing to reclaim lost square footage. 
-**[View our Brush Clearing services &rarr;](/services/clearing/)**
-
-<div class="media-grid">
-    <div class="media-card gallery-trigger" title="Click to view full image">
-        <div class="media-placeholder">
-            <img src="/media/brush-clearing-uncut.webp" alt="Steep Hillside Overgrown Brush" onerror="this.style.display='none'">
-        </div>
-        <span class="card-caption">Hillside Overgrowth <i class="fa-solid fa-expand"></i></span>
-    </div>
-    <div class="media-card gallery-trigger" title="Click to view full image">
-        <div class="media-placeholder">
-            <img src="/media/brush-clearing-cut-4 (1).webp" alt="Brush Clearing Final Result" onerror="this.style.display='none'">
-        </div>
-        <span class="card-caption">Final Hillside Clear <i class="fa-solid fa-expand"></i></span>
-    </div>
-</div>
-
-### Hardscaping & Ground Cover
-We install durable weed barriers and decorative stone to provide clean, maintenance-free borders, alongside stump removal.
-**[View our Hardscaping services &rarr;](/services/hardscaping/)**
+### [Property Enhancements & Reclamation](/services/hardscaping/)
+Beyond our routine seasonal maintenance, we provide **[structural landscape upgrades](/services/hardscaping/)** including heavy stone liners, as well as **[heavy brush clearing](/services/clearing/)** to reclaim lost square footage from invasive species. 
 
 <div class="media-grid">
     <div class="media-card gallery-trigger" title="Click to view full image">
@@ -86,30 +66,12 @@ We install durable weed barriers and decorative stone to provide clean, maintena
     </div>
 </div>
 
-### Seasonal & Snow Removal
-We transition to winter maintenance using high-capacity snowblowers and manual shoveling to safely clear residential and commercial access points.
-**[View our Snow Removal services &rarr;](/services/seasonal/)**
-
-<div class="media-grid">
-    <div class="media-card gallery-trigger" title="Click to view full image">
-        <div class="media-placeholder">
-            <img src="/media/snow-removal.webp" alt="Snowblower Clearing Operation" onerror="this.style.display='none'">
-        </div>
-        <span class="card-caption">Pathway Clearing <i class="fa-solid fa-expand"></i></span>
-    </div>
-    <div class="media-card gallery-trigger" title="Click to view full image">
-        <div class="media-placeholder">
-            <img src="/media/snow-removal-equipment.webp" alt="Snowblower Equipment" onerror="this.style.display='none'">
-        </div>
-        <span class="card-caption">Winter Equipment <i class="fa-solid fa-expand"></i></span>
-    </div>
-</div>
-
 ---
 
 ## Ready to Get Started?
 
-Whether you require scheduled seasonal maintenance or one-off estate restoration, we can accommodate your property's needs.
+Whether you require a rigorously scheduled seasonal maintenance route or a massive one-off estate restoration project to prepare a property for market, we possess the equipment, expertise, and operational bandwidth to completely accommodate your property's precise needs.
 
-*   Explore our detailed service categories on the [Our Services](/services/) page.
-*   For questions or a custom property estimate, please visit our [Contact Us](/contact/) page.
+*   Explore all of our highly detailed service categories on the [Our Services](/services/) overview page.
+*   Confirm our logistical reach and regional service limits on our interactive [Service Area](/area/) map page.
+*   For specific logistical questions or to request a custom commercial or residential property estimate, please visit our [Contact Us](/contact/) page directly.
