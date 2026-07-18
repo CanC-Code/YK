@@ -8,7 +8,7 @@ CONTENT_DIR = 'content'
 DOCS_DIR = 'docs'
 TEMPLATE_FILE = 'templates/base.html'
 ASSETS_DIR = 'assets'
-BASE_URL = '/YK'
+BASE_URL = ''
 DOMAIN = 'https://canc-code.github.io'
 
 if os.path.exists(DOCS_DIR):
