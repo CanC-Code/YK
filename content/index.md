@@ -1,8 +1,8 @@
 # Welcome to Yard Keepers
 
-We specialize in comprehensive property services, including **lawn maintenance, tree trimming, ornamental plant care, and structural hardscaping** across Central Alberta. 
+We specialize in comprehensive property services, including **lawn maintenance, hedge trimming, ornamental plant care, and hardscaping** across Central Alberta. 
 
-Since **2018**, Yard Keepers has delivered reliable, detail-oriented property preservation services. Our operational focus is on maintaining your outdoor environments so that they remain clean, healthy, and manicured throughout the changing seasons. Whether clearing overgrowth or executing routine grooming, our methods prioritize the structural integrity of your landscape.
+Since **2018**, Yard Keepers has delivered reliable, detail-oriented property preservation services. Our operational focus is on maintaining your outdoor environments so that they remain clean, healthy, and manicured year-round. Whether cutting back overgrowth or executing routine grooming, our methods prioritize the structural integrity of your landscape.
 
 ---
 
@@ -13,7 +13,7 @@ Our services are designed to keep your landscaping looking polished and resilien
 *Click any image below to expand the project gallery, or click a highlighted section heading to view full service details.*
 
 ### [Tree Trimming, Hedges & Ornamental Plants](/services/hedges/)
-Our trimming operations restore overgrown perimeters, establish tidy boundary lines, and care for ornamental plants to promote proper growth. **[View our complete Hedge Care & Pruning portfolio >](/services/hedges/)**
+Our trimming operations restore overgrown perimeters, establish tidy boundary lines, and care for ornamental plants. **[View our complete Hedge Care & Pruning portfolio >](/services/hedges/)**
 
 <div class="media-grid">
     <div class="media-card gallery-trigger" title="Click to view full image">
@@ -24,7 +24,7 @@ Our trimming operations restore overgrown perimeters, establish tidy boundary li
     </div>
     <div class="media-card gallery-trigger" title="Click to view full image">
         <div class="media-placeholder">
-            <img src="/media/tall-shaped-lilac-laneway-accent-4.webp" alt="Tall Shaped Lilac Accent" onerror="this.style.display='none'">
+            <img src="/media/tall-shaped-lilac-laneway-accent-4.webp" alt="Tall Lilac Accent" onerror="this.style.display='none'">
         </div>
         <span class="card-caption">Lilac Property Line <i class="fa-solid fa-expand"></i></span>
     </div>
