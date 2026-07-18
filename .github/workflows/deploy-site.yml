@@ -11,25 +11,26 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-          
+
       - name: Install dependencies
         run: pip install -r requirements.txt
-          
+
       # 1. RUN PAGE COMPILER FIRST (Wipes docs/ folder, generates HTML)
       - name: Run Build Page Compiler
         run: python scripts/build_pages.py
-          
+
       # 2. RUN MEDIA PIPELINE SECOND (Populates docs/media/ safely)
       - name: Run Media Optimization Pipeline
         run: python scripts/compress_media.py
-          
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs
+          cname: yardkeepers.ca
