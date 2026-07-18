@@ -67,16 +67,18 @@ for root, dirs, files in os.walk(CONTENT_DIR):
                 if rel_path != '.':
                     title = rel_path.replace('-', ' ').title()
             
+            full_url = f"{DOMAIN}{BASE_URL}{url_path}"
+            
             page_html = template_html.replace('{{base_url}}', BASE_URL)
             page_html = page_html.replace('{{title}}', title)
             page_html = page_html.replace('{{description}}', description)
             page_html = page_html.replace('{{content}}', html_content)
             page_html = page_html.replace('{{tags}}', tags_html)
+            page_html = page_html.replace('{{canonical_url}}', full_url)
             
             with open(out_path, 'w', encoding='utf-8') as f:
                 f.write(page_html)
                 
-            full_url = f"{DOMAIN}{BASE_URL}{url_path}"
             sitemap_urls.append(full_url)
 
 # Generate XML Sitemap
@@ -97,4 +99,4 @@ xml_content += '</urlset>\n'
 with open(sitemap_path, 'w', encoding='utf-8') as sf:
     sf.write(xml_content)
 
-print(f"Build complete. Sitemap updated.")
+print(f"Build complete. Sitemap updated with canonical indexing parameters.")
