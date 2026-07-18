@@ -1,4 +1,4 @@
-Browse our complete portfolio of property maintenance, landscaping, and reclamation projects. Click on any image below to launch the full-screen gallery viewer, where you can swipe or use your keyboard arrows to navigate through the entire collection.
+Welcome to our visual portfolio. Browse our comprehensive collection of property maintenance, landscaping, and reclamation projects. Click on any image below to launch the full-screen gallery viewer, where you can swipe or use your keyboard arrows to easily navigate through the entire collection.
 
 ---
 
@@ -15,7 +15,7 @@ Browse our complete portfolio of property maintenance, landscaping, and reclamat
     </div>
     <div class="media-card gallery-trigger">
         <div class="media-placeholder"><img src="/media/tall-shaped-lilac-laneway-accent-4.webp" alt="Lilac Laneway Trim" onerror="this.style.display='none'"></div>
-        <span class="card-caption">Lilac Shaping <i class="fa-solid fa-expand"></i></span>
+        <span class="card-caption">Lilac Trim <i class="fa-solid fa-expand"></i></span>
     </div>
     <div class="media-card gallery-trigger">
         <div class="media-placeholder"><img src="/media/lilac-property-line-1.webp" alt="Lilac Property Line" onerror="this.style.display='none'"></div>
