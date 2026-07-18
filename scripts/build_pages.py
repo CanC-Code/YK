@@ -9,7 +9,7 @@ DOCS_DIR = 'docs'
 TEMPLATE_FILE = 'templates/base.html'
 ASSETS_DIR = 'assets'
 BASE_URL = ''
-DOMAIN = 'https://canc-code.github.io'
+DOMAIN = 'https://yardkeepers.ca'
 
 if os.path.exists(DOCS_DIR):
     shutil.rmtree(DOCS_DIR)
@@ -28,7 +28,7 @@ for root, dirs, files in os.walk(CONTENT_DIR):
         if file.endswith('.md'):
             md_path = os.path.join(root, file)
             rel_path = os.path.relpath(root, CONTENT_DIR)
-            
+
             if rel_path == '.':
                 out_dir = DOCS_DIR
                 out_file = file.replace('.md', '.html')
@@ -37,16 +37,16 @@ for root, dirs, files in os.walk(CONTENT_DIR):
                 out_dir = os.path.join(DOCS_DIR, rel_path)
                 out_file = 'index.html' if file == 'content.md' else file.replace('.md', '.html')
                 url_path = f"/{rel_path}/"
-                    
+
             os.makedirs(out_dir, exist_ok=True)
             out_path = os.path.join(out_dir, out_file)
-            
+
             with open(md_path, 'r', encoding='utf-8') as f:
                 raw_markdown = f.read()
-                
+
             html_content = markdown.markdown(raw_markdown)
             html_content = html_content.replace('href="/', f'href="{BASE_URL}/')
-            
+
             # Auto-route local image links inside HTML to use base URL and compiled webp path extension
             html_content = html_content.replace('src="/media/', f'src="{BASE_URL}/media/')
 
@@ -54,7 +54,7 @@ for root, dirs, files in os.walk(CONTENT_DIR):
             title = "Yard Keepers"
             description = "Professional property maintenance and seasonal yard operations across Central Alberta."
             tags_html = ""
-            
+
             if os.path.exists(meta_path):
                 with open(meta_path, 'r', encoding='utf-8') as mf:
                     meta = json.load(mf)
@@ -66,19 +66,19 @@ for root, dirs, files in os.walk(CONTENT_DIR):
             else:
                 if rel_path != '.':
                     title = rel_path.replace('-', ' ').title()
-            
+
             full_url = f"{DOMAIN}{BASE_URL}{url_path}"
-            
+
             page_html = template_html.replace('{{base_url}}', BASE_URL)
             page_html = page_html.replace('{{title}}', title)
             page_html = page_html.replace('{{description}}', description)
             page_html = page_html.replace('{{content}}', html_content)
             page_html = page_html.replace('{{tags}}', tags_html)
             page_html = page_html.replace('{{canonical_url}}', full_url)
-            
+
             with open(out_path, 'w', encoding='utf-8') as f:
                 f.write(page_html)
-                
+
             sitemap_urls.append(full_url)
 
 # Generate XML Sitemap
