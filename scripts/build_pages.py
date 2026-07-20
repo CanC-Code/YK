@@ -106,17 +106,15 @@ xml_content += '</urlset>\n'
 with open(sitemap_path, 'w', encoding='utf-8') as sf:
     sf.write(xml_content)
 
-# Generate robots.txt with Advanced AI Content-Signals
+# Generate robots.txt with standard indexing directives to ensure strict compliance
 robots_path = os.path.join(DOCS_DIR, 'robots.txt')
 robots_content = (
     f"User-agent: *\n"
     f"Allow: /\n\n"
-    f"Sitemap: {DOMAIN}/sitemap.xml\n\n"
-    f"# AI Agent Directives\n"
-    f"Content-Signal: ai-train=no, search=yes, ai-input=no\n"
+    f"Sitemap: {DOMAIN}/sitemap.xml\n"
 )
 
 with open(robots_path, 'w', encoding='utf-8') as rf:
     rf.write(robots_content)
 
-print(f"Build complete. Companion Markdown files created. Sitemap and robots.txt updated with canonical indexing parameters and AI content-signals.")
+print(f"Build complete. Companion Markdown files created. Sitemap and robots.txt updated with canonical indexing parameters.")
