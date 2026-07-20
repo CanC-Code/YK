@@ -76,8 +76,15 @@ for root, dirs, files in os.walk(CONTENT_DIR):
             page_html = page_html.replace('{{tags}}', tags_html)
             page_html = page_html.replace('{{canonical_url}}', full_url)
 
+            # Write out the standard production HTML page
             with open(out_path, 'w', encoding='utf-8') as f:
                 f.write(page_html)
+
+            # Write out a parallel raw Markdown companion file for AI agent content negotiation
+            md_out_file = out_file.replace('.html', '.md')
+            md_out_path = os.path.join(out_dir, md_out_file)
+            with open(md_out_path, 'w', encoding='utf-8') as f:
+                f.write(raw_markdown)
 
             sitemap_urls.append(full_url)
 
@@ -99,11 +106,17 @@ xml_content += '</urlset>\n'
 with open(sitemap_path, 'w', encoding='utf-8') as sf:
     sf.write(xml_content)
 
-# Generate robots.txt
+# Generate robots.txt with Advanced AI Content-Signals
 robots_path = os.path.join(DOCS_DIR, 'robots.txt')
-robots_content = f"User-agent: *\nAllow: /\n\nSitemap: {DOMAIN}/sitemap.xml\n"
+robots_content = (
+    f"User-agent: *\n"
+    f"Allow: /\n\n"
+    f"Sitemap: {DOMAIN}/sitemap.xml\n\n"
+    f"# AI Agent Directives\n"
+    f"Content-Signal: ai-train=no, search=yes, ai-input=no\n"
+)
 
 with open(robots_path, 'w', encoding='utf-8') as rf:
     rf.write(robots_content)
 
-print(f"Build complete. Sitemap and robots.txt updated with canonical indexing parameters.")
+print(f"Build complete. Companion Markdown files created. Sitemap and robots.txt updated with canonical indexing parameters and AI content-signals.")
