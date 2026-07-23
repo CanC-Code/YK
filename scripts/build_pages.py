@@ -2,6 +2,8 @@ import os
 import json
 import markdown
 import shutil
+import urllib.request
+import urllib.error
 from datetime import datetime
 
 CONTENT_DIR = 'content'
@@ -20,6 +22,63 @@ if os.path.exists(ASSETS_DIR):
 
 with open(TEMPLATE_FILE, 'r', encoding='utf-8') as f:
     template_html = f.read()
+
+# Fetch Facebook Posts dynamically if the token secret is available in the environment
+def fetch_facebook_feed_html():
+    token = os.environ.get('FB_PAGE_ACCESS_TOKEN')
+    if not token:
+        return "<p><em>Facebook feed is currently unavailable (Token not configured).</em></p>"
+    
+    # Graph API endpoint for page posts (fetching message, created_time, full_picture, attachments)
+    api_url = f"https://graph.facebook.com/v19.0/me/posts?fields=message,created_time,full_picture,permalink_url&access_token={token}"
+    
+    try:
+        req = urllib.request.Request(api_url, headers={'User-Agent': 'YardKeepers-Compiler/1.0'})
+        with urllib.request.urlopen(req) as response:
+            data = json.loads(response.read().decode('utf-8'))
+            posts = data.get('data', [])
+            
+            if not posts:
+                return "<p>No recent posts found on Facebook.</p>"
+            
+            feed_html = '<div class="native-fb-feed">\n'
+            for post in posts:
+                message = post.get('message', '')
+                created_time = post.get('created_time', '')
+                picture = post.get('full_picture', '')
+                permalink = post.get('permalink_url', '#')
+                
+                # Format date nicely
+                try:
+                    dt = datetime.strptime(created_time, '%Y-%m-%dT%H:%M:%S%z')
+                    formatted_date = dt.strftime('%B %d, %Y at %I:%M %p')
+                except Exception:
+                    formatted_date = "Recent Update"
+
+                feed_html += '  <div class="native-fb-post">\n'
+                feed_html += '    <div class="fb-post-header">\n'
+                feed_html += f'      <img src="{BASE_URL}/assets/Yard_Keepers.png" alt="Yard Keepers Logo" class="fb-post-avatar">\n'
+                feed_html += '      <div class="fb-post-meta">\n'
+                feed_html += '        <span class="fb-post-author">Yard Keepers</span>\n'
+                feed_html += f'        <span class="fb-post-date"><a href="{permalink}" target="_blank" rel="noopener">{formatted_date}</a></span>\n'
+                feed_html += '      </div>\n'
+                feed_html += '    </div>\n'
+                
+                if message:
+                    feed_html += f'    <div class="fb-post-content">{message}</div>\n'
+                
+                if picture:
+                    feed_html += '    <div class="fb-post-media">\n'
+                    feed_html += f'      <img src="{picture}" alt="Facebook post media" loading="lazy">\n'
+                    feed_html += '    </div>\n'
+                
+                feed_html += '  </div>\n'
+            
+            feed_html += '</div>\n'
+            return feed_html
+            
+    except Exception as e:
+        return f"<p><em>Unable to load live Facebook feed at the moment. Please visit our <a href='https://www.facebook.com/YardKeepers/' target='_blank'>Facebook Page</a> directly.</em></p>"
 
 sitemap_urls = []
 
@@ -45,9 +104,13 @@ for root, dirs, files in os.walk(CONTENT_DIR):
                 raw_markdown = f.read()
 
             html_content = markdown.markdown(raw_markdown)
-            html_content = html_content.replace('href="/', f'href="{BASE_URL}/')
+            
+            # If compiling the facebook page content, inject the dynamic native feed
+            if rel_path == 'facebook':
+                live_feed = fetch_facebook_feed_html()
+                html_content = html_content.replace('[INSERT_FB_FEED]', live_feed)
 
-            # Auto-route local image links inside HTML to use base URL and compiled webp path extension
+            html_content = html_content.replace('href="/', f'href="{BASE_URL}/')
             html_content = html_content.replace('src="/media/', f'src="{BASE_URL}/media/')
 
             meta_path = os.path.join(root, 'meta.json')
@@ -76,11 +139,9 @@ for root, dirs, files in os.walk(CONTENT_DIR):
             page_html = page_html.replace('{{tags}}', tags_html)
             page_html = page_html.replace('{{canonical_url}}', full_url)
 
-            # Write out the standard production HTML page
             with open(out_path, 'w', encoding='utf-8') as f:
                 f.write(page_html)
 
-            # Write out a parallel raw Markdown companion file for AI agent content negotiation
             md_out_file = out_file.replace('.html', '.md')
             md_out_path = os.path.join(out_dir, md_out_file)
             with open(md_out_path, 'w', encoding='utf-8') as f:
@@ -106,7 +167,7 @@ xml_content += '</urlset>\n'
 with open(sitemap_path, 'w', encoding='utf-8') as sf:
     sf.write(xml_content)
 
-# Generate robots.txt with standard indexing directives to ensure strict compliance
+# Generate robots.txt
 robots_path = os.path.join(DOCS_DIR, 'robots.txt')
 robots_content = (
     f"User-agent: *\n"
