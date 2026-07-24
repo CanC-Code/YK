@@ -4,9 +4,7 @@ import json
 import urllib.request
 from datetime import datetime
 import markdown
-import shutil
 
-# Load environment variables for local testing (requires python-dotenv)
 try:
     from dotenv import load_dotenv
     load_dotenv()
@@ -14,7 +12,6 @@ except ImportError:
     pass
 
 def fetch_facebook_feed():
-    # The tokens must be present in the environment or a local .env file
     access_token = os.environ.get('FB_ACCESS_TOKEN')
     page_id = os.environ.get('FB_PAGE_ID', 'me')
 
@@ -23,8 +20,8 @@ def fetch_facebook_feed():
         return "<p><em>Facebook feed is currently unavailable (Token not configured).</em></p>"
 
     try:
-        # Fetch the feed, now requesting picture within the 'from' field to get the live profile picture
-        url = f"https://graph.facebook.com/v19.0/{page_id}/posts?fields=message,created_time,permalink_url,from{{name,picture}},attachments&access_token={access_token}&limit=10"
+        # Expanded fields to properly capture shared posts, stories, and nested attachments
+        url = f"https://graph.facebook.com/v19.0/{page_id}/posts?fields=message,story,created_time,permalink_url,from{{name,picture}},attachments{{media,subattachments,title,description,type}}&access_token={access_token}&limit=20"
         
         req = urllib.request.Request(url)
         with urllib.request.urlopen(req) as response:
@@ -36,13 +33,13 @@ def fetch_facebook_feed():
 
         html = '<div class="native-fb-feed">\n'
         for post in posts:
-            message = post.get('message', '')
+            # Fallback text logic for shared posts or status updates stored in 'story'
+            message = post.get('message', '') or post.get('story', '')
             created_time = post.get('created_time', '')
             link = post.get('permalink_url', '#')
             
             author_data = post.get('from', {})
             author = author_data.get('name', 'Yard Keepers')
-            # Extract live profile picture, fallback to local asset if missing
             author_pic = author_data.get('picture', {}).get('data', {}).get('url', '/assets/Yard_Keepers.png')
             
             try:
@@ -53,14 +50,10 @@ def fetch_facebook_feed():
 
             html += '  <div class="native-fb-post">\n'
             html += '    <div class="fb-post-header">\n'
-            
-            # Make Avatar Clickable directly to the post
             html += f'      <a href="{link}" target="_blank" rel="noopener noreferrer" class="fb-author-link-avatar">\n'
             html += f'        <img class="fb-post-avatar" src="{author_pic}" alt="{author} Profile">\n'
             html += '      </a>\n'
-            
             html += '      <div class="fb-post-meta">\n'
-            # Make Title Clickable directly to the post
             html += f'        <span class="fb-post-author"><a href="{link}" target="_blank" rel="noopener noreferrer" class="fb-author-link">{author}</a></span>\n'
             html += f'        <span class="fb-post-date"><a href="{link}" target="_blank" rel="noopener noreferrer">{formatted_date}</a></span>\n'
             html += '      </div>\n'
@@ -70,54 +63,58 @@ def fetch_facebook_feed():
                 safe_msg = message.replace('<', '&lt;').replace('>', '&gt;').replace('\n', '<br>')
                 html += f'    <div class="fb-post-content">{safe_msg}</div>\n'
             
-            # Process Attachments into a Swipeable Carousel
+            # Robust Attachment & Shared Post Media Extraction
             attachments = post.get('attachments', {}).get('data', [])
-            if attachments:
-                media_items = []
-                for attachment in attachments:
-                    subattachments = attachment.get('subattachments', {}).get('data', [attachment])
+            media_items = []
+            
+            for attachment in attachments:
+                # Check for subattachments (albums/multi-photo posts)
+                subattachments = attachment.get('subattachments', {}).get('data', [])
+                if subattachments:
                     for sub in subattachments:
                         media = sub.get('media', {})
-                        item = {'type': 'image', 'src': '', 'thumb': ''}
-                        
-                        if 'source' in media:
-                            item['type'] = 'video'
-                            item['src'] = media['source']
-                            item['thumb'] = media.get('image', {}).get('src', '')
-                        elif 'image' in media:
-                            item['type'] = 'image'
-                            item['src'] = media['image']['src']
-                            item['thumb'] = media['image']['src']
-                            
-                        if item['src']:
+                        item = parse_media_item(media)
+                        if item:
                             media_items.append(item)
-                
-                if media_items:
-                    safe_cap = f"{author} - {formatted_date}"
-                    html += '    <div class="fb-carousel">\n'
-                    html += '      <div class="fb-carousel-inner">\n'
+                else:
+                    # Check main attachment media or shared link media
+                    media = attachment.get('media', {})
+                    item = parse_media_item(media)
+                    if item:
+                        media_items.append(item)
                     
-                    for i, item in enumerate(media_items):
-                        html += '        <div class="fb-carousel-item">\n'
-                        html += f'          <div class="fb-post-media fb-media-trigger" data-type="{item["type"]}" data-src="{item["src"]}" data-caption="{safe_cap}">\n'
-                        html += f'            <img src="{item["thumb"]}" alt="Facebook Media {i+1}">\n'
-                        if item["type"] == 'video':
-                            html += '            <div class="video-play-icon"><i class="fa-solid fa-play"></i></div>\n'
-                        html += '          </div>\n'
-                        html += '        </div>\n'
-                        
+                    # Target shares that embed external image previews inside target structures
+                    target = attachment.get('target', {})
+                    if 'media' in target:
+                        target_item = parse_media_item(target.get('media', {}))
+                        if target_item:
+                            media_items.append(target_item)
+
+            if media_items:
+                safe_cap = f"{author} - {formatted_date}"
+                html += '    <div class="fb-carousel">\n'
+                html += '      <div class="fb-carousel-inner">\n'
+                
+                for i, item in enumerate(media_items):
+                    html += '        <div class="fb-carousel-item">\n'
+                    html += f'          <div class="fb-post-media fb-media-trigger" data-type="{item["type"]}" data-src="{item["src"]}" data-caption="{safe_cap}">\n'
+                    html += f'            <img src="{item["thumb"]}" alt="Facebook Media {i+1}">\n'
+                    if item["type"] == 'video':
+                        html += '            <div class="video-play-icon"><i class="fa-solid fa-play"></i></div>\n'
+                    html += '          </div>\n'
+                    html += '        </div>\n'
+                    
+                html += '      </div>\n'
+                
+                if len(media_items) > 1:
+                    html += '      <div class="fb-carousel-indicators">\n'
+                    for i in range(len(media_items)):
+                        active_class = 'active' if i == 0 else ''
+                        html += f'        <span class="fb-dot {active_class}"></span>\n'
                     html += '      </div>\n'
                     
-                    # Optional: Add swipe indicators if multiple images exist
-                    if len(media_items) > 1:
-                        html += '      <div class="fb-carousel-indicators">\n'
-                        for i in range(len(media_items)):
-                            active_class = 'active' if i == 0 else ''
-                            html += f'        <span class="fb-dot {active_class}"></span>\n'
-                        html += '      </div>\n'
+                html += '    </div>\n'
                         
-                    html += '    </div>\n'
-                            
             html += '  </div>\n'
         html += '</div>\n'
         
@@ -126,6 +123,24 @@ def fetch_facebook_feed():
     except Exception as e:
         print(f"Error fetching Facebook feed: {e}")
         return "<p><em>Facebook feed is currently unavailable (Error fetching data).</em></p>"
+
+def parse_media_item(media):
+    if not media:
+        return None
+    
+    if 'source' in media:
+        return {
+            'type': 'video',
+            'src': media['source'],
+            'thumb': media.get('image', {}).get('src', '')
+        }
+    elif 'image' in media:
+        return {
+            'type': 'image',
+            'src': media['image']['src'],
+            'thumb': media['image']['src']
+        }
+    return None
 
 def compile_pages():
     content_dir = './content'
@@ -152,7 +167,6 @@ def compile_pages():
         with open(md_file, 'r', encoding='utf-8') as f:
             content = f.read()
 
-        # Frontmatter parsing
         title = "Yard Keepers"
         description = ""
         tags_html = ""
@@ -171,12 +185,10 @@ def compile_pages():
                         tags = [t.strip() for t in line.replace('tags:', '').split(',')]
                         tags_html = '<ul class="tags">' + ''.join([f'<li>{t}</li>' for t in tags]) + '</ul>'
 
-        # Process Facebook Feed Placeholder
         if '[INSERT_FB_FEED]' in content:
             fb_html = fetch_facebook_feed()
             content = content.replace('[INSERT_FB_FEED]', fb_html)
 
-        # Convert Markdown to HTML
         html_body = markdown.markdown(content, extensions=['tables', 'fenced_code'])
 
         rel_path = os.path.relpath(md_file, content_dir)
