@@ -1,3 +1,9 @@
+---
+title: Facebook Feed
+description: Stay up to date with our latest projects, seasonal announcements, and community updates directly from our Facebook page.
+tags: facebook, updates, social media, feed
+---
+
 Stay up to date with our latest projects, seasonal announcements, and community updates directly from our Facebook page. 
 
 [INSERT_FB_FEED]
