@@ -120,6 +120,75 @@
             display: flex; align-items: center; justify-content: space-between; padding: 0 4px;
         }
 
+        /* Native Facebook Feed Styles */
+        .native-fb-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin: 30px auto;
+            max-width: 600px;
+            width: 100%;
+        }
+        .native-fb-post {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .fb-post-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        .fb-post-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+        }
+        .fb-post-meta {
+            display: flex;
+            flex-direction: column;
+        }
+        .fb-post-author {
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 1rem;
+        }
+        .fb-post-date a {
+            font-size: 0.85rem;
+            color: var(--text-muted) !important;
+            text-decoration: none;
+        }
+        .fb-post-date a:hover {
+            color: var(--primary-color) !important;
+            text-decoration: underline;
+        }
+        .fb-post-content {
+            font-size: 1rem;
+            color: var(--text-color);
+            margin-bottom: 15px;
+            white-space: pre-line;
+            word-break: break-word;
+        }
+        .fb-post-media {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background-color: #000000;
+            max-height: 500px;
+        }
+        .fb-post-media img {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+            display: block;
+        }
+
         /* Map Interactive Styling Buttons */
         .map-btn {
             background: none; border: none; color: var(--primary-color);
@@ -220,22 +289,7 @@
         <div class="page-title">Facebook Feed</div>
         <div class="tag-container"><ul class='tags'><li>facebook</li><li>updates</li><li>social media</li><li>feed</li></ul></div>
         <article><p>Stay up to date with our latest projects, seasonal announcements, and community updates directly from our Facebook page. </p>
-<div class="facebook-feed-container" style="display: flex; justify-content: center; margin: 30px 0; width: 100%; overflow: hidden; max-width: 500px; margin-left: auto; margin-right: auto;">
-    <div class="fb-page" 
-        data-href="https://www.facebook.com/YardKeepers/" 
-        data-tabs="timeline" 
-        data-width="500" 
-        data-height="800" 
-        data-small-header="false" 
-        data-adapt-container-width="true" 
-        data-hide-cover="false" 
-        data-show-facepile="true">
-        <blockquote cite="https://www.facebook.com/YardKeepers/" class="fb-xfbml-parse-ignore">
-            <a href="https://www.facebook.com/YardKeepers/">Yard Keepers</a>
-        </blockquote>
-    </div>
-</div>
-
+<p><p><em>Facebook feed is currently unavailable (Token not configured).</em></p></p>
 <p>If you would like to reach out to us on other platforms or request a custom estimate, please visit our <a href="/contact/">Contact Us</a> page.</p></article>
     </main>
 
