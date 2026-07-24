@@ -1,181 +1,154 @@
 import os
+import glob
 import json
+import urllib.request
+from datetime import datetime
 import markdown
 import shutil
-import urllib.request
-import urllib.error
-from datetime import datetime
 
-CONTENT_DIR = 'content'
-DOCS_DIR = 'docs'
-TEMPLATE_FILE = 'templates/base.html'
-ASSETS_DIR = 'assets'
-BASE_URL = ''
-DOMAIN = 'https://yardkeepers.ca'
+# Load environment variables for local testing (requires python-dotenv)
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 
-if os.path.exists(DOCS_DIR):
-    shutil.rmtree(DOCS_DIR)
-os.makedirs(DOCS_DIR, exist_ok=True)
+def fetch_facebook_feed():
+    # The tokens must be present in the environment or a local .env file
+    access_token = os.environ.get('FB_PAGE_ACCESS_TOKEN')
+    page_id = os.environ.get('FB_PAGE_ID', 'me')
 
-if os.path.exists(ASSETS_DIR):
-    shutil.copytree(ASSETS_DIR, os.path.join(DOCS_DIR, 'assets'))
-
-with open(TEMPLATE_FILE, 'r', encoding='utf-8') as f:
-    template_html = f.read()
-
-# Fetch Facebook Posts dynamically if the token secret is available in the environment
-def fetch_facebook_feed_html():
-    token = os.environ.get('FB_PAGE_ACCESS_TOKEN')
-    if not token:
+    if not access_token:
+        print("Warning: FB_PAGE_ACCESS_TOKEN not found in environment.")
         return "<p><em>Facebook feed is currently unavailable (Token not configured).</em></p>"
-    
-    # Graph API endpoint for page posts (fetching message, created_time, full_picture, attachments)
-    api_url = f"https://graph.facebook.com/v19.0/me/posts?fields=message,created_time,full_picture,permalink_url&access_token={token}"
-    
+
     try:
-        req = urllib.request.Request(api_url, headers={'User-Agent': 'YardKeepers-Compiler/1.0'})
+        # Fetch the feed using the provided tokens
+        url = f"https://graph.facebook.com/v19.0/{page_id}/posts?fields=message,created_time,full_picture,permalink_url,from&access_token={access_token}&limit=10"
+        
+        req = urllib.request.Request(url)
         with urllib.request.urlopen(req) as response:
-            data = json.loads(response.read().decode('utf-8'))
-            posts = data.get('data', [])
-            
-            if not posts:
-                return "<p>No recent posts found on Facebook.</p>"
-            
-            feed_html = '<div class="native-fb-feed">\n'
-            for post in posts:
-                message = post.get('message', '')
-                created_time = post.get('created_time', '')
-                picture = post.get('full_picture', '')
-                permalink = post.get('permalink_url', '#')
-                
-                # Format date nicely
-                try:
-                    dt = datetime.strptime(created_time, '%Y-%m-%dT%H:%M:%S%z')
-                    formatted_date = dt.strftime('%B %d, %Y at %I:%M %p')
-                except Exception:
-                    formatted_date = "Recent Update"
+            data = json.loads(response.read().decode())
+        
+        posts = data.get('data', [])
+        if not posts:
+            return "<p><em>No recent updates found on our Facebook page.</em></p>"
 
-                feed_html += '  <div class="native-fb-post">\n'
-                feed_html += '    <div class="fb-post-header">\n'
-                feed_html += f'      <img src="{BASE_URL}/assets/Yard_Keepers.png" alt="Yard Keepers Logo" class="fb-post-avatar">\n'
-                feed_html += '      <div class="fb-post-meta">\n'
-                feed_html += '        <span class="fb-post-author">Yard Keepers</span>\n'
-                feed_html += f'        <span class="fb-post-date"><a href="{permalink}" target="_blank" rel="noopener">{formatted_date}</a></span>\n'
-                feed_html += '      </div>\n'
-                feed_html += '    </div>\n'
-                
-                if message:
-                    feed_html += f'    <div class="fb-post-content">{message}</div>\n'
-                
-                if picture:
-                    feed_html += '    <div class="fb-post-media">\n'
-                    feed_html += f'      <img src="{picture}" alt="Facebook post media" loading="lazy">\n'
-                    feed_html += '    </div>\n'
-                
-                feed_html += '  </div>\n'
+        html = '<div class="native-fb-feed">\n'
+        for post in posts:
+            message = post.get('message', '')
+            created_time = post.get('created_time', '')
+            picture = post.get('full_picture', '')
+            link = post.get('permalink_url', '#')
+            author = post.get('from', {}).get('name', 'Yard Keepers')
             
-            feed_html += '</div>\n'
-            return feed_html
+            try:
+                date_obj = datetime.strptime(created_time, "%Y-%m-%dT%H:%M:%S%z")
+                formatted_date = date_obj.strftime("%B %d, %Y")
+            except ValueError:
+                formatted_date = created_time
+
+            html += '  <div class="native-fb-post">\n'
+            html += '    <div class="fb-post-header">\n'
+            html += '      <img class="fb-post-avatar" src="/assets/Yard_Keepers.png" alt="Profile">\n'
+            html += '      <div class="fb-post-meta">\n'
+            html += f'        <span class="fb-post-author">{author}</span>\n'
+            html += f'        <span class="fb-post-date"><a href="{link}" target="_blank" rel="noopener noreferrer">{formatted_date}</a></span>\n'
+            html += '      </div>\n'
+            html += '    </div>\n'
             
+            if message:
+                safe_msg = message.replace('<', '&lt;').replace('>', '&gt;').replace('\n', '<br>')
+                html += f'    <div class="fb-post-content">{safe_msg}</div>\n'
+            
+            if picture:
+                html += f'    <div class="fb-post-media"><img src="{picture}" alt="Post image"></div>\n'
+                
+            html += '  </div>\n'
+        html += '</div>\n'
+        
+        return html
+
     except Exception as e:
-        return f"<p><em>Unable to load live Facebook feed at the moment. Please visit our <a href='https://www.facebook.com/YardKeepers/' target='_blank'>Facebook Page</a> directly.</em></p>"
+        print(f"Error fetching Facebook feed: {e}")
+        return "<p><em>Facebook feed is currently unavailable (Error fetching data).</em></p>"
 
-sitemap_urls = []
+def compile_pages():
+    content_dir = './content'
+    template_path = './templates/base.html'
+    output_dir = './docs'
 
-for root, dirs, files in os.walk(CONTENT_DIR):
-    for file in files:
-        if file.endswith('.md'):
-            md_path = os.path.join(root, file)
-            rel_path = os.path.relpath(root, CONTENT_DIR)
+    if not os.path.exists(template_path):
+        print(f"Template not found at {template_path}")
+        return
 
-            if rel_path == '.':
-                out_dir = DOCS_DIR
-                out_file = file.replace('.md', '.html')
-                url_path = '/'
-            else:
-                out_dir = os.path.join(DOCS_DIR, rel_path)
-                out_file = 'index.html' if file == 'content.md' else file.replace('.md', '.html')
-                url_path = f"/{rel_path}/"
+    with open(template_path, 'r', encoding='utf-8') as f:
+        template = f.read()
 
-            os.makedirs(out_dir, exist_ok=True)
-            out_path = os.path.join(out_dir, out_file)
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
 
-            with open(md_path, 'r', encoding='utf-8') as f:
-                raw_markdown = f.read()
+    md_files = []
+    for root, _, files in os.walk(content_dir):
+        for file in files:
+            if file.endswith('.md'):
+                md_files.append(os.path.join(root, file))
 
-            html_content = markdown.markdown(raw_markdown)
-            
-            # If compiling the facebook page content, inject the dynamic native feed
-            if rel_path == 'facebook':
-                live_feed = fetch_facebook_feed_html()
-                html_content = html_content.replace('[INSERT_FB_FEED]', live_feed)
+    for md_file in md_files:
+        with open(md_file, 'r', encoding='utf-8') as f:
+            content = f.read()
 
-            html_content = html_content.replace('href="/', f'href="{BASE_URL}/')
-            html_content = html_content.replace('src="/media/', f'src="{BASE_URL}/media/')
+        # Frontmatter parsing
+        title = "Yard Keepers"
+        description = ""
+        tags_html = ""
+        
+        if content.startswith('---'):
+            parts = content.split('---', 2)
+            if len(parts) >= 3:
+                frontmatter = parts[1]
+                content = parts[2]
+                for line in frontmatter.split('\n'):
+                    if line.startswith('title:'):
+                        title = line.replace('title:', '').strip()
+                    elif line.startswith('description:'):
+                        description = line.replace('description:', '').strip()
+                    elif line.startswith('tags:'):
+                        tags = [t.strip() for t in line.replace('tags:', '').split(',')]
+                        tags_html = '<ul class="tags">' + ''.join([f'<li>{t}</li>' for t in tags]) + '</ul>'
 
-            meta_path = os.path.join(root, 'meta.json')
-            title = "Yard Keepers"
-            description = "Professional property maintenance and seasonal yard operations across Central Alberta."
-            tags_html = ""
+        # Process Facebook Feed Placeholder
+        if '[INSERT_FB_FEED]' in content:
+            fb_html = fetch_facebook_feed()
+            content = content.replace('[INSERT_FB_FEED]', fb_html)
 
-            if os.path.exists(meta_path):
-                with open(meta_path, 'r', encoding='utf-8') as mf:
-                    meta = json.load(mf)
-                    title = meta.get('title', title)
-                    description = meta.get('description', description)
-                    tags = meta.get('tags', [])
-                    if tags:
-                        tags_html = "<ul class='tags'>" + "".join([f"<li>{t}</li>" for t in tags]) + "</ul>"
-            else:
-                if rel_path != '.':
-                    title = rel_path.replace('-', ' ').title()
+        # Convert Markdown to HTML
+        html_body = markdown.markdown(content, extensions=['tables', 'fenced_code'])
 
-            full_url = f"{DOMAIN}{BASE_URL}{url_path}"
+        rel_path = os.path.relpath(md_file, content_dir)
+        html_path = os.path.join(output_dir, rel_path.replace('.md', '.html'))
+        
+        if os.path.basename(html_path) == 'content.html':
+            html_path = os.path.join(os.path.dirname(html_path), 'index.html')
+        elif os.path.basename(html_path) != 'index.html':
+            name_without_ext = os.path.splitext(os.path.basename(html_path))[0]
+            html_path = os.path.join(os.path.dirname(html_path), name_without_ext, 'index.html')
 
-            page_html = template_html.replace('{{base_url}}', BASE_URL)
-            page_html = page_html.replace('{{title}}', title)
-            page_html = page_html.replace('{{description}}', description)
-            page_html = page_html.replace('{{content}}', html_content)
-            page_html = page_html.replace('{{tags}}', tags_html)
-            page_html = page_html.replace('{{canonical_url}}', full_url)
+        os.makedirs(os.path.dirname(html_path), exist_ok=True)
 
-            with open(out_path, 'w', encoding='utf-8') as f:
-                f.write(page_html)
+        canonical_url = f"https://yardkeepers.ca/{os.path.dirname(rel_path)}/" if os.path.dirname(rel_path) else "https://yardkeepers.ca/"
+        
+        final_html = template.replace('{{title}}', title)
+        final_html = final_html.replace('{{description}}', description)
+        final_html = final_html.replace('{{canonical_url}}', canonical_url)
+        final_html = final_html.replace('{{base_url}}', '')
+        final_html = final_html.replace('{{tags}}', tags_html)
+        final_html = final_html.replace('{{content}}', html_body)
 
-            md_out_file = out_file.replace('.html', '.md')
-            md_out_path = os.path.join(out_dir, md_out_file)
-            with open(md_out_path, 'w', encoding='utf-8') as f:
-                f.write(raw_markdown)
+        with open(html_path, 'w', encoding='utf-8') as f:
+            f.write(final_html)
 
-            sitemap_urls.append(full_url)
+    print("Pages compiled successfully.")
 
-# Generate XML Sitemap
-sitemap_path = os.path.join(DOCS_DIR, 'sitemap.xml')
-today = datetime.now().strftime('%Y-%m-%d')
-
-xml_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
-xml_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-for url in sitemap_urls:
-    xml_content += '  <url>\n'
-    xml_content += f'    <loc>{url}</loc>\n'
-    xml_content += f'    <lastmod>{today}</lastmod>\n'
-    xml_content += '    <changefreq>weekly</changefreq>\n'
-    xml_content += '    <priority>0.8</priority>\n'
-    xml_content += '  </url>\n'
-xml_content += '</urlset>\n'
-
-with open(sitemap_path, 'w', encoding='utf-8') as sf:
-    sf.write(xml_content)
-
-# Generate robots.txt
-robots_path = os.path.join(DOCS_DIR, 'robots.txt')
-robots_content = (
-    f"User-agent: *\n"
-    f"Allow: /\n\n"
-    f"Sitemap: {DOMAIN}/sitemap.xml\n"
-)
-
-with open(robots_path, 'w', encoding='utf-8') as rf:
-    rf.write(robots_content)
-
-print(f"Build complete. Companion Markdown files created. Sitemap and robots.txt updated with canonical indexing parameters.")
+if __name__ == "__main__":
+    compile_pages()
