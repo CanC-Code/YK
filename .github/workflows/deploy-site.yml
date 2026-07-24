@@ -1,5 +1,7 @@
 name: Deploy Yard Keepers
 on:
+  push:
+    branches: [ main ]
   workflow_dispatch:
 
 permissions:
@@ -24,6 +26,7 @@ jobs:
       - name: Run Build Page Compiler
         env:
           FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
         run: python scripts/build_pages.py
 
       # 2. RUN MEDIA PIPELINE SECOND (Populates docs/media/ safely)
