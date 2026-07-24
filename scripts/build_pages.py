@@ -15,11 +15,11 @@ except ImportError:
 
 def fetch_facebook_feed():
     # The tokens must be present in the environment or a local .env file
-    access_token = os.environ.get('FB_PAGE_ACCESS_TOKEN')
+    access_token = os.environ.get('FB_ACCESS_TOKEN')
     page_id = os.environ.get('FB_PAGE_ID', 'me')
 
     if not access_token:
-        print("Warning: FB_PAGE_ACCESS_TOKEN not found in environment.")
+        print("Warning: FB_ACCESS_TOKEN not found in environment.")
         return "<p><em>Facebook feed is currently unavailable (Token not configured).</em></p>"
 
     try:
