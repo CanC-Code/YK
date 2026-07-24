@@ -22,6 +22,8 @@ jobs:
 
       # 1. RUN PAGE COMPILER FIRST (Wipes docs/ folder, generates HTML)
       - name: Run Build Page Compiler
+        env:
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
         run: python scripts/build_pages.py
 
       # 2. RUN MEDIA PIPELINE SECOND (Populates docs/media/ safely)
