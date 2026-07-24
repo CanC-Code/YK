@@ -23,8 +23,8 @@ def fetch_facebook_feed():
         return "<p><em>Facebook feed is currently unavailable (Token not configured).</em></p>"
 
     try:
-        # Fetch the feed, now requesting 'attachments' to expose raw videos and multi-images
-        url = f"https://graph.facebook.com/v19.0/{page_id}/posts?fields=message,created_time,permalink_url,from,attachments&access_token={access_token}&limit=10"
+        # Fetch the feed, now requesting picture within the 'from' field to get the live profile picture
+        url = f"https://graph.facebook.com/v19.0/{page_id}/posts?fields=message,created_time,permalink_url,from{{name,picture}},attachments&access_token={access_token}&limit=10"
         
         req = urllib.request.Request(url)
         with urllib.request.urlopen(req) as response:
@@ -39,7 +39,11 @@ def fetch_facebook_feed():
             message = post.get('message', '')
             created_time = post.get('created_time', '')
             link = post.get('permalink_url', '#')
-            author = post.get('from', {}).get('name', 'Yard Keepers')
+            
+            author_data = post.get('from', {})
+            author = author_data.get('name', 'Yard Keepers')
+            # Extract live profile picture, fallback to local asset if missing
+            author_pic = author_data.get('picture', {}).get('data', {}).get('url', '/assets/Yard_Keepers.png')
             
             try:
                 date_obj = datetime.strptime(created_time, "%Y-%m-%dT%H:%M:%S%z")
@@ -49,9 +53,15 @@ def fetch_facebook_feed():
 
             html += '  <div class="native-fb-post">\n'
             html += '    <div class="fb-post-header">\n'
-            html += '      <img class="fb-post-avatar" src="/assets/Yard_Keepers.png" alt="Profile">\n'
+            
+            # Make Avatar Clickable directly to the post
+            html += f'      <a href="{link}" target="_blank" rel="noopener noreferrer" class="fb-author-link-avatar">\n'
+            html += f'        <img class="fb-post-avatar" src="{author_pic}" alt="{author} Profile">\n'
+            html += '      </a>\n'
+            
             html += '      <div class="fb-post-meta">\n'
-            html += f'        <span class="fb-post-author">{author}</span>\n'
+            # Make Title Clickable directly to the post
+            html += f'        <span class="fb-post-author"><a href="{link}" target="_blank" rel="noopener noreferrer" class="fb-author-link">{author}</a></span>\n'
             html += f'        <span class="fb-post-date"><a href="{link}" target="_blank" rel="noopener noreferrer">{formatted_date}</a></span>\n'
             html += '      </div>\n'
             html += '    </div>\n'
@@ -60,36 +70,53 @@ def fetch_facebook_feed():
                 safe_msg = message.replace('<', '&lt;').replace('>', '&gt;').replace('\n', '<br>')
                 html += f'    <div class="fb-post-content">{safe_msg}</div>\n'
             
-            # Process Attachments to capture Videos and High-Res Photos
+            # Process Attachments into a Swipeable Carousel
             attachments = post.get('attachments', {}).get('data', [])
             if attachments:
+                media_items = []
                 for attachment in attachments:
-                    # Subattachments contain the actual files when a post has multiple items
                     subattachments = attachment.get('subattachments', {}).get('data', [attachment])
                     for sub in subattachments:
                         media = sub.get('media', {})
-                        media_type = 'image'
-                        media_src = ''
-                        thumb_src = ''
+                        item = {'type': 'image', 'src': '', 'thumb': ''}
                         
-                        # Identify if the payload contains a raw video source
                         if 'source' in media:
-                            media_type = 'video'
-                            media_src = media['source']
-                            thumb_src = media.get('image', {}).get('src', '')
-                        # Otherwise default to standard image extraction
+                            item['type'] = 'video'
+                            item['src'] = media['source']
+                            item['thumb'] = media.get('image', {}).get('src', '')
                         elif 'image' in media:
-                            media_type = 'image'
-                            media_src = media['image']['src']
-                            thumb_src = media['image']['src']
+                            item['type'] = 'image'
+                            item['src'] = media['image']['src']
+                            item['thumb'] = media['image']['src']
+                            
+                        if item['src']:
+                            media_items.append(item)
+                
+                if media_items:
+                    safe_cap = f"{author} - {formatted_date}"
+                    html += '    <div class="fb-carousel">\n'
+                    html += '      <div class="fb-carousel-inner">\n'
+                    
+                    for i, item in enumerate(media_items):
+                        html += '        <div class="fb-carousel-item">\n'
+                        html += f'          <div class="fb-post-media fb-media-trigger" data-type="{item["type"]}" data-src="{item["src"]}" data-caption="{safe_cap}">\n'
+                        html += f'            <img src="{item["thumb"]}" alt="Facebook Media {i+1}">\n'
+                        if item["type"] == 'video':
+                            html += '            <div class="video-play-icon"><i class="fa-solid fa-play"></i></div>\n'
+                        html += '          </div>\n'
+                        html += '        </div>\n'
                         
-                        if media_src:
-                            safe_cap = f"{author} - {formatted_date}"
-                            html += f'    <div class="fb-post-media fb-media-trigger" data-type="{media_type}" data-src="{media_src}" data-caption="{safe_cap}">\n'
-                            html += f'      <img src="{thumb_src}" alt="Facebook Media">\n'
-                            if media_type == 'video':
-                                html += '      <div class="video-play-icon"><i class="fa-solid fa-play"></i></div>\n'
-                            html += '    </div>\n'
+                    html += '      </div>\n'
+                    
+                    # Optional: Add swipe indicators if multiple images exist
+                    if len(media_items) > 1:
+                        html += '      <div class="fb-carousel-indicators">\n'
+                        for i in range(len(media_items)):
+                            active_class = 'active' if i == 0 else ''
+                            html += f'        <span class="fb-dot {active_class}"></span>\n'
+                        html += '      </div>\n'
+                        
+                    html += '    </div>\n'
                             
             html += '  </div>\n'
         html += '</div>\n'
