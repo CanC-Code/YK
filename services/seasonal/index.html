@@ -91,7 +91,6 @@
         article a { color: var(--primary-color); text-decoration: none; }
         article a:hover { text-decoration: underline; }
 
-        /* Enhanced Media Placeholder Styling */
         .media-placeholder {
             width: 100%; aspect-ratio: 16 / 9; background-color: #000000;
             border: 1px solid var(--border-color); border-radius: 8px;
@@ -121,98 +120,41 @@
         }
 
         /* Native Facebook Feed Styles */
-        .native-fb-feed {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            margin: 30px auto;
-            max-width: 600px;
-            width: 100%;
+        .native-fb-feed { display: flex; flex-direction: column; gap: 24px; margin: 30px auto; max-width: 600px; width: 100%; }
+        .native-fb-post { background-color: var(--surface-color); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+        .fb-post-header { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
+        .fb-post-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border-color); }
+        .fb-post-meta { display: flex; flex-direction: column; }
+        .fb-post-author { font-weight: 600; color: #ffffff; font-size: 1rem; }
+        .fb-post-date a { font-size: 0.85rem; color: var(--text-muted) !important; text-decoration: none; }
+        .fb-post-date a:hover { color: var(--primary-color) !important; text-decoration: underline; }
+        .fb-post-content { font-size: 1rem; color: var(--text-color); margin-bottom: 15px; white-space: pre-line; word-break: break-word; }
+        
+        /* Media Attachments */
+        .fb-post-media { border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); background-color: #000000; max-height: 500px; margin-bottom: 10px; }
+        .fb-post-media img { width: 100%; height: auto; max-height: 500px; object-fit: contain; display: block; }
+        .fb-media-trigger { cursor: pointer; position: relative; transition: transform 0.2s, box-shadow 0.2s; }
+        .fb-media-trigger:hover { transform: scale(1.02); box-shadow: 0 8px 20px rgba(0,0,0,0.4); border-color: #4a4a4a; }
+        
+        .video-play-icon {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            font-size: 3rem; color: rgba(255, 255, 255, 0.8); pointer-events: none;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); transition: color 0.2s, transform 0.2s;
         }
-        .native-fb-post {
-            background-color: var(--surface-color);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        }
-        .fb-post-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 15px;
-        }
-        .fb-post-avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 1px solid var(--border-color);
-        }
-        .fb-post-meta {
-            display: flex;
-            flex-direction: column;
-        }
-        .fb-post-author {
-            font-weight: 600;
-            color: #ffffff;
-            font-size: 1rem;
-        }
-        .fb-post-date a {
-            font-size: 0.85rem;
-            color: var(--text-muted) !important;
-            text-decoration: none;
-        }
-        .fb-post-date a:hover {
-            color: var(--primary-color) !important;
-            text-decoration: underline;
-        }
-        .fb-post-content {
-            font-size: 1rem;
-            color: var(--text-color);
-            margin-bottom: 15px;
-            white-space: pre-line;
-            word-break: break-word;
-        }
-        .fb-post-media {
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            background-color: #000000;
-            max-height: 500px;
-        }
-        .fb-post-media img {
-            width: 100%;
-            height: auto;
-            max-height: 500px;
-            object-fit: contain;
-            display: block;
-        }
+        .fb-media-trigger:hover .video-play-icon { color: var(--primary-color); transform: translate(-50%, -50%) scale(1.1); }
 
-        /* Map Interactive Styling Buttons */
         .map-btn {
-            background: none; border: none; color: var(--primary-color);
-            font-size: 1.05rem; font-weight: 600; cursor: pointer; padding: 2px 0;
-            text-align: left; text-decoration: underline dotted; transition: color 0.2s;
+            background: none; border: none; color: var(--primary-color); font-size: 1.05rem; font-weight: 600; cursor: pointer; padding: 2px 0; text-align: left; text-decoration: underline dotted; transition: color 0.2s;
         }
         .map-btn:hover { color: #ffffff; text-decoration: underline solid; }
 
-        /* Custom Travel Quote Callout */
-        .quote-box {
-            background-color: var(--surface-color); border-left: 4px solid var(--primary-color);
-            border-top: 1px solid var(--border-color); border-right: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color); padding: 20px; border-radius: 0 8px 8px 0; margin: 30px 0;
-        }
+        .quote-box { background-color: var(--surface-color); border-left: 4px solid var(--primary-color); border: 1px solid var(--border-color) 1px solid var(--border-color) 1px solid var(--border-color); padding: 20px; border-radius: 0 8px 8px 0; margin: 30px 0; }
         .quote-box h3 { margin-top: 0 !important; }
         .quote-box p { margin-bottom: 0 !important; }
 
-        .map-container {
-            width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color);
-            background-color: var(--surface-color); margin: 20px 0; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
+        .map-container { width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); background-color: var(--surface-color); margin: 20px 0; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); }
         .map-container iframe { display: block; filter: grayscale(0.2) invert(0.9) hue-rotate(60deg); }
 
-        /* Contact Social Media Link Styles */
         .social-grid { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; list-style: none !important; padding-left: 0 !important; }
         .social-link { display: flex; align-items: center; gap: 15px; background-color: var(--surface-color); border: 1px solid var(--border-color); padding: 12px 20px; border-radius: 8px; color: var(--text-color) !important; text-decoration: none !important; font-weight: 500; transition: background-color 0.2s, transform 0.2s; }
         .social-link:hover { background-color: #252525; transform: translateX(4px); text-decoration: none !important; }
@@ -222,7 +164,7 @@
         .social-link.pinterest i { color: var(--pinterest-color); }
         .social-link.youtube i { color: var(--youtube-color); }
 
-        /* LIGHTBOX GALLERY STYLES */
+        /* HYBRID LIGHTBOX GALLERY STYLES */
         .lightbox {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.95); z-index: 2000;
@@ -231,11 +173,9 @@
         }
         .lightbox.active { opacity: 1; pointer-events: all; }
 
-        .lightbox-img {
-            max-width: 90%; max-height: 80vh; object-fit: contain;
-            border-radius: 4px; box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-        }
-
+        .lightbox-img { max-width: 90%; max-height: 80vh; object-fit: contain; border-radius: 4px; box-shadow: 0 10px 40px rgba(0,0,0,0.6); }
+        .lightbox-video { max-width: 90%; max-height: 80vh; border-radius: 4px; box-shadow: 0 10px 40px rgba(0,0,0,0.6); outline: none; }
+        
         .lightbox-caption { color: #fff; margin-top: 15px; font-size: 1.1rem; font-weight: 500; text-align: center; }
 
         .lightbox-close { position: absolute; top: 20px; right: 30px; font-size: 2.5rem; color: #fff; cursor: pointer; z-index: 2010; transition: color 0.2s; }
@@ -317,11 +257,12 @@
 </ul></article>
     </main>
 
-    <!-- Lightbox Modal DOM -->
+    <!-- Hybrid Lightbox Modal DOM -->
     <div id="lightbox" class="lightbox">
         <span class="lightbox-close" id="lb-close">&times;</span>
         <button class="lightbox-prev" id="lb-prev"><i class="fa-solid fa-chevron-left"></i></button>
         <img class="lightbox-img" id="lb-img" src="" alt="">
+        <video class="lightbox-video" id="lb-vid" controls style="display:none;"></video>
         <button class="lightbox-next" id="lb-next"><i class="fa-solid fa-chevron-right"></i></button>
         <div class="lightbox-caption" id="lb-cap"></div>
     </div>
@@ -343,57 +284,101 @@
             }
         });
 
-        // Lightbox Gallery Logic
+        // Hybrid Lightbox Gallery Logic
         const lightbox = document.getElementById('lightbox');
         const lbImg = document.getElementById('lb-img');
+        const lbVid = document.getElementById('lb-vid');
         const lbCap = document.getElementById('lb-cap');
-        const triggers = document.querySelectorAll('.gallery-trigger');
+        
         let currentIndex = 0;
         let galleryItems = [];
 
-        if(triggers.length > 0) {
-            triggers.forEach((trigger, index) => {
-                const img = trigger.querySelector('img');
-                const cap = trigger.querySelector('.card-caption').innerText;
-                galleryItems.push({ src: img.src, alt: img.alt, caption: cap });
+        // 1. Process Standard Site Gallery Triggers
+        document.querySelectorAll('.gallery-trigger').forEach((trigger) => {
+            const img = trigger.querySelector('img');
+            let cap = '';
+            const capEl = trigger.querySelector('.card-caption');
+            if (capEl) cap = capEl.innerText;
+            
+            const index = galleryItems.length;
+            galleryItems.push({ type: 'image', src: img.src, alt: img.alt, caption: cap });
 
-                trigger.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    currentIndex = index;
-                    updateLightbox();
-                    lightbox.classList.add('active');
-                });
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentIndex = index;
+                updateLightbox();
+                lightbox.classList.add('active');
             });
-        }
+        });
+
+        // 2. Process Native Facebook Feed Triggers
+        document.querySelectorAll('.fb-media-trigger').forEach((trigger) => {
+            const type = trigger.getAttribute('data-type');
+            const src = trigger.getAttribute('data-src');
+            const cap = trigger.getAttribute('data-caption');
+            const img = trigger.querySelector('img');
+            const alt = img ? img.alt : 'Media';
+
+            const index = galleryItems.length;
+            galleryItems.push({ type: type, src: src, alt: alt, caption: cap });
+
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentIndex = index;
+                updateLightbox();
+                lightbox.classList.add('active');
+            });
+        });
 
         function updateLightbox() {
-            lbImg.src = galleryItems[currentIndex].src;
-            lbImg.alt = galleryItems[currentIndex].alt;
-            lbCap.innerText = galleryItems[currentIndex].caption;
+            const item = galleryItems[currentIndex];
+            lbCap.innerText = item.caption || '';
+            
+            if (item.type === 'video') {
+                lbImg.style.display = 'none';
+                lbVid.style.display = 'block';
+                lbVid.src = item.src;
+                lbVid.play().catch(e => console.log("Auto-play prevented", e));
+            } else {
+                lbVid.style.display = 'none';
+                lbVid.pause();
+                lbVid.removeAttribute('src'); // Prevents background downloading
+                lbImg.style.display = 'block';
+                lbImg.src = item.src;
+                lbImg.alt = item.alt;
+            }
         }
 
         function nextImg() {
+            if(galleryItems.length === 0) return;
             currentIndex = (currentIndex + 1) % galleryItems.length;
             updateLightbox();
         }
 
         function prevImg() {
+            if(galleryItems.length === 0) return;
             currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
             updateLightbox();
         }
 
-        document.getElementById('lb-close').addEventListener('click', () => lightbox.classList.remove('active'));
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            lbVid.pause();
+            lbVid.removeAttribute('src');
+        }
+
+        document.getElementById('lb-close').addEventListener('click', closeLightbox);
         document.getElementById('lb-next').addEventListener('click', (e) => { e.stopPropagation(); nextImg(); });
         document.getElementById('lb-prev').addEventListener('click', (e) => { e.stopPropagation(); prevImg(); });
 
         lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) lightbox.classList.remove('active');
+            if (e.target === lightbox) closeLightbox();
         });
 
         // Swipe & Keyboard support
         document.addEventListener('keydown', (e) => {
             if (!lightbox.classList.contains('active')) return;
-            if (e.key === 'Escape') lightbox.classList.remove('active');
+            if (e.key === 'Escape') closeLightbox();
             if (e.key === 'ArrowRight') nextImg();
             if (e.key === 'ArrowLeft') prevImg();
         });

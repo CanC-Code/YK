@@ -91,7 +91,6 @@
         article a { color: var(--primary-color); text-decoration: none; }
         article a:hover { text-decoration: underline; }
 
-        /* Enhanced Media Placeholder Styling */
         .media-placeholder {
             width: 100%; aspect-ratio: 16 / 9; background-color: #000000;
             border: 1px solid var(--border-color); border-radius: 8px;
@@ -121,98 +120,41 @@
         }
 
         /* Native Facebook Feed Styles */
-        .native-fb-feed {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            margin: 30px auto;
-            max-width: 600px;
-            width: 100%;
+        .native-fb-feed { display: flex; flex-direction: column; gap: 24px; margin: 30px auto; max-width: 600px; width: 100%; }
+        .native-fb-post { background-color: var(--surface-color); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+        .fb-post-header { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
+        .fb-post-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border-color); }
+        .fb-post-meta { display: flex; flex-direction: column; }
+        .fb-post-author { font-weight: 600; color: #ffffff; font-size: 1rem; }
+        .fb-post-date a { font-size: 0.85rem; color: var(--text-muted) !important; text-decoration: none; }
+        .fb-post-date a:hover { color: var(--primary-color) !important; text-decoration: underline; }
+        .fb-post-content { font-size: 1rem; color: var(--text-color); margin-bottom: 15px; white-space: pre-line; word-break: break-word; }
+        
+        /* Media Attachments */
+        .fb-post-media { border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); background-color: #000000; max-height: 500px; margin-bottom: 10px; }
+        .fb-post-media img { width: 100%; height: auto; max-height: 500px; object-fit: contain; display: block; }
+        .fb-media-trigger { cursor: pointer; position: relative; transition: transform 0.2s, box-shadow 0.2s; }
+        .fb-media-trigger:hover { transform: scale(1.02); box-shadow: 0 8px 20px rgba(0,0,0,0.4); border-color: #4a4a4a; }
+        
+        .video-play-icon {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            font-size: 3rem; color: rgba(255, 255, 255, 0.8); pointer-events: none;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); transition: color 0.2s, transform 0.2s;
         }
-        .native-fb-post {
-            background-color: var(--surface-color);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        }
-        .fb-post-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 15px;
-        }
-        .fb-post-avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 1px solid var(--border-color);
-        }
-        .fb-post-meta {
-            display: flex;
-            flex-direction: column;
-        }
-        .fb-post-author {
-            font-weight: 600;
-            color: #ffffff;
-            font-size: 1rem;
-        }
-        .fb-post-date a {
-            font-size: 0.85rem;
-            color: var(--text-muted) !important;
-            text-decoration: none;
-        }
-        .fb-post-date a:hover {
-            color: var(--primary-color) !important;
-            text-decoration: underline;
-        }
-        .fb-post-content {
-            font-size: 1rem;
-            color: var(--text-color);
-            margin-bottom: 15px;
-            white-space: pre-line;
-            word-break: break-word;
-        }
-        .fb-post-media {
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            background-color: #000000;
-            max-height: 500px;
-        }
-        .fb-post-media img {
-            width: 100%;
-            height: auto;
-            max-height: 500px;
-            object-fit: contain;
-            display: block;
-        }
+        .fb-media-trigger:hover .video-play-icon { color: var(--primary-color); transform: translate(-50%, -50%) scale(1.1); }
 
-        /* Map Interactive Styling Buttons */
         .map-btn {
-            background: none; border: none; color: var(--primary-color);
-            font-size: 1.05rem; font-weight: 600; cursor: pointer; padding: 2px 0;
-            text-align: left; text-decoration: underline dotted; transition: color 0.2s;
+            background: none; border: none; color: var(--primary-color); font-size: 1.05rem; font-weight: 600; cursor: pointer; padding: 2px 0; text-align: left; text-decoration: underline dotted; transition: color 0.2s;
         }
         .map-btn:hover { color: #ffffff; text-decoration: underline solid; }
 
-        /* Custom Travel Quote Callout */
-        .quote-box {
-            background-color: var(--surface-color); border-left: 4px solid var(--primary-color);
-            border-top: 1px solid var(--border-color); border-right: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color); padding: 20px; border-radius: 0 8px 8px 0; margin: 30px 0;
-        }
+        .quote-box { background-color: var(--surface-color); border-left: 4px solid var(--primary-color); border: 1px solid var(--border-color) 1px solid var(--border-color) 1px solid var(--border-color); padding: 20px; border-radius: 0 8px 8px 0; margin: 30px 0; }
         .quote-box h3 { margin-top: 0 !important; }
         .quote-box p { margin-bottom: 0 !important; }
 
-        .map-container {
-            width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color);
-            background-color: var(--surface-color); margin: 20px 0; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
+        .map-container { width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); background-color: var(--surface-color); margin: 20px 0; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); }
         .map-container iframe { display: block; filter: grayscale(0.2) invert(0.9) hue-rotate(60deg); }
 
-        /* Contact Social Media Link Styles */
         .social-grid { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; list-style: none !important; padding-left: 0 !important; }
         .social-link { display: flex; align-items: center; gap: 15px; background-color: var(--surface-color); border: 1px solid var(--border-color); padding: 12px 20px; border-radius: 8px; color: var(--text-color) !important; text-decoration: none !important; font-weight: 500; transition: background-color 0.2s, transform 0.2s; }
         .social-link:hover { background-color: #252525; transform: translateX(4px); text-decoration: none !important; }
@@ -222,7 +164,7 @@
         .social-link.pinterest i { color: var(--pinterest-color); }
         .social-link.youtube i { color: var(--youtube-color); }
 
-        /* LIGHTBOX GALLERY STYLES */
+        /* HYBRID LIGHTBOX GALLERY STYLES */
         .lightbox {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.95); z-index: 2000;
@@ -231,11 +173,9 @@
         }
         .lightbox.active { opacity: 1; pointer-events: all; }
 
-        .lightbox-img {
-            max-width: 90%; max-height: 80vh; object-fit: contain;
-            border-radius: 4px; box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-        }
-
+        .lightbox-img { max-width: 90%; max-height: 80vh; object-fit: contain; border-radius: 4px; box-shadow: 0 10px 40px rgba(0,0,0,0.6); }
+        .lightbox-video { max-width: 90%; max-height: 80vh; border-radius: 4px; box-shadow: 0 10px 40px rgba(0,0,0,0.6); outline: none; }
+        
         .lightbox-caption { color: #fff; margin-top: 15px; font-size: 1.1rem; font-weight: 500; text-align: center; }
 
         .lightbox-close { position: absolute; top: 20px; right: 30px; font-size: 2.5rem; color: #fff; cursor: pointer; z-index: 2010; transition: color 0.2s; }
@@ -299,12 +239,12 @@
       </div>
     </div>
     <div class="fb-post-content">Here's a tree that was getting concerned about its upcoming trim. As you can see the tree is very happy with its new look ! #beforeandafter #transformation #lookinggood #mylittletree #yardkeepers #hedgetrimming @everyone</div>
-    <div class="fb-post-media fb-media-trigger" data-type="video" data-src="https://video-iad6-1.xx.fbcdn.net/o1/v/t2/f2/m366/AQP1Tbg1qDMkBO0369uSWSLcfhmMz7vM_SfgEH5dhkURaULH1EcJGcGbg_Tdxqt-1qBPxT9tbTzJC3lSv6QGn_u3qT8NqEMux3K8ICa_lI1O7Q.mp4?_nc_cat=109&_nc_sid=5e9851&_nc_ht=video-iad6-1.xx.fbcdn.net&_nc_ohc=s1NkvVL475cQ7kNvwFtxG-A&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuNzIwLmRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHAiLCJ4cHZfYXNzZXRfaWQiOjkyODkyODMyMzU2NTc5MCwiYXNzZXRfYWdlX2RheXMiOjMsInZpX3VzZWNhc2VfaWQiOjEwMTIyLCJkdXJhdGlvbl9zIjoxNSwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&vs=c57b34cc331810e3&_nc_vs=HBksFQIYRWZiX2VwaGVtZXJhbC9GMjRCRkU5NUIyOTE3NTRDRjY3RUM0NjdFRDc1OUZCRV9tdF8xX3ZpZGVvX2Rhc2hpbml0Lm1wNBUAAsgBEgAVAhhAZmJfcGVybWFuZW50L0QwNEQ4NDY5QkIxNDIwMDlBQUQxODdEODNGRkQ3MTlBX2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACa84_ur37amAxUCKAJDMywXQC4AAAAAAAAYGWRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHARAHUCZZSeAQA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&edm=AKIiGfEEAAAA&_nc_zt=28&_nc_tpa=Q5bMBQESRIpxdYPpdefHulk1NcUvGXNGTzAnPEQUuOXml_BUXznw-rvN0Tuj88G22qNX2fVrJZY_s9ZYRg&oh=00_AQCesQ7G5b5KSwnJlT-U0uV3K4qZx3kZ8PhGyOj0RT67Gw&oe=6A68E097&bitrate=422238&tag=dash_h264-basic-gen2_720p" data-caption="YARD Keepers - July 21, 2026">
-      <img src="https://scontent-iad3-1.xx.fbcdn.net/v/t15.5256-10/752993135_4536479066624803_6656007442908687921_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=5fad0e&_nc_ohc=2mwuoLjcHRwQ7kNvwHz9inS&_nc_oc=AdoTcj0hI-4o2ppo5Ilq98y-AMln8MCGwQAJ9adsj76B-ioUP2IKuIzlxTelePr4m8w&_nc_zt=23&_nc_ht=scontent-iad3-1.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQFGM5N_-KcHcBOHNsKFzGw1YXcBl5wZF30LLUNibKVhDwmU860OrLypApkElrRLvEuMNM1-rc-p4Q&oh=00_AQBHI48Idev8UPWwRooyO_wIcgCpjofo9OyZS3BUeOmTxw&oe=6A68F3B2" alt="Facebook Media">
+    <div class="fb-post-media fb-media-trigger" data-type="video" data-src="https://video-sjc6-1.xx.fbcdn.net/o1/v/t2/f2/m366/AQP1Tbg1qDMkBO0369uSWSLcfhmMz7vM_SfgEH5dhkURaULH1EcJGcGbg_Tdxqt-1qBPxT9tbTzJC3lSv6QGn_u3qT8NqEMux3K8ICa_lI1O7Q.mp4?_nc_cat=109&_nc_sid=5e9851&_nc_ht=video-sjc6-1.xx.fbcdn.net&_nc_ohc=s1NkvVL475cQ7kNvwEXag3y&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuNzIwLmRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHAiLCJ4cHZfYXNzZXRfaWQiOjkyODkyODMyMzU2NTc5MCwiYXNzZXRfYWdlX2RheXMiOjMsInZpX3VzZWNhc2VfaWQiOjEwMTIyLCJkdXJhdGlvbl9zIjoxNSwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&vs=c57b34cc331810e3&_nc_vs=HBksFQIYRWZiX2VwaGVtZXJhbC9GMjRCRkU5NUIyOTE3NTRDRjY3RUM0NjdFRDc1OUZCRV9tdF8xX3ZpZGVvX2Rhc2hpbml0Lm1wNBUAAsgBEgAVAhhAZmJfcGVybWFuZW50L0QwNEQ4NDY5QkIxNDIwMDlBQUQxODdEODNGRkQ3MTlBX2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACa84_ur37amAxUCKAJDMywXQC4AAAAAAAAYGWRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHARAHUCZZSeAQA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&edm=AKIiGfEEAAAA&_nc_zt=28&_nc_tpa=Q5bMBQEj9zFHXy50GjUeAOzmbJRie60GdvV_1LaeZJjWSMz40d4adMS2g3h_lb-A7SgkB7qhh-OLL6x7AA&oh=00_AQBAvMEA4oziF6sM55GjAY0G10HrBvJOKppWXFK4vdfAmw&oe=6A68E097&bitrate=422238&tag=dash_h264-basic-gen2_720p" data-caption="YARD Keepers - July 21, 2026">
+      <img src="https://scontent-sjc6-1.xx.fbcdn.net/v/t15.5256-10/752993135_4536479066624803_6656007442908687921_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=5fad0e&_nc_ohc=2mwuoLjcHRwQ7kNvwHKOlnx&_nc_oc=Ado5N_ACb2yUdXqFoXFG582VvYUWb45AA0hjSJN4cisIkbDOA-Bc9pqz8Uk84_jzUaI&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQF4baDuz0NXzQZJnLfsAoO_d1bwM5M46sntgGQq4_cZk96F6qpjmge45R7WHqbJJakDA9Nm3VgPbg&oh=00_AQBXgYDT-TzrH49Ytogkb72SHYC8ao38KqnWLpk18HwNUA&oe=6A68F3B2" alt="Facebook Media">
       <div class="video-play-icon"><i class="fa-solid fa-play"></i></div>
     </div>
-    <div class="fb-post-media fb-media-trigger" data-type="video" data-src="https://video-iad6-1.xx.fbcdn.net/o1/v/t2/f2/m366/AQOdK-VUN9JdE1r2wAL8A7SjbT-85nh3aph1N-1JqhagK0yh50UBKdLtIeInsaj8n_P0mCACCiTxL9dkaF-tnwp-sWMvJEvy4k6TbkDaTjFtVg.mp4?_nc_cat=107&_nc_sid=5e9851&_nc_ht=video-iad6-1.xx.fbcdn.net&_nc_ohc=-6fgDBSvpMUQ7kNvwHiHik2&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuNzIwLmRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHAiLCJ4cHZfYXNzZXRfaWQiOjE0MTkwOTI4NDAyNjc4NDUsImFzc2V0X2FnZV9kYXlzIjozLCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6MTUsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&vs=915d9c410d6a77c0&_nc_vs=HBksFQIYRWZiX2VwaGVtZXJhbC9FQTQ0RUUzMjhBNjQ4RkVDQjRBMUJDMUJCOUE3OTBCRF9tdF8xX3ZpZGVvX2Rhc2hpbml0Lm1wNBUAAsgBEgAVAhhAZmJfcGVybWFuZW50L0M4NDBFQUM5NDY3QUE0MzEzN0VBMjdDMEVENTVFN0JBX2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACaKga7KiaqFBRUCKAJDMywXQC4AAAAAAAAYGWRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHARAHUCZZSeAQA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&edm=AKIiGfEEAAAA&_nc_zt=28&_nc_tpa=Q5bMBQGS5lPuy58zfjB6ZRGXAxaWPlS-vTOI5cufYLavhzbQxXugLTg2Pq2GMHDfDcNtSoC9q6X_A78-5w&oh=00_AQCtSD_f8EKmIxKgTnOzaAzGaP9xnV09T67H7JQTp931Ew&oe=6A68D029&bitrate=405610&tag=dash_h264-basic-gen2_720p" data-caption="YARD Keepers - July 21, 2026">
-      <img src="https://scontent-iad6-1.xx.fbcdn.net/v/t15.5256-10/752642203_1348067907505535_1269270659059455822_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=5fad0e&_nc_ohc=fYDKOcEUbWsQ7kNvwGgzXFt&_nc_oc=Adql0pH-Ae3F6uzk7nsJ15kpO3zE7xn2D1hFUVlnu6DNDMarkx0xXOxZY2epFEimM4Q&_nc_zt=23&_nc_ht=scontent-iad6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQERf5aAwX2RprapvU4DmgxBy6aAZJDd4gS1ttcyAIPgw9ZepNkxjZUy3gvxQYZhY4bCwe0vmx6qkw&oh=00_AQAYY8o_Q-U365woauJPsLYNnAER--gApI39pCkMdfKh7w&oe=6A68C46C" alt="Facebook Media">
+    <div class="fb-post-media fb-media-trigger" data-type="video" data-src="https://video-sjc6-1.xx.fbcdn.net/o1/v/t2/f2/m366/AQOdK-VUN9JdE1r2wAL8A7SjbT-85nh3aph1N-1JqhagK0yh50UBKdLtIeInsaj8n_P0mCACCiTxL9dkaF-tnwp-sWMvJEvy4k6TbkDaTjFtVg.mp4?_nc_cat=107&_nc_sid=5e9851&_nc_ht=video-sjc6-1.xx.fbcdn.net&_nc_ohc=-6fgDBSvpMUQ7kNvwHwxhL-&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuNzIwLmRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHAiLCJ4cHZfYXNzZXRfaWQiOjE0MTkwOTI4NDAyNjc4NDUsImFzc2V0X2FnZV9kYXlzIjozLCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6MTUsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&vs=915d9c410d6a77c0&_nc_vs=HBksFQIYRWZiX2VwaGVtZXJhbC9FQTQ0RUUzMjhBNjQ4RkVDQjRBMUJDMUJCOUE3OTBCRF9tdF8xX3ZpZGVvX2Rhc2hpbml0Lm1wNBUAAsgBEgAVAhhAZmJfcGVybWFuZW50L0M4NDBFQUM5NDY3QUE0MzEzN0VBMjdDMEVENTVFN0JBX2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACaKga7KiaqFBRUCKAJDMywXQC4AAAAAAAAYGWRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHARAHUCZZSeAQA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&edm=AKIiGfEEAAAA&_nc_zt=28&_nc_tpa=Q5bMBQEaxxSjHpaeQtOFBS5NsIWkkzWO1Yg_lOu50WxQ-S-GG6ljvDOP9AtGsyPHxTrvfpZg-Tpg_IfTbA&oh=00_AQC068H2GcTkbsIBBpoiRjcK7g6f5h2LL76hjR5EsPoKGQ&oe=6A68D029&bitrate=405610&tag=dash_h264-basic-gen2_720p" data-caption="YARD Keepers - July 21, 2026">
+      <img src="https://scontent-sjc6-1.xx.fbcdn.net/v/t15.5256-10/752642203_1348067907505535_1269270659059455822_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=5fad0e&_nc_ohc=fYDKOcEUbWsQ7kNvwEAVBTJ&_nc_oc=Adpw0byFtJRLd1jtR3f2O3goAx2vvI6U-pMrSEv4MibE6PwFKE4PbxG8rnVFuoli3Sc&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQEjMlFzcBDTLWgH5d6UKQ3IXXxjdIHOsgJbY5plNCsCgM2fE7J4H52r49831MaSyZugVPIHHH0qDw&oh=00_AQDzncN3L7xmJz-KWdr_0I77KcgtItRZiuNjybCgqovLCw&oe=6A68C46C" alt="Facebook Media">
       <div class="video-play-icon"><i class="fa-solid fa-play"></i></div>
     </div>
   </div>
@@ -317,42 +257,42 @@
       </div>
     </div>
     <div class="fb-post-content">This has been an exceptionally busy and hot week. We have been engaged in lawn mowing and hedge maintenance. Always many aspects to running a small business,phones,emails,texts,sharpening maintenance of equipment, advertising, social media,quotes,debris to the dump and much more ! #everyone #hedges #mowing #yardkeepers #motivation #hot #July</div>
-    <div class="fb-post-media fb-media-trigger" data-type="video" data-src="https://video-iad3-1.xx.fbcdn.net/o1/v/t2/f2/m366/AQMg0kEwvA66ADHdoxCTWXHw289_m9Sz6b3w9KrtLdC8yvgJwlCbyNzVYKzmVwEyiaF2NgflNYrVtGE7b5hxojCbhSvqEHe7sAY_tTkY4Mk_fA.mp4?_nc_cat=101&_nc_sid=5e9851&_nc_ht=video-iad3-1.xx.fbcdn.net&_nc_ohc=UntNRmKco8IQ7kNvwGX8JCB&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuNzIwLmRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHAiLCJ4cHZfYXNzZXRfaWQiOjkwMjQ2NzA2OTA0NjQzNywiYXNzZXRfYWdlX2RheXMiOjcsInZpX3VzZWNhc2VfaWQiOjEwMTIyLCJkdXJhdGlvbl9zIjoxNSwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&vs=fe01ef01029f2acd&_nc_vs=HBksFQIYRWZiX2VwaGVtZXJhbC9BNzQwRDQxRTVFMTFFOTJFQTUzQUZFRUI5OEI1OUVCRF9tdF8xX3ZpZGVvX2Rhc2hpbml0Lm1wNBUAAsgBEgAVAhhAZmJfcGVybWFuZW50LzY5NDc2QjQxRUQzMDM2MjQ4MjU1MkY3QzczNkQ2RThBX2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACbKupPRv7KaAxUCKAJDMywXQC4Q5WBBiTcYGWRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHARAHUCZZSeAQA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&edm=AKIiGfEEAAAA&_nc_zt=28&_nc_tpa=Q5bMBQHOJzLbHpVg-OG1gaJ-KsvUg7bltdklHYXFjatrxlsu5Q2H8bUD72iqkVxQXq9rwo5H67vhaRMvqA&oh=00_AQCgG90haVHrJgG1LYr9BXmpbhIadkmvTwC1Xtli8kk82w&oe=6A68BFFF&bitrate=371855&tag=dash_h264-basic-gen2_720p" data-caption="YARD Keepers - July 16, 2026">
-      <img src="https://scontent-iad6-1.xx.fbcdn.net/v/t15.5256-10/749566787_1407953197887329_3060842151008887579_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=5fad0e&_nc_ohc=xsFNaapluawQ7kNvwG69rv6&_nc_oc=AdpJqoGKo4nondRc1IYRQSCQWl-T4zsWXyxtQohjTlOVALB21m-NdPLiVIL01rksyOU&_nc_zt=23&_nc_ht=scontent-iad6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQFoDMsHAhdvTIgCM9fjhmi0oyW6DBdUV0VmfjRwMGS2rgLmsRb71fOviztOus0NAEUO4FRg4rVPvg&oh=00_AQCBZC4TELBGl6AEUJJ15NdK7Z3ODeCWRyBzn2Ls783Z7g&oe=6A68C2F8" alt="Facebook Media">
+    <div class="fb-post-media fb-media-trigger" data-type="video" data-src="https://video-sjc6-1.xx.fbcdn.net/o1/v/t2/f2/m366/AQMg0kEwvA66ADHdoxCTWXHw289_m9Sz6b3w9KrtLdC8yvgJwlCbyNzVYKzmVwEyiaF2NgflNYrVtGE7b5hxojCbhSvqEHe7sAY_tTkY4Mk_fA.mp4?_nc_cat=101&_nc_sid=5e9851&_nc_ht=video-sjc6-1.xx.fbcdn.net&_nc_ohc=UntNRmKco8IQ7kNvwGui1JX&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuNzIwLmRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHAiLCJ4cHZfYXNzZXRfaWQiOjkwMjQ2NzA2OTA0NjQzNywiYXNzZXRfYWdlX2RheXMiOjcsInZpX3VzZWNhc2VfaWQiOjEwMTIyLCJkdXJhdGlvbl9zIjoxNSwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&vs=fe01ef01029f2acd&_nc_vs=HBksFQIYRWZiX2VwaGVtZXJhbC9BNzQwRDQxRTVFMTFFOTJFQTUzQUZFRUI5OEI1OUVCRF9tdF8xX3ZpZGVvX2Rhc2hpbml0Lm1wNBUAAsgBEgAVAhhAZmJfcGVybWFuZW50LzY5NDc2QjQxRUQzMDM2MjQ4MjU1MkY3QzczNkQ2RThBX2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACbKupPRv7KaAxUCKAJDMywXQC4Q5WBBiTcYGWRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHARAHUCZZSeAQA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&edm=AKIiGfEEAAAA&_nc_zt=28&_nc_tpa=Q5bMBQEWngyc_YiUI2gL8Qj8eL5fGk-sROgmvaxj4t7u_0d4nQOUgvuJ8hjK4A4XTmmexLWjCGOjWPcuNg&oh=00_AQAnwjgSD3GVDtnWNGJCP0lmXCP9G-v0P38jLG-F-iwAXA&oe=6A68BFFF&bitrate=371855&tag=dash_h264-basic-gen2_720p" data-caption="YARD Keepers - July 16, 2026">
+      <img src="https://scontent-sjc6-1.xx.fbcdn.net/v/t15.5256-10/749566787_1407953197887329_3060842151008887579_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=5fad0e&_nc_ohc=xsFNaapluawQ7kNvwEYQmyj&_nc_oc=AdpMu73UZTQn57-LHfJDZfLZ6qXUnJEgJ68d9-YD6Y-xjPqjVFSEDSlIlhCpuaMH9z8&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQE4lnRAqrE82D0zYPElvdO5ySHLmUVqbyxYnvFHEndQp9Xkqy05g58SsS76fy54kmDMNB0I3bK-CA&oh=00_AQAPdktLe3fPqQeHMTvuys2DuFXd0JfhjfB_NKL8S2IkfQ&oe=6A68C2F8" alt="Facebook Media">
       <div class="video-play-icon"><i class="fa-solid fa-play"></i></div>
     </div>
-    <div class="fb-post-media fb-media-trigger" data-type="image" data-src="https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-6/747962751_1780859489884149_8072628292471870493_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=xUzy8eQV4q8Q7kNvwEqGucw&_nc_oc=AdoWFKeKjJBPOJOFdT-K3furVUWys6DXq9BESKFqOqeqsPAShVktKnw1skierBCd-58&_nc_zt=23&_nc_ht=scontent-iad3-1.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQHnACyL0FbNkZSaxgNv8bhwz-35KYXTkoC61UCXS7LBnnzlGHEh2xdr0ElHjLGqyFsogZpOGTCM7Q&oh=00_AQAHHMdoMCyIipHMDshYi7MapoYuZRNW71itfovZE-RyKQ&oe=6A68BCDE" data-caption="YARD Keepers - July 16, 2026">
-      <img src="https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-6/747962751_1780859489884149_8072628292471870493_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=xUzy8eQV4q8Q7kNvwEqGucw&_nc_oc=AdoWFKeKjJBPOJOFdT-K3furVUWys6DXq9BESKFqOqeqsPAShVktKnw1skierBCd-58&_nc_zt=23&_nc_ht=scontent-iad3-1.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQHnACyL0FbNkZSaxgNv8bhwz-35KYXTkoC61UCXS7LBnnzlGHEh2xdr0ElHjLGqyFsogZpOGTCM7Q&oh=00_AQAHHMdoMCyIipHMDshYi7MapoYuZRNW71itfovZE-RyKQ&oe=6A68BCDE" alt="Facebook Media">
+    <div class="fb-post-media fb-media-trigger" data-type="image" data-src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/747962751_1780859489884149_8072628292471870493_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=xUzy8eQV4q8Q7kNvwFDAh5V&_nc_oc=Adp4oyoBOYt8XC0f3EDYDGSIGTt2sz98XP2oVs1ZgmweiEuoemAZBbccXW5In7A2PiQ&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQGrrddrAMQgOTc5KoA3OZJuhkSuMcStZ_4soP7Tb0gPhJWf-mdTgXlk1IsVwHRkkcdDAMSMzdjkmw&oh=00_AQAHH1X3DHI7J-BX7nu63dhytXjyYvsHFu-z2iuDkeb1vg&oe=6A68BCDE" data-caption="YARD Keepers - July 16, 2026">
+      <img src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/747962751_1780859489884149_8072628292471870493_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=xUzy8eQV4q8Q7kNvwFDAh5V&_nc_oc=Adp4oyoBOYt8XC0f3EDYDGSIGTt2sz98XP2oVs1ZgmweiEuoemAZBbccXW5In7A2PiQ&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQGrrddrAMQgOTc5KoA3OZJuhkSuMcStZ_4soP7Tb0gPhJWf-mdTgXlk1IsVwHRkkcdDAMSMzdjkmw&oh=00_AQAHH1X3DHI7J-BX7nu63dhytXjyYvsHFu-z2iuDkeb1vg&oe=6A68BCDE" alt="Facebook Media">
     </div>
-    <div class="fb-post-media fb-media-trigger" data-type="image" data-src="https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-6/747931193_1780859573217474_4068636694830801855_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=22lIXEWl3MAQ7kNvwFLcUwG&_nc_oc=AdqHVeoSpVtTHmcz028-awPpqMmvXCNbwhoBsGHryj5fqOY8EkP4-pjQwWWD0qpHUT4&_nc_zt=23&_nc_ht=scontent-iad3-2.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQFwyROStObd4lm5ClEZw7eobdAfPCinEvuRa8YQBOw9SLPAcUUs5oGj1pP2letI6VsWoUri4UNpsQ&oh=00_AQDYrRKhdf1wqPslAgxtEXUVdKUDZoBON_uwGQYXSAHXMw&oe=6A68E1F2" data-caption="YARD Keepers - July 16, 2026">
-      <img src="https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-6/747931193_1780859573217474_4068636694830801855_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=22lIXEWl3MAQ7kNvwFLcUwG&_nc_oc=AdqHVeoSpVtTHmcz028-awPpqMmvXCNbwhoBsGHryj5fqOY8EkP4-pjQwWWD0qpHUT4&_nc_zt=23&_nc_ht=scontent-iad3-2.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQFwyROStObd4lm5ClEZw7eobdAfPCinEvuRa8YQBOw9SLPAcUUs5oGj1pP2letI6VsWoUri4UNpsQ&oh=00_AQDYrRKhdf1wqPslAgxtEXUVdKUDZoBON_uwGQYXSAHXMw&oe=6A68E1F2" alt="Facebook Media">
+    <div class="fb-post-media fb-media-trigger" data-type="image" data-src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/747931193_1780859573217474_4068636694830801855_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=22lIXEWl3MAQ7kNvwHEl1Ek&_nc_oc=AdoPTWG2g5-AdqRAt8LMZA9V2BBwAA7gojHYeiLsdgbLivSVp9fKuRrxdy4JfoRV6vw&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQF4ZFvsxKz2NsD2EvpTEBDIKw-un0JXndMC7UY89D7MDH-TmglM2rqhLGSd7rUFPsu31_lJdWVLkg&oh=00_AQAtItuULhe_jw9VwNuC8MchqTp1GIAioyUM9Hi3TfAmPA&oe=6A68E1F2" data-caption="YARD Keepers - July 16, 2026">
+      <img src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/747931193_1780859573217474_4068636694830801855_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=22lIXEWl3MAQ7kNvwHEl1Ek&_nc_oc=AdoPTWG2g5-AdqRAt8LMZA9V2BBwAA7gojHYeiLsdgbLivSVp9fKuRrxdy4JfoRV6vw&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQF4ZFvsxKz2NsD2EvpTEBDIKw-un0JXndMC7UY89D7MDH-TmglM2rqhLGSd7rUFPsu31_lJdWVLkg&oh=00_AQAtItuULhe_jw9VwNuC8MchqTp1GIAioyUM9Hi3TfAmPA&oe=6A68E1F2" alt="Facebook Media">
     </div>
-    <div class="fb-post-media fb-media-trigger" data-type="image" data-src="https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-6/749585463_1780859723217459_4965749454583508690_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=vqI3AAoyKXUQ7kNvwGm0SU_&_nc_oc=AdrELUnAgE84niLoQ7sRFHomCKP1Bo1hOhGTNfi51oCShLVikv6ltYUnMdcOOtcoKII&_nc_zt=23&_nc_ht=scontent-iad3-2.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQG_dUNGelkkjKNt6nHxpwQTnL71r6kveoqlMrT_GNXTXoQjX-1P0LPIU7Ljq6GVV8N4LtiZFiVZNA&oh=00_AQBF-XjqcFDpbRpnP0mUgUuTVqsMCvhEe9s3pkWjIv3yJg&oe=6A68BC78" data-caption="YARD Keepers - July 16, 2026">
-      <img src="https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-6/749585463_1780859723217459_4965749454583508690_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=vqI3AAoyKXUQ7kNvwGm0SU_&_nc_oc=AdrELUnAgE84niLoQ7sRFHomCKP1Bo1hOhGTNfi51oCShLVikv6ltYUnMdcOOtcoKII&_nc_zt=23&_nc_ht=scontent-iad3-2.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQG_dUNGelkkjKNt6nHxpwQTnL71r6kveoqlMrT_GNXTXoQjX-1P0LPIU7Ljq6GVV8N4LtiZFiVZNA&oh=00_AQBF-XjqcFDpbRpnP0mUgUuTVqsMCvhEe9s3pkWjIv3yJg&oe=6A68BC78" alt="Facebook Media">
+    <div class="fb-post-media fb-media-trigger" data-type="image" data-src="https://scontent-sjc3-1.xx.fbcdn.net/v/t39.30808-6/749585463_1780859723217459_4965749454583508690_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=vqI3AAoyKXUQ7kNvwH6w77k&_nc_oc=AdrvB-WuGGWuXJP1xjjQTSNLJwaKbVA6LEsQiYAvzFzOTzfBtc23wvZYuN3omaOqidg&_nc_zt=23&_nc_ht=scontent-sjc3-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQF5GO67hRbRekG6teG2Q_n5M8L7qUrq6UGdTMwhBqKCmUdq8zI6t_JGDN56ej8ox35ylqavr43suA&oh=00_AQA0d8C6LEL87G-JGYenNycUOZu2nlBza5saZdMcIEQmPA&oe=6A68BC78" data-caption="YARD Keepers - July 16, 2026">
+      <img src="https://scontent-sjc3-1.xx.fbcdn.net/v/t39.30808-6/749585463_1780859723217459_4965749454583508690_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=vqI3AAoyKXUQ7kNvwH6w77k&_nc_oc=AdrvB-WuGGWuXJP1xjjQTSNLJwaKbVA6LEsQiYAvzFzOTzfBtc23wvZYuN3omaOqidg&_nc_zt=23&_nc_ht=scontent-sjc3-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQF5GO67hRbRekG6teG2Q_n5M8L7qUrq6UGdTMwhBqKCmUdq8zI6t_JGDN56ej8ox35ylqavr43suA&oh=00_AQA0d8C6LEL87G-JGYenNycUOZu2nlBza5saZdMcIEQmPA&oe=6A68BC78" alt="Facebook Media">
     </div>
-    <div class="fb-post-media fb-media-trigger" data-type="image" data-src="https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-6/748096737_1780859859884112_231985893587200439_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=H335RscsVJQQ7kNvwH9zF1I&_nc_oc=Adq48xggs7hIUF08iY4Ej7CTxGYS4kyCmntM4bruXtNmbH6OaucJDkyNbHtM17qIGMc&_nc_zt=23&_nc_ht=scontent-iad3-1.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQHFKQ_4r2_BUZx08nJ7RYf4ga-eaADcVMhNS9Xf4-xzJBJBGYoYAYhsQxgvPMIp2ey5fNAdo0FMFA&oh=00_AQAgw8956gwtXIL8JswEMqqTcZfQY0HYiSg3wCh_r44IqA&oe=6A68DDBE" data-caption="YARD Keepers - July 16, 2026">
-      <img src="https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-6/748096737_1780859859884112_231985893587200439_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=H335RscsVJQQ7kNvwH9zF1I&_nc_oc=Adq48xggs7hIUF08iY4Ej7CTxGYS4kyCmntM4bruXtNmbH6OaucJDkyNbHtM17qIGMc&_nc_zt=23&_nc_ht=scontent-iad3-1.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQHFKQ_4r2_BUZx08nJ7RYf4ga-eaADcVMhNS9Xf4-xzJBJBGYoYAYhsQxgvPMIp2ey5fNAdo0FMFA&oh=00_AQAgw8956gwtXIL8JswEMqqTcZfQY0HYiSg3wCh_r44IqA&oe=6A68DDBE" alt="Facebook Media">
+    <div class="fb-post-media fb-media-trigger" data-type="image" data-src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/748096737_1780859859884112_231985893587200439_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=H335RscsVJQQ7kNvwHJEE-E&_nc_oc=Adpc2uqUouDm7EArYedz9Pq0HOQaUlzfWlrRh7kfwDlnPcSrzZkt8y_UigN-k5hM1Rc&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQHg9pifMg0unLRDU6wjkOOpy9N24sCTU4N9Vu8-vgbH5_iZwgl-UTTrf44OkbvSFNLrbGpsudn3Ug&oh=00_AQB19jTxUJYD2tTbEebZ-O4SIDAfULOITgPYZtiJ-mFA0w&oe=6A68DDBE" data-caption="YARD Keepers - July 16, 2026">
+      <img src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/748096737_1780859859884112_231985893587200439_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=H335RscsVJQQ7kNvwHJEE-E&_nc_oc=Adpc2uqUouDm7EArYedz9Pq0HOQaUlzfWlrRh7kfwDlnPcSrzZkt8y_UigN-k5hM1Rc&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQHg9pifMg0unLRDU6wjkOOpy9N24sCTU4N9Vu8-vgbH5_iZwgl-UTTrf44OkbvSFNLrbGpsudn3Ug&oh=00_AQB19jTxUJYD2tTbEebZ-O4SIDAfULOITgPYZtiJ-mFA0w&oe=6A68DDBE" alt="Facebook Media">
     </div>
-    <div class="fb-post-media fb-media-trigger" data-type="image" data-src="https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-6/747969914_1780860009884097_8759480178056660710_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_ohc=TclDnEdB2J8Q7kNvwF_S8iZ&_nc_oc=AdpsS6XlHC9RFRQGO_R5063owFfAed0t7flY3TKXr93BSW_3zWtnMllguZ09vMUscQw&_nc_zt=23&_nc_ht=scontent-iad3-1.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQFwvSz9TvKQHK2To5xleaSv3FL8SQm1BaJEgU-AuCCUCxIhB9Yrth19a8TskC1mdS6RMvS4qDR_VA&oh=00_AQDz6Sxa7-MQByFHwgUED3utV1FvIAeg8hAU7IyP0d9RqQ&oe=6A68D376" data-caption="YARD Keepers - July 16, 2026">
-      <img src="https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-6/747969914_1780860009884097_8759480178056660710_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_ohc=TclDnEdB2J8Q7kNvwF_S8iZ&_nc_oc=AdpsS6XlHC9RFRQGO_R5063owFfAed0t7flY3TKXr93BSW_3zWtnMllguZ09vMUscQw&_nc_zt=23&_nc_ht=scontent-iad3-1.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQFwvSz9TvKQHK2To5xleaSv3FL8SQm1BaJEgU-AuCCUCxIhB9Yrth19a8TskC1mdS6RMvS4qDR_VA&oh=00_AQDz6Sxa7-MQByFHwgUED3utV1FvIAeg8hAU7IyP0d9RqQ&oe=6A68D376" alt="Facebook Media">
+    <div class="fb-post-media fb-media-trigger" data-type="image" data-src="https://scontent-sjc3-1.xx.fbcdn.net/v/t39.30808-6/747969914_1780860009884097_8759480178056660710_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_ohc=TclDnEdB2J8Q7kNvwFupJze&_nc_oc=AdpUSsGG5EQ80tJxoEWqdiXaH17LlewKlLdetYZ6mYWAo7VrSOW6sivORTtewJEz4GM&_nc_zt=23&_nc_ht=scontent-sjc3-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQHoQpKoT7JgsW0n3BgInEKYEsPcAIWPcgzZDUTqYGPam08y17RHfwlm1gZn6tdKgL3Ch3ApsQ3qPg&oh=00_AQARR0K7cjHC6dhvfXSkZDSH5MkYm-YDsnx30eTNs7i_jA&oe=6A68D376" data-caption="YARD Keepers - July 16, 2026">
+      <img src="https://scontent-sjc3-1.xx.fbcdn.net/v/t39.30808-6/747969914_1780860009884097_8759480178056660710_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_ohc=TclDnEdB2J8Q7kNvwFupJze&_nc_oc=AdpUSsGG5EQ80tJxoEWqdiXaH17LlewKlLdetYZ6mYWAo7VrSOW6sivORTtewJEz4GM&_nc_zt=23&_nc_ht=scontent-sjc3-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQHoQpKoT7JgsW0n3BgInEKYEsPcAIWPcgzZDUTqYGPam08y17RHfwlm1gZn6tdKgL3Ch3ApsQ3qPg&oh=00_AQARR0K7cjHC6dhvfXSkZDSH5MkYm-YDsnx30eTNs7i_jA&oe=6A68D376" alt="Facebook Media">
     </div>
-    <div class="fb-post-media fb-media-trigger" data-type="image" data-src="https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-6/749681362_1780860096550755_5618329696314815174_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=5PJT463X3qkQ7kNvwEub5-E&_nc_oc=Adp-YLJib6l4nxiQx9rkL8F2NcjAYN9cyyQKxvLn0j5mDhCUWo83q_86aONu7c9iRtI&_nc_zt=23&_nc_ht=scontent-iad3-1.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQEUpWpJZTvISP-YqNvmG1DoKRDxBufibN_vkpO5O29hRsT3x0YDrpNBLKI2Zcx8dRGJLjT91GXP3A&oh=00_AQDhjDoFFF_hiX-fRpU0qZDCva2P2D9BZN2oYaHXe2zVTw&oe=6A68DD99" data-caption="YARD Keepers - July 16, 2026">
-      <img src="https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-6/749681362_1780860096550755_5618329696314815174_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=5PJT463X3qkQ7kNvwEub5-E&_nc_oc=Adp-YLJib6l4nxiQx9rkL8F2NcjAYN9cyyQKxvLn0j5mDhCUWo83q_86aONu7c9iRtI&_nc_zt=23&_nc_ht=scontent-iad3-1.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQEUpWpJZTvISP-YqNvmG1DoKRDxBufibN_vkpO5O29hRsT3x0YDrpNBLKI2Zcx8dRGJLjT91GXP3A&oh=00_AQDhjDoFFF_hiX-fRpU0qZDCva2P2D9BZN2oYaHXe2zVTw&oe=6A68DD99" alt="Facebook Media">
+    <div class="fb-post-media fb-media-trigger" data-type="image" data-src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/749681362_1780860096550755_5618329696314815174_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=5PJT463X3qkQ7kNvwHgXPp1&_nc_oc=AdpAGBPoiH3M-w07i6kwzWh7YTqPSKn22Ih1P5oyoKCAfRsDxwedKkptbQWqCqQynIw&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQHn9D3PbQ_fFAr1NMxh5pf6qVaYcaLR9m_jqEa7CNYzYGVNuq_-BjnYxgIWpd2kS13in6L06A9rLQ&oh=00_AQDa9DjLYpNCZqxCuxF_BHEyaZuru82EU0Zvl2advOpkwg&oe=6A68DD99" data-caption="YARD Keepers - July 16, 2026">
+      <img src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/749681362_1780860096550755_5618329696314815174_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=5PJT463X3qkQ7kNvwHgXPp1&_nc_oc=AdpAGBPoiH3M-w07i6kwzWh7YTqPSKn22Ih1P5oyoKCAfRsDxwedKkptbQWqCqQynIw&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQHn9D3PbQ_fFAr1NMxh5pf6qVaYcaLR9m_jqEa7CNYzYGVNuq_-BjnYxgIWpd2kS13in6L06A9rLQ&oh=00_AQDa9DjLYpNCZqxCuxF_BHEyaZuru82EU0Zvl2advOpkwg&oe=6A68DD99" alt="Facebook Media">
     </div>
-    <div class="fb-post-media fb-media-trigger" data-type="image" data-src="https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-6/749377944_1780860206550744_673534085799828808_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=klQmoy1s1ygQ7kNvwH7Exmu&_nc_oc=Adqn6Ia5AvB2tHwqF8ZsqtWdBzeU9j1j0E6uhknnasuttH7C5zRYTEKJiI6uomeFcM0&_nc_zt=23&_nc_ht=scontent-iad3-2.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQGK9E4Dxe7NuYOhuMw9SMzXG9K1l0gtV6cJrYEgnmQH461UihpU8Ze0ei6HMqe4JFJOBGzf13y_0w&oh=00_AQAfPooaFN8Q2jhG0Gpv48x4E5a7CCj1sj1H-gcPZB2P5g&oe=6A68BD87" data-caption="YARD Keepers - July 16, 2026">
-      <img src="https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-6/749377944_1780860206550744_673534085799828808_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=klQmoy1s1ygQ7kNvwH7Exmu&_nc_oc=Adqn6Ia5AvB2tHwqF8ZsqtWdBzeU9j1j0E6uhknnasuttH7C5zRYTEKJiI6uomeFcM0&_nc_zt=23&_nc_ht=scontent-iad3-2.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQGK9E4Dxe7NuYOhuMw9SMzXG9K1l0gtV6cJrYEgnmQH461UihpU8Ze0ei6HMqe4JFJOBGzf13y_0w&oh=00_AQAfPooaFN8Q2jhG0Gpv48x4E5a7CCj1sj1H-gcPZB2P5g&oe=6A68BD87" alt="Facebook Media">
+    <div class="fb-post-media fb-media-trigger" data-type="image" data-src="https://scontent-sjc3-1.xx.fbcdn.net/v/t39.30808-6/749377944_1780860206550744_673534085799828808_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=klQmoy1s1ygQ7kNvwHMAFhN&_nc_oc=Adrd7HZY10IPgvtnWA49W3q_hFMVj3KD28YS5TNmTel1eP7-GvOl45BmAolmOc8oKZo&_nc_zt=23&_nc_ht=scontent-sjc3-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQF3wwYJPYJYtShJ1gB6vWcGEB9VbAb30tZ1gRpO8rsLdEjGxmVYkKg_qdJjC69NbTIzWX6kG5BWGA&oh=00_AQCFyXEB4_fKsyzeLkdmBQuHR2ZkKhVgly_qH8GYuI06Kw&oe=6A68BD87" data-caption="YARD Keepers - July 16, 2026">
+      <img src="https://scontent-sjc3-1.xx.fbcdn.net/v/t39.30808-6/749377944_1780860206550744_673534085799828808_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=klQmoy1s1ygQ7kNvwHMAFhN&_nc_oc=Adrd7HZY10IPgvtnWA49W3q_hFMVj3KD28YS5TNmTel1eP7-GvOl45BmAolmOc8oKZo&_nc_zt=23&_nc_ht=scontent-sjc3-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQF3wwYJPYJYtShJ1gB6vWcGEB9VbAb30tZ1gRpO8rsLdEjGxmVYkKg_qdJjC69NbTIzWX6kG5BWGA&oh=00_AQCFyXEB4_fKsyzeLkdmBQuHR2ZkKhVgly_qH8GYuI06Kw&oe=6A68BD87" alt="Facebook Media">
     </div>
-    <div class="fb-post-media fb-media-trigger" data-type="image" data-src="https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-6/749355489_1780860269884071_9090256290562804967_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=mHlViQ-08FEQ7kNvwFyBN3q&_nc_oc=AdrsInBAtxNzvCrsh7NgPRRnVhZykXXHGMXf-6dHMg_H90HQxHEiobWoXLlMIhTo7qw&_nc_zt=23&_nc_ht=scontent-iad6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQH8aKYq0Gyyn_rSfKLgEPTd4BtfkiNhWXRJnTwAxiNm-GxQ24x0f5pyzKbWKfNtUyIsJ9OwpfJ1UA&oh=00_AQDSOFUfplvrbbFFvbIx6KiBhLmlIxmc-FbVBTW07cFbCA&oe=6A68C0C7" data-caption="YARD Keepers - July 16, 2026">
-      <img src="https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-6/749355489_1780860269884071_9090256290562804967_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=mHlViQ-08FEQ7kNvwFyBN3q&_nc_oc=AdrsInBAtxNzvCrsh7NgPRRnVhZykXXHGMXf-6dHMg_H90HQxHEiobWoXLlMIhTo7qw&_nc_zt=23&_nc_ht=scontent-iad6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQH8aKYq0Gyyn_rSfKLgEPTd4BtfkiNhWXRJnTwAxiNm-GxQ24x0f5pyzKbWKfNtUyIsJ9OwpfJ1UA&oh=00_AQDSOFUfplvrbbFFvbIx6KiBhLmlIxmc-FbVBTW07cFbCA&oe=6A68C0C7" alt="Facebook Media">
+    <div class="fb-post-media fb-media-trigger" data-type="image" data-src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/749355489_1780860269884071_9090256290562804967_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=mHlViQ-08FEQ7kNvwHMbS3i&_nc_oc=Ado9SkxsFzEVSxZVNGN3cyUl9x76DqU9getWTNx3CGJjZUm4utO14TenqF1ie-2DK2g&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQFXaMYWWEV2maakjyTZaaZpomuybjKpKOmIjYsAAGuhgifRcUcKPifSaijQ3vxzB9O-g1oGtwS8DQ&oh=00_AQBsPDwMRZt4wRxRqxQZfDM--LFrfYmYwzmGbaLOfuNMUQ&oe=6A68C0C7" data-caption="YARD Keepers - July 16, 2026">
+      <img src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/749355489_1780860269884071_9090256290562804967_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=mHlViQ-08FEQ7kNvwHMbS3i&_nc_oc=Ado9SkxsFzEVSxZVNGN3cyUl9x76DqU9getWTNx3CGJjZUm4utO14TenqF1ie-2DK2g&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQFXaMYWWEV2maakjyTZaaZpomuybjKpKOmIjYsAAGuhgifRcUcKPifSaijQ3vxzB9O-g1oGtwS8DQ&oh=00_AQBsPDwMRZt4wRxRqxQZfDM--LFrfYmYwzmGbaLOfuNMUQ&oe=6A68C0C7" alt="Facebook Media">
     </div>
-    <div class="fb-post-media fb-media-trigger" data-type="image" data-src="https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-6/748585412_1780860353217396_2472599916810164386_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=slZYddJ2tdsQ7kNvwEesb3d&_nc_oc=AdplQ-iQHr4C5YySyXB8gFldvKzM4db9MPL7tbZIJrlY7-Zk_UiQ-Wr3jZW7_PT0Vqc&_nc_zt=23&_nc_ht=scontent-iad6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQFu-tHiQQhqZLqzJSmOJrIRS1hN83N9zrKdbaPJ_FT7BiLcsEzytePAxMuU9q9_RyjzZN5WtpkQew&oh=00_AQATXKZ3FDiAGD3OUZG5yGRukPR4cqlYikSumGXHlDdmRQ&oe=6A68D8ED" data-caption="YARD Keepers - July 16, 2026">
-      <img src="https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-6/748585412_1780860353217396_2472599916810164386_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=slZYddJ2tdsQ7kNvwEesb3d&_nc_oc=AdplQ-iQHr4C5YySyXB8gFldvKzM4db9MPL7tbZIJrlY7-Zk_UiQ-Wr3jZW7_PT0Vqc&_nc_zt=23&_nc_ht=scontent-iad6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQFu-tHiQQhqZLqzJSmOJrIRS1hN83N9zrKdbaPJ_FT7BiLcsEzytePAxMuU9q9_RyjzZN5WtpkQew&oh=00_AQATXKZ3FDiAGD3OUZG5yGRukPR4cqlYikSumGXHlDdmRQ&oe=6A68D8ED" alt="Facebook Media">
+    <div class="fb-post-media fb-media-trigger" data-type="image" data-src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/748585412_1780860353217396_2472599916810164386_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=slZYddJ2tdsQ7kNvwEN_vto&_nc_oc=AdoeLiIUResn1A0dbW54SAI64LjI2mhhguVA-MM6eKg26tUIJ12RGwo4DpJRNYhOOlE&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQEdw0R9xnxEL2HD7HmgbuJDLIt1-fZmjL-utNlZeNqm_XKPpRCIPNuD5o3wRhJ2IN2BCVOPefNzFg&oh=00_AQBbZSWvARG2F6cPGEArbP90_d3wMN3xiwBhINHBp07bZw&oe=6A68D8ED" data-caption="YARD Keepers - July 16, 2026">
+      <img src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/748585412_1780860353217396_2472599916810164386_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=slZYddJ2tdsQ7kNvwEN_vto&_nc_oc=AdoeLiIUResn1A0dbW54SAI64LjI2mhhguVA-MM6eKg26tUIJ12RGwo4DpJRNYhOOlE&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQEdw0R9xnxEL2HD7HmgbuJDLIt1-fZmjL-utNlZeNqm_XKPpRCIPNuD5o3wRhJ2IN2BCVOPefNzFg&oh=00_AQBbZSWvARG2F6cPGEArbP90_d3wMN3xiwBhINHBp07bZw&oe=6A68D8ED" alt="Facebook Media">
     </div>
-    <div class="fb-post-media fb-media-trigger" data-type="image" data-src="https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-6/750617674_1780860483217383_3779848813222065985_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=8plJLH3_WD4Q7kNvwE-GmWv&_nc_oc=AdopbPFpTSXpNZo9Gp1IkHwtV1MNZdq057VIlDcqz1c7XJdvbawaQA7x6n9g7_knuyc&_nc_zt=23&_nc_ht=scontent-iad6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQFLYJ4EUrJ9f15hnYQLU3D0ONSwBtr5xhyslR_nVD6pW7xm14OHs-3kM-2opS8RGFJEjXwMaPF6pQ&oh=00_AQDnEslTKc91c_2v-5u5XTiKHOnpsGTcYJhVSM4CYgNd4Q&oe=6A68E5AD" data-caption="YARD Keepers - July 16, 2026">
-      <img src="https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-6/750617674_1780860483217383_3779848813222065985_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=8plJLH3_WD4Q7kNvwE-GmWv&_nc_oc=AdopbPFpTSXpNZo9Gp1IkHwtV1MNZdq057VIlDcqz1c7XJdvbawaQA7x6n9g7_knuyc&_nc_zt=23&_nc_ht=scontent-iad6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQFLYJ4EUrJ9f15hnYQLU3D0ONSwBtr5xhyslR_nVD6pW7xm14OHs-3kM-2opS8RGFJEjXwMaPF6pQ&oh=00_AQDnEslTKc91c_2v-5u5XTiKHOnpsGTcYJhVSM4CYgNd4Q&oe=6A68E5AD" alt="Facebook Media">
+    <div class="fb-post-media fb-media-trigger" data-type="image" data-src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/750617674_1780860483217383_3779848813222065985_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=8plJLH3_WD4Q7kNvwGIBZ6w&_nc_oc=Adqw4u6nsJWrPynjeCn0w-qvphRzWWqfOqnRWkM5ipDPiBbSp03wEvDxMVzXkMI9cb0&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQEph47eRLGInN17H0gaiCnx1Y2Uu0bkLvKUD3zRUoeMFLdECcI2jeUxqinnDynQqSCS3QRs8JreWg&oh=00_AQCUbZfvBFfq4epShXoxwuE1TZZNWbxBInlj-SuXijuSfQ&oe=6A68E5AD" data-caption="YARD Keepers - July 16, 2026">
+      <img src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/750617674_1780860483217383_3779848813222065985_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=8plJLH3_WD4Q7kNvwGIBZ6w&_nc_oc=Adqw4u6nsJWrPynjeCn0w-qvphRzWWqfOqnRWkM5ipDPiBbSp03wEvDxMVzXkMI9cb0&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQEph47eRLGInN17H0gaiCnx1Y2Uu0bkLvKUD3zRUoeMFLdECcI2jeUxqinnDynQqSCS3QRs8JreWg&oh=00_AQCUbZfvBFfq4epShXoxwuE1TZZNWbxBInlj-SuXijuSfQ&oe=6A68E5AD" alt="Facebook Media">
     </div>
-    <div class="fb-post-media fb-media-trigger" data-type="image" data-src="https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-6/747877146_1780860569884041_6099323627051862620_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=kzZ10_wrZUwQ7kNvwFgdStC&_nc_oc=AdrdivZgk8X4taj357-U9zvZ7PhyqedlJiSA1dJcaYPvRK_hDlbEOmNj5fbr-QiEPFE&_nc_zt=23&_nc_ht=scontent-iad6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQF9XxXj4gGngrnChi3_vpHcLXxNtpR5_uMzF3T-6JXDyKwkz6Bf4IhUwti7zpvMWKOFuScxzfBBvw&oh=00_AQDcbRe3t4MClOi4SSRavTfbpGgXcoVNTecfW6nXNLWG-w&oe=6A68C564" data-caption="YARD Keepers - July 16, 2026">
-      <img src="https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-6/747877146_1780860569884041_6099323627051862620_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=kzZ10_wrZUwQ7kNvwFgdStC&_nc_oc=AdrdivZgk8X4taj357-U9zvZ7PhyqedlJiSA1dJcaYPvRK_hDlbEOmNj5fbr-QiEPFE&_nc_zt=23&_nc_ht=scontent-iad6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQF9XxXj4gGngrnChi3_vpHcLXxNtpR5_uMzF3T-6JXDyKwkz6Bf4IhUwti7zpvMWKOFuScxzfBBvw&oh=00_AQDcbRe3t4MClOi4SSRavTfbpGgXcoVNTecfW6nXNLWG-w&oe=6A68C564" alt="Facebook Media">
+    <div class="fb-post-media fb-media-trigger" data-type="image" data-src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/747877146_1780860569884041_6099323627051862620_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=kzZ10_wrZUwQ7kNvwF23qNc&_nc_oc=AdoHYA0XkPtYVaHpNEf1sg4Sz9BlJp5K5_LhCYnUwP_9a67BGITBj9eAOalRKAdMYCg&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQHYHYX0LABgW5q253g1DBoTNVegUUr-JP8HC4PxDJmcEj_f4GrkoCo7WJS5poLqpnrI8cf4ZLaQIw&oh=00_AQDqc76UR_ehCcdd4esu71Q42zZF2g19vyAHrpy4AYbnAQ&oe=6A68C564" data-caption="YARD Keepers - July 16, 2026">
+      <img src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/747877146_1780860569884041_6099323627051862620_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=kzZ10_wrZUwQ7kNvwF23qNc&_nc_oc=AdoHYA0XkPtYVaHpNEf1sg4Sz9BlJp5K5_LhCYnUwP_9a67BGITBj9eAOalRKAdMYCg&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQHYHYX0LABgW5q253g1DBoTNVegUUr-JP8HC4PxDJmcEj_f4GrkoCo7WJS5poLqpnrI8cf4ZLaQIw&oh=00_AQDqc76UR_ehCcdd4esu71Q42zZF2g19vyAHrpy4AYbnAQ&oe=6A68C564" alt="Facebook Media">
     </div>
   </div>
   <div class="native-fb-post">
@@ -364,8 +304,8 @@
       </div>
     </div>
     <div class="fb-post-content">#hedges #trees #yardkeepers #centralalberta #ChainsawWork</div>
-    <div class="fb-post-media fb-media-trigger" data-type="video" data-src="https://video-iad3-1.xx.fbcdn.net/o1/v/t2/f2/m366/AQPJD848C5ZiRIEA4RMhLMBpPQnzqQcoEHMHu0AMQQZUWd_2aUpOBkx9an6Hq9V6FiBPj0LUzzTPVsDC34rlddTEcCXeNT1cCXoWIj8QSuZEOg.mp4?_nc_cat=104&_nc_sid=5e9851&_nc_ht=video-iad3-1.xx.fbcdn.net&_nc_ohc=ZGoAAnT-uCMQ7kNvwFUiVx_&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuNzIwLmRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHAiLCJ4cHZfYXNzZXRfaWQiOjk0MTY3NzI0MjI3MDIwNiwiYXNzZXRfYWdlX2RheXMiOjksInZpX3VzZWNhc2VfaWQiOjEwMTIyLCJkdXJhdGlvbl9zIjoxNSwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&vs=caa9fbf81ff9cf49&_nc_vs=HBkcFQIYRWZiX2VwaGVtZXJhbC80MDQwRUYyMTYwOTEwQjZCMDlDOEUxQTRFRjc0RTE4N19tdF8xX3ZpZGVvX2Rhc2hpbml0Lm1wNBUAAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACb8h6aY6pysAxUCKAJDMywXQC4peNT987YYGWRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHARAHUCZZSeAQA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&edm=AKIiGfEEAAAA&_nc_zt=28&_nc_tpa=Q5bMBQENpeDhGVN1f18zwhOb5rOS5Sb-s41HZlI2jZ4Kdn24N-PxZUhIw31vh0Iii7FUbC52HuWJZxhrHQ&oh=00_AQC0DUR1lSqbesA2nxMas0IYVhNtoRvwnqVcgvQY1HLSFA&oe=6A68D678&bitrate=0&tag=dash_h264-basic-gen2_720p" data-caption="YARD Keepers - July 14, 2026">
-      <img src="https://scontent-iad6-1.xx.fbcdn.net/v/t15.5256-10/747839505_2111941596054925_6921726659835359985_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=5fad0e&_nc_ohc=6Q28eCMEfowQ7kNvwGfCMrk&_nc_oc=AdpP_M7OhMiOPdzbPhS7acUpXxEFpWlLdXdVssHHvXSWDVhz9t-Bgne8SO5YFhm_kNA&_nc_zt=23&_nc_ht=scontent-iad6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQHJgatp2mcqofvwTsFJt3-WckXdi1icmlf1Mgjxlp643sMDWKGKeT18Fqmla1Enyy5-SmsMG74apQ&oh=00_AQC-UzExWpqzGQwbyhSbFQFCTMBdUwdzvp-dx40fLUlWAg&oe=6A68EACB" alt="Facebook Media">
+    <div class="fb-post-media fb-media-trigger" data-type="video" data-src="https://video-sjc6-1.xx.fbcdn.net/o1/v/t2/f2/m366/AQPJD848C5ZiRIEA4RMhLMBpPQnzqQcoEHMHu0AMQQZUWd_2aUpOBkx9an6Hq9V6FiBPj0LUzzTPVsDC34rlddTEcCXeNT1cCXoWIj8QSuZEOg.mp4?_nc_cat=104&_nc_sid=5e9851&_nc_ht=video-sjc6-1.xx.fbcdn.net&_nc_ohc=ZGoAAnT-uCMQ7kNvwFr1Fnp&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuNzIwLmRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHAiLCJ4cHZfYXNzZXRfaWQiOjk0MTY3NzI0MjI3MDIwNiwiYXNzZXRfYWdlX2RheXMiOjksInZpX3VzZWNhc2VfaWQiOjEwMTIyLCJkdXJhdGlvbl9zIjoxNSwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&vs=caa9fbf81ff9cf49&_nc_vs=HBkcFQIYRWZiX2VwaGVtZXJhbC80MDQwRUYyMTYwOTEwQjZCMDlDOEUxQTRFRjc0RTE4N19tdF8xX3ZpZGVvX2Rhc2hpbml0Lm1wNBUAAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACb8h6aY6pysAxUCKAJDMywXQC4peNT987YYGWRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHARAHUCZZSeAQA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&edm=AKIiGfEEAAAA&_nc_zt=28&_nc_tpa=Q5bMBQGFZmJGgyKuO9cUQyNA9oRpr_L9Dz0UxAT_90i2P2hnFTmDVp1inCnAPFaqTFAE7pZsGaIdhYLbsw&oh=00_AQCJPQFoahEO9jLujPjMHf0wvfgiRJSRnf3t1gPs-oe78w&oe=6A68D678&bitrate=0&tag=dash_h264-basic-gen2_720p" data-caption="YARD Keepers - July 14, 2026">
+      <img src="https://scontent-sjc6-1.xx.fbcdn.net/v/t15.5256-10/747839505_2111941596054925_6921726659835359985_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=5fad0e&_nc_ohc=6Q28eCMEfowQ7kNvwHtNODM&_nc_oc=Adq_IWoTjjVCBI847rVQwIHjBkcikemhiU7RxIMX9RdI2vqMwAHK_KJ7hlvmSGRqKX4&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQGKcCJ4Z4AUGAGy3nUhUcKtrvVo-mnLwLyBtXf8igZ4rJAVLfDlvAjXgZDkpuYlsurTO1WcqMPmRg&oh=00_AQDSOQC-65Xw7l2ovsZjeQz6GI01KPjgaqbVNe56cVIi3A&oe=6A68EACB" alt="Facebook Media">
       <div class="video-play-icon"><i class="fa-solid fa-play"></i></div>
     </div>
   </div>
@@ -377,8 +317,8 @@
         <span class="fb-post-date"><a href="https://www.facebook.com/1787491659220932/posts/1585152163237045?substory_index=1585152163237045" target="_blank" rel="noopener noreferrer">July 14, 2026</a></span>
       </div>
     </div>
-    <div class="fb-post-media fb-media-trigger" data-type="image" data-src="https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-6/747112126_1779104613392970_9093771262043728335_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=6fEbBjE0mPAQ7kNvwF5rP-2&_nc_oc=Adqx8KlJm0LmZM8aLrko7uBb-wW_nlSUdDxZsTTanQDdd6jpqP6qaaJ1MkqDMNz3A1k&_nc_zt=23&_nc_ht=scontent-iad3-1.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQH-EkwYpS4zlfFtC5vS-dy2K-q3fZnhwUahN5Os8dj61FyboHnUpKw8n3QFR_XpV5OE_-wAgtBZGg&oh=00_AQCw9hE6mFPYZOmf4xFcdP_VqFkYzoD18-cxJ5IK8zFLQg&oe=6A68E480" data-caption="YARD Keepers - July 14, 2026">
-      <img src="https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-6/747112126_1779104613392970_9093771262043728335_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=6fEbBjE0mPAQ7kNvwF5rP-2&_nc_oc=Adqx8KlJm0LmZM8aLrko7uBb-wW_nlSUdDxZsTTanQDdd6jpqP6qaaJ1MkqDMNz3A1k&_nc_zt=23&_nc_ht=scontent-iad3-1.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQH-EkwYpS4zlfFtC5vS-dy2K-q3fZnhwUahN5Os8dj61FyboHnUpKw8n3QFR_XpV5OE_-wAgtBZGg&oh=00_AQCw9hE6mFPYZOmf4xFcdP_VqFkYzoD18-cxJ5IK8zFLQg&oe=6A68E480" alt="Facebook Media">
+    <div class="fb-post-media fb-media-trigger" data-type="image" data-src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/747112126_1779104613392970_9093771262043728335_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=6fEbBjE0mPAQ7kNvwHY-Smv&_nc_oc=AdqRGONf0_2eo7DtoLxPoyvcm_hbzuZ5xJwkGKFc2YTJmrgT-VI91UAJ90PrV218CtA&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQH2_MfXGvg9KVwsSVkCi5IpGrIk86LePmxiKC8h-ty-U9RZdg2xuoZmxfSZhKFgEENqDbYyjJGgMQ&oh=00_AQDWm_mjTi8PTtogwGMY1As4wF_S9aQInou-Zz_zQqLdqw&oe=6A68E480" data-caption="YARD Keepers - July 14, 2026">
+      <img src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/747112126_1779104613392970_9093771262043728335_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=6fEbBjE0mPAQ7kNvwHY-Smv&_nc_oc=AdqRGONf0_2eo7DtoLxPoyvcm_hbzuZ5xJwkGKFc2YTJmrgT-VI91UAJ90PrV218CtA&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQH2_MfXGvg9KVwsSVkCi5IpGrIk86LePmxiKC8h-ty-U9RZdg2xuoZmxfSZhKFgEENqDbYyjJGgMQ&oh=00_AQDWm_mjTi8PTtogwGMY1As4wF_S9aQInou-Zz_zQqLdqw&oe=6A68E480" alt="Facebook Media">
     </div>
   </div>
   <div class="native-fb-post">
@@ -390,8 +330,8 @@
       </div>
     </div>
     <div class="fb-post-content">Was quite the storm last night ! 🌪️💨😲<br>#rain #lightening #storm #thunderstorm  #July</div>
-    <div class="fb-post-media fb-media-trigger" data-type="video" data-src="https://video-iad3-1.xx.fbcdn.net/o1/v/t2/f2/m366/AQOcyyn4WKvbWbdBb18glTVVgYB50jeLTznrWzxk0SErjRfZB4WcgL6c-i9ccp76NAxxprRLrLqQNCE97Pz3yrLMv90wwszcGukwQvOz9boMOA.mp4?_nc_cat=101&_nc_sid=5e9851&_nc_ht=video-iad3-1.xx.fbcdn.net&_nc_ohc=ka_2J3vdkeQQ7kNvwGUSGpe&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuNDE2LmRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHAiLCJ4cHZfYXNzZXRfaWQiOjEzODkwNTE5MDMwNjY5NjksImFzc2V0X2FnZV9kYXlzIjoxMywidmlfdXNlY2FzZV9pZCI6MTAxMjIsImR1cmF0aW9uX3MiOjE1LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&vs=4f94b0e94d9c9288&_nc_vs=HBksFQIYRWZiX2VwaGVtZXJhbC84RDRDRkE4QTM5MzI3MThDRjY5NzI4QkVFNDJGNjNBMl9tdF8xX3ZpZGVvX2Rhc2hpbml0Lm1wNBUAAsgBEgAVAhhAZmJfcGVybWFuZW50LzRBNDE2MjMxMDU2N0JFOTI4NERBQzY0NTA0OEY3OTlGX2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACayjY6Uu9X3BBUCKAJDMywXQC4Q5WBBiTcYGWRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHARAHUCZZSeAQA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&edm=AKIiGfEEAAAA&_nc_zt=28&_nc_tpa=Q5bMBQGeaZqeO72-eS7SPp1tGDTUvFZdv-Lups8a0F45NKKSNSEtbwiDmvYe8LNI7OaaAaiGsQrHWosEow&oh=00_AQAWXy9Vysgh2ij4VZRCsMwVtQZJtvqdQYiHLDC-mgVv1Q&oe=6A68DFAF&bitrate=537257&tag=dash_h264-basic-gen2_720p" data-caption="YARD Keepers - July 10, 2026">
-      <img src="https://scontent-iad3-2.xx.fbcdn.net/v/t15.5256-10/741751465_1023496740456278_9055355508174283699_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=5fad0e&_nc_ohc=Z9rkPtxFDwoQ7kNvwFlK1OM&_nc_oc=AdrWY9QyznIV4gBSLEtg0dhsZgMuvcZt47nl-4z902e8tw9zSFR9uxVxa9JHQff7fk8&_nc_zt=23&_nc_ht=scontent-iad3-2.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQFXo8jNL--3vootnqspUG03tTCRV6Z0uZDg_fpPNFoMLRXsFJp8race2vMA4GGNnk_no_KCaqC25Q&oh=00_AQDHPQBqg0-EVyOksOkIkl_EKnAk1M37EY6GJkfamrRHVw&oe=6A68EC9B" alt="Facebook Media">
+    <div class="fb-post-media fb-media-trigger" data-type="video" data-src="https://video-sjc6-1.xx.fbcdn.net/o1/v/t2/f2/m366/AQOcyyn4WKvbWbdBb18glTVVgYB50jeLTznrWzxk0SErjRfZB4WcgL6c-i9ccp76NAxxprRLrLqQNCE97Pz3yrLMv90wwszcGukwQvOz9boMOA.mp4?_nc_cat=101&_nc_sid=5e9851&_nc_ht=video-sjc6-1.xx.fbcdn.net&_nc_ohc=ka_2J3vdkeQQ7kNvwFJcGfu&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuNDE2LmRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHAiLCJ4cHZfYXNzZXRfaWQiOjEzODkwNTE5MDMwNjY5NjksImFzc2V0X2FnZV9kYXlzIjoxMywidmlfdXNlY2FzZV9pZCI6MTAxMjIsImR1cmF0aW9uX3MiOjE1LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&vs=4f94b0e94d9c9288&_nc_vs=HBksFQIYRWZiX2VwaGVtZXJhbC84RDRDRkE4QTM5MzI3MThDRjY5NzI4QkVFNDJGNjNBMl9tdF8xX3ZpZGVvX2Rhc2hpbml0Lm1wNBUAAsgBEgAVAhhAZmJfcGVybWFuZW50LzRBNDE2MjMxMDU2N0JFOTI4NERBQzY0NTA0OEY3OTlGX2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACayjY6Uu9X3BBUCKAJDMywXQC4Q5WBBiTcYGWRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHARAHUCZZSeAQA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&edm=AKIiGfEEAAAA&_nc_zt=28&_nc_tpa=Q5bMBQG3t5X2357QU3w77sGBueftPQo_9FlRKlu3Rg4q9ObRHmCiVQNL8xLXHMS-0f62Q3ilau1EmKwu_g&oh=00_AQA727EnUE9txMyrTZu_81b_kjuN4vbfgtRtd_WDFGqOiA&oe=6A68DFAF&bitrate=537257&tag=dash_h264-basic-gen2_720p" data-caption="YARD Keepers - July 10, 2026">
+      <img src="https://scontent-sjc6-1.xx.fbcdn.net/v/t15.5256-10/741751465_1023496740456278_9055355508174283699_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=5fad0e&_nc_ohc=Z9rkPtxFDwoQ7kNvwHpjeYU&_nc_oc=AdpBuX78jeMBxfe8A8Bl9FcQZTFESor2HsdYRtsf7dKuxnBfT6UGrXxlm8JPrBRwlFc&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQH3yofUSklL4E7lWC0nbhWDRZQJJLaI2DERxNscahzj0s9CtFWVq75YefCvLC5wsWNBQcDsKlBJ6w&oh=00_AQDLaLR4ov0ZPGId7a-dY2av46Onq2ES92Ka_IWJEJgXmQ&oe=6A68EC9B" alt="Facebook Media">
       <div class="video-play-icon"><i class="fa-solid fa-play"></i></div>
     </div>
   </div>
@@ -404,8 +344,8 @@
       </div>
     </div>
     <div class="fb-post-content">Contact us for a quote, we will be in your area soon. #hedgetrimming #yardkeepers #AcreageProperty #Commercial #residential</div>
-    <div class="fb-post-media fb-media-trigger" data-type="video" data-src="https://video-iad3-2.xx.fbcdn.net/o1/v/t2/f2/m366/AQOj93gjf1iecuiIDNRm3jNW6BxQfYW7NSCwTsrYeYmMJgPxoWKOJY8OM3C9dcVcFk276y9bvc9qQuY9oNKgpJ9vKF4tx6f5uLcSO3wSDkPhcQ.mp4?_nc_cat=105&_nc_sid=5e9851&_nc_ht=video-iad3-2.xx.fbcdn.net&_nc_ohc=sod99Zmqc-cQ7kNvwEkVhHE&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuNzIwLmRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHAiLCJ4cHZfYXNzZXRfaWQiOjE3NDI2NTA2MzM4MzAxNDgsImFzc2V0X2FnZV9kYXlzIjoxMywidmlfdXNlY2FzZV9pZCI6MTAxMjIsImR1cmF0aW9uX3MiOjM3LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&vs=485b50b30155b18f&_nc_vs=HBkcFQIYRWZiX2VwaGVtZXJhbC9FRTRFNjg1MTUxQTk1RjY1RkE2RTVENEQxMjhFN0VCN19tdF8xX3ZpZGVvX2Rhc2hpbml0Lm1wNBUAAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACaI_Pn_zruYBhUCKAJDMywXQEKIcrAgxJwYGWRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHARAHUCZZSeAQA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&edm=AKIiGfEEAAAA&_nc_zt=28&_nc_tpa=Q5bMBQE4_LU0FmL2KqxaEBm-Y05j5Tp3Y8iFU-tiLQHos1Y5J8ISD19-loVAw8MRxlkye6Ub1hJhPMftNA&oh=00_AQBHwhbSSzbDn6srE2sdXs1YVG-ZPpzgW7S8kbvn2vXlnQ&oe=6A68E8AB&bitrate=0&tag=dash_h264-basic-gen2_720p" data-caption="YARD Keepers - July 10, 2026">
-      <img src="https://scontent-iad3-2.xx.fbcdn.net/v/t15.5256-10/742317102_1010264968378573_4831097623187435998_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=5fad0e&_nc_ohc=tTrhx_L2KxIQ7kNvwGo2d-N&_nc_oc=Adq8Ztd_tJdLgIbGYDhdJTvBpiuiyOV-61m01us_alsV2DcYM7ocqOF9TwO87RyhFtA&_nc_zt=23&_nc_ht=scontent-iad3-2.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQE567wdBXciuOrAnEPTWgchPYuNG_ZUEUKC3NEtbmnWPq5OS3gia-pd_oyNbghHQypv2mal6hFn9Q&oh=00_AQA3gfsv-OM-UWfmTIAjxUsR22TgzfXugD1OLb9z5FGjiA&oe=6A68E9EE" alt="Facebook Media">
+    <div class="fb-post-media fb-media-trigger" data-type="video" data-src="https://video-sjc3-1.xx.fbcdn.net/o1/v/t2/f2/m366/AQOj93gjf1iecuiIDNRm3jNW6BxQfYW7NSCwTsrYeYmMJgPxoWKOJY8OM3C9dcVcFk276y9bvc9qQuY9oNKgpJ9vKF4tx6f5uLcSO3wSDkPhcQ.mp4?_nc_cat=105&_nc_sid=5e9851&_nc_ht=video-sjc3-1.xx.fbcdn.net&_nc_ohc=sod99Zmqc-cQ7kNvwEw8LIl&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuNzIwLmRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHAiLCJ4cHZfYXNzZXRfaWQiOjE3NDI2NTA2MzM4MzAxNDgsImFzc2V0X2FnZV9kYXlzIjoxMywidmlfdXNlY2FzZV9pZCI6MTAxMjIsImR1cmF0aW9uX3MiOjM3LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&vs=485b50b30155b18f&_nc_vs=HBkcFQIYRWZiX2VwaGVtZXJhbC9FRTRFNjg1MTUxQTk1RjY1RkE2RTVENEQxMjhFN0VCN19tdF8xX3ZpZGVvX2Rhc2hpbml0Lm1wNBUAAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACaI_Pn_zruYBhUCKAJDMywXQEKIcrAgxJwYGWRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHARAHUCZZSeAQA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&edm=AKIiGfEEAAAA&_nc_zt=28&_nc_tpa=Q5bMBQETEORa0EWO7zuu3cKeXIpww-TiD8W5VZMws8yGN2tK1HBzCoLpVWL_kWyaN3V9nkDsPFYglnym3Q&oh=00_AQC_yZZ0k0j-YJC9cyaKUaDHx7Lyqshgo22TBpFa_-S_Xg&oe=6A68E8AB&bitrate=0&tag=dash_h264-basic-gen2_720p" data-caption="YARD Keepers - July 10, 2026">
+      <img src="https://scontent-sjc3-1.xx.fbcdn.net/v/t15.5256-10/742317102_1010264968378573_4831097623187435998_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=5fad0e&_nc_ohc=tTrhx_L2KxIQ7kNvwHPEzSO&_nc_oc=AdpzdNcf6Biq_qsYkb4Hsf_lr3-5er0AyO0cptP4Y3FTsB5yH79TuQv-B2N-OO-3mL8&_nc_zt=23&_nc_ht=scontent-sjc3-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQHehb3SONyxG_a3vfMH0imhcDxTERNWytRcl0IdVfeXZoHvtsq4O7HSQXoO1zD3zDF8KUK8-aVWyw&oh=00_AQBHwTO8_rVcGZ6huMufagrxi04KIOZix_kzAaFSHALRSQ&oe=6A68E9EE" alt="Facebook Media">
       <div class="video-play-icon"><i class="fa-solid fa-play"></i></div>
     </div>
   </div>
@@ -426,8 +366,8 @@
         <span class="fb-post-date"><a href="https://www.facebook.com/1787491659220932/posts/2901726953512698?substory_index=2901726953512698" target="_blank" rel="noopener noreferrer">July 04, 2026</a></span>
       </div>
     </div>
-    <div class="fb-post-media fb-media-trigger" data-type="image" data-src="https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-6/738774403_1770444444258987_9086167676604102083_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=86c6b0&_nc_ohc=g4Cv4fOsOvMQ7kNvwEazB2Y&_nc_oc=Ado8ecftTYQqMGasK3DkBgFUgiHSfgr84dfk0KAfn8CeoXboyucSVLrm95RZZY_Y2RM&_nc_zt=23&_nc_ht=scontent-iad3-1.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQGTVhIJWOLmbMf5g8ZVWZWiiJFd9IGy-JZypY2oDqoUDFRprCw_uhqxXfSW4NtXzJmdQW64sVANAg&oh=00_AQCrI4J_--MHUjOu9Rvjgt-wVyFluLNxsWI0viXNgqu3Tg&oe=6A68E5E2" data-caption="YARD Keepers - July 04, 2026">
-      <img src="https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-6/738774403_1770444444258987_9086167676604102083_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=86c6b0&_nc_ohc=g4Cv4fOsOvMQ7kNvwEazB2Y&_nc_oc=Ado8ecftTYQqMGasK3DkBgFUgiHSfgr84dfk0KAfn8CeoXboyucSVLrm95RZZY_Y2RM&_nc_zt=23&_nc_ht=scontent-iad3-1.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQGTVhIJWOLmbMf5g8ZVWZWiiJFd9IGy-JZypY2oDqoUDFRprCw_uhqxXfSW4NtXzJmdQW64sVANAg&oh=00_AQCrI4J_--MHUjOu9Rvjgt-wVyFluLNxsWI0viXNgqu3Tg&oe=6A68E5E2" alt="Facebook Media">
+    <div class="fb-post-media fb-media-trigger" data-type="image" data-src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/738774403_1770444444258987_9086167676604102083_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=86c6b0&_nc_ohc=g4Cv4fOsOvMQ7kNvwEBCwNn&_nc_oc=AdoFN7_balAuni9Y2oIUZ3DnDTBr9ZZfq6shGstxtqz4ucg8qrQYaaOzkvotchfzrpI&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQEL09TIb463c3pHjUZNRBSAThWOEV768u1b0O1m5wG8MI5-A55KW8N3-O5KDz3c28hVCkkaup9Nsw&oh=00_AQBzeYyi_wQt2i6zSzhtEDyIVWNTiYqwvMScZpWsHQgopQ&oe=6A68E5E2" data-caption="YARD Keepers - July 04, 2026">
+      <img src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/738774403_1770444444258987_9086167676604102083_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=86c6b0&_nc_ohc=g4Cv4fOsOvMQ7kNvwEBCwNn&_nc_oc=AdoFN7_balAuni9Y2oIUZ3DnDTBr9ZZfq6shGstxtqz4ucg8qrQYaaOzkvotchfzrpI&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQEL09TIb463c3pHjUZNRBSAThWOEV768u1b0O1m5wG8MI5-A55KW8N3-O5KDz3c28hVCkkaup9Nsw&oh=00_AQBzeYyi_wQt2i6zSzhtEDyIVWNTiYqwvMScZpWsHQgopQ&oe=6A68E5E2" alt="Facebook Media">
     </div>
   </div>
   <div class="native-fb-post">
@@ -439,12 +379,12 @@
       </div>
     </div>
     <div class="fb-post-content">Hedges and mowing on a hot day. Here's one done today. <br>#mow #lawn #hedge #july #yardkeepers   #commercial  #residential  #acreages #hotday #Castor #townofcastor #alberta #centralalberta</div>
-    <div class="fb-post-media fb-media-trigger" data-type="video" data-src="https://video-iad6-1.xx.fbcdn.net/o1/v/t2/f2/m366/AQPw4LAXqXWZ3ikySQqa-Djzv7dO3-rSXj9odl8hpIzpQx5o9M7KeYw55Fx1yNraur1VJA8ViAy6EaBJZM7SsySRcbenWJq8Mu63XxMPhBDTtw.mp4?_nc_cat=102&_nc_sid=5e9851&_nc_ht=video-iad6-1.xx.fbcdn.net&_nc_ohc=Armvx5LcM4AQ7kNvwGLWjzH&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMTI4MC5kYXNoX2gyNjQtYmFzaWMtZ2VuMl83MjBwIiwieHB2X2Fzc2V0X2lkIjoxMDE2MzMxNjM3NzA1MTgxLCJhc3NldF9hZ2VfZGF5cyI6MjAsInZpX3VzZWNhc2VfaWQiOjEwMTIyLCJkdXJhdGlvbl9zIjoxNSwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&vs=629e0390301b5df7&_nc_vs=HBksFQIYRWZiX2VwaGVtZXJhbC9FNjQzRUVEQkE2NUM2NjQ1QjEyRDhDMUY5Nzc0MUM5Q19tdF8xX3ZpZGVvX2Rhc2hpbml0Lm1wNBUAAsgBEgAVAhhAZmJfcGVybWFuZW50LzBENDlDRUEyRUU3QzUxNkNDMDAyMUVCMEYxRTQ3RDkyX2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACa6p-rjpJbOAxUCKAJDMywXQC4AAAAAAAAYGWRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHARAHUCZZSeAQA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&edm=AKIiGfEEAAAA&_nc_zt=28&_nc_tpa=Q5bMBQGeKkMcpknP0kjKmQNRtmJPgyiv6k8E5fos1xDToPrse1icSrZjnp2B5v2GtD3XNhM0lPbsnh2Xuw&oh=00_AQBkWRyjJChYHVq18TWxcdOT1GpE5kpPPsWK9OO5svsq5A&oe=6A68C052&bitrate=373429&tag=dash_h264-basic-gen2_720p" data-caption="YARD Keepers - July 03, 2026">
-      <img src="https://scontent-iad6-1.xx.fbcdn.net/v/t15.5256-10/736272971_1521284552816939_1183040591391302023_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=5fad0e&_nc_ohc=aVA2S54BoXoQ7kNvwF9tTQC&_nc_oc=AdpuRPcm-vT0R6T37NQIeEtjeY0zemb_KTq6f66FL9jz-uxdCEoVgySdKu4Xrhz8VVo&_nc_zt=23&_nc_ht=scontent-iad6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQFgOLiFrsBPWDS5-c4a5FXwCJbNrpucH2_yePSEaWZrgR0iVXxbSIQK4y2oVPid32tWaKR1pAZKlQ&oh=00_AQBKkiKnErFHA8YAyKgSPMOTYxovwK1Q6cJCGR6PjkZSeA&oe=6A68BD99" alt="Facebook Media">
+    <div class="fb-post-media fb-media-trigger" data-type="video" data-src="https://video-sjc6-1.xx.fbcdn.net/o1/v/t2/f2/m366/AQPw4LAXqXWZ3ikySQqa-Djzv7dO3-rSXj9odl8hpIzpQx5o9M7KeYw55Fx1yNraur1VJA8ViAy6EaBJZM7SsySRcbenWJq8Mu63XxMPhBDTtw.mp4?_nc_cat=102&_nc_sid=5e9851&_nc_ht=video-sjc6-1.xx.fbcdn.net&_nc_ohc=Armvx5LcM4AQ7kNvwGE9fCp&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMTI4MC5kYXNoX2gyNjQtYmFzaWMtZ2VuMl83MjBwIiwieHB2X2Fzc2V0X2lkIjoxMDE2MzMxNjM3NzA1MTgxLCJhc3NldF9hZ2VfZGF5cyI6MjAsInZpX3VzZWNhc2VfaWQiOjEwMTIyLCJkdXJhdGlvbl9zIjoxNSwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&vs=629e0390301b5df7&_nc_vs=HBksFQIYRWZiX2VwaGVtZXJhbC9FNjQzRUVEQkE2NUM2NjQ1QjEyRDhDMUY5Nzc0MUM5Q19tdF8xX3ZpZGVvX2Rhc2hpbml0Lm1wNBUAAsgBEgAVAhhAZmJfcGVybWFuZW50LzBENDlDRUEyRUU3QzUxNkNDMDAyMUVCMEYxRTQ3RDkyX2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACa6p-rjpJbOAxUCKAJDMywXQC4AAAAAAAAYGWRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHARAHUCZZSeAQA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&edm=AKIiGfEEAAAA&_nc_zt=28&_nc_tpa=Q5bMBQHJCImKMR8gs7FhITNAcKhCpeVVXs0C5HUFhme-XQVQhK1s0Xg63rKbXfBbOrZn_LQOjmMY5r3mSQ&oh=00_AQAPmwZfjfOSMbAkkRf0Jzn90sZaQ2e-9drj5lrRlgVfbQ&oe=6A68C052&bitrate=373429&tag=dash_h264-basic-gen2_720p" data-caption="YARD Keepers - July 03, 2026">
+      <img src="https://scontent-sjc6-1.xx.fbcdn.net/v/t15.5256-10/736272971_1521284552816939_1183040591391302023_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=5fad0e&_nc_ohc=aVA2S54BoXoQ7kNvwEBVQyJ&_nc_oc=Ado8lx5glJx0MB1LansEQGc2Ls1eSnWh6rseiGr-GITa1IjnTbDP6Sv6rWxk9BsMZqk&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQFsjlhH9eDmd9uiKIU7_b1Kn4kO8ual9tPCM9v3V-oolKFfAOPj7NL9TIuSK4oJSFJucoJeUehCUA&oh=00_AQDDnc2QUY0bY_WATbbeQ7SRED-mMgubBJc7XsXjzr5tQg&oe=6A68BD99" alt="Facebook Media">
       <div class="video-play-icon"><i class="fa-solid fa-play"></i></div>
     </div>
-    <div class="fb-post-media fb-media-trigger" data-type="video" data-src="https://video-iad6-1.xx.fbcdn.net/o1/v/t2/f2/m366/AQOy7vZQFRkJVA1O3gOirbAVPvpa4gwJs0SEtj93WIWb5sIw71h-dnS1wMkkzXkt0gQkr_wSAaGUwaZnOBq5geAiS6Xyo25AJJnAmzrpTBSb_w.mp4?_nc_cat=100&_nc_sid=5e9851&_nc_ht=video-iad6-1.xx.fbcdn.net&_nc_ohc=L-z327qTHqUQ7kNvwELsw7R&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMTI4MC5kYXNoX2gyNjQtYmFzaWMtZ2VuMl83MjBwIiwieHB2X2Fzc2V0X2lkIjoxMDM4ODA2Mzk1MjMxODk4LCJhc3NldF9hZ2VfZGF5cyI6MjAsInZpX3VzZWNhc2VfaWQiOjEwMTIyLCJkdXJhdGlvbl9zIjoxNSwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&vs=d72b99b9f43e214b&_nc_vs=HBksFQIYRWZiX2VwaGVtZXJhbC8wNzRCNkZDNTc0ODdGNEI1ODdCQUMyMjhBNEMzM0I5Ql9tdF8xX3ZpZGVvX2Rhc2hpbml0Lm1wNBUAAsgBEgAVAhhAZmJfcGVybWFuZW50L0M0NEVBNjNCRTUxNDQ4REQwOURDMzc5NDU1NDMyNUE1X2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACa0-uzivrLYAxUCKAJDMywXQC4AAAAAAAAYGWRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHARAHUCZZSeAQA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&edm=AKIiGfEEAAAA&_nc_zt=28&_nc_tpa=Q5bMBQEvnAC18PJuq0pvqTvxisQq7L2arwGeTd_KLOqp57rbCk3cp-G0jviQDZ_CV8dYHxpccw2dWBpedg&oh=00_AQA4C6MCnvIioPvCocejlV025zEcUNapZ0dMxmUvE8eBxQ&oe=6A68C044&bitrate=480007&tag=dash_h264-basic-gen2_720p" data-caption="YARD Keepers - July 03, 2026">
-      <img src="https://scontent-iad6-1.xx.fbcdn.net/v/t15.5256-10/738625283_1338481097739317_1543076721482277230_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=5fad0e&_nc_ohc=W9TumoJiYAYQ7kNvwFhX3jz&_nc_oc=AdpZBkAVskuxa4Z9HvrtFaLPp1mew0IIMDxPNiXBXdPhdZJuFih9fwdyPrkkAaijSqA&_nc_zt=23&_nc_ht=scontent-iad6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=pGMHBJH2A_tQm64UVc7XqA&_nc_tpa=Q5bMBQFeHj7FnFFIbbt6ZKx2MKc7u1bPHy5OXDtmXvWB2N-0sdJvEqwo03dG-2oGwJ0uZ05rWJ7D9PMOng&oh=00_AQASMZq3elWb0k6FlN2h-lUF8AcF-1FEzF2-vA2vbpRtqQ&oe=6A68F274" alt="Facebook Media">
+    <div class="fb-post-media fb-media-trigger" data-type="video" data-src="https://video-sjc6-1.xx.fbcdn.net/o1/v/t2/f2/m366/AQOy7vZQFRkJVA1O3gOirbAVPvpa4gwJs0SEtj93WIWb5sIw71h-dnS1wMkkzXkt0gQkr_wSAaGUwaZnOBq5geAiS6Xyo25AJJnAmzrpTBSb_w.mp4?_nc_cat=100&_nc_sid=5e9851&_nc_ht=video-sjc6-1.xx.fbcdn.net&_nc_ohc=L-z327qTHqUQ7kNvwG9leKl&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMTI4MC5kYXNoX2gyNjQtYmFzaWMtZ2VuMl83MjBwIiwieHB2X2Fzc2V0X2lkIjoxMDM4ODA2Mzk1MjMxODk4LCJhc3NldF9hZ2VfZGF5cyI6MjAsInZpX3VzZWNhc2VfaWQiOjEwMTIyLCJkdXJhdGlvbl9zIjoxNSwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&vs=d72b99b9f43e214b&_nc_vs=HBksFQIYRWZiX2VwaGVtZXJhbC8wNzRCNkZDNTc0ODdGNEI1ODdCQUMyMjhBNEMzM0I5Ql9tdF8xX3ZpZGVvX2Rhc2hpbml0Lm1wNBUAAsgBEgAVAhhAZmJfcGVybWFuZW50L0M0NEVBNjNCRTUxNDQ4REQwOURDMzc5NDU1NDMyNUE1X2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACa0-uzivrLYAxUCKAJDMywXQC4AAAAAAAAYGWRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHARAHUCZZSeAQA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&edm=AKIiGfEEAAAA&_nc_zt=28&_nc_tpa=Q5bMBQFGoXIYl-rSRbjF8w4VAPerYeCeqnadyimMaQP86Gvt9kKOmgJlqlmcbw0OtJAjqehMjhZKmjyP5Q&oh=00_AQATiGDMqtPy2BFgQkmWtOGDF9TFLfkkNKqfLhwEcouJbQ&oe=6A68C044&bitrate=480007&tag=dash_h264-basic-gen2_720p" data-caption="YARD Keepers - July 03, 2026">
+      <img src="https://scontent-sjc6-1.xx.fbcdn.net/v/t15.5256-10/738625283_1338481097739317_1543076721482277230_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=5fad0e&_nc_ohc=W9TumoJiYAYQ7kNvwFykCNx&_nc_oc=AdqickrHpxo_jLPJGeIUC1eeuO2Z5Dg_aY7XAXWsx8nV53_kkEFcrumZbd-L1PoHjOc&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AKIiGfEEAAAA&_nc_gid=zXwZnBItBN__vcI8msPdgQ&_nc_tpa=Q5bMBQFxvpJyuQhJsfZyA1HFzEehkfJNpLwspzi6mT2B3btE-fhURAW_RvAjGCRVUEF54-CiuSqo151E6g&oh=00_AQB7RDQyYZQVE2M76NyNhw1Qe-oG--7vzyXxT6jmawsUqw&oe=6A68F274" alt="Facebook Media">
       <div class="video-play-icon"><i class="fa-solid fa-play"></i></div>
     </div>
   </div>
@@ -462,11 +402,12 @@
 <p>If you would like to reach out to us on other platforms or request a custom estimate, please visit our <a href="/contact/">Contact Us</a> page.</p></article>
     </main>
 
-    <!-- Lightbox Modal DOM -->
+    <!-- Hybrid Lightbox Modal DOM -->
     <div id="lightbox" class="lightbox">
         <span class="lightbox-close" id="lb-close">&times;</span>
         <button class="lightbox-prev" id="lb-prev"><i class="fa-solid fa-chevron-left"></i></button>
         <img class="lightbox-img" id="lb-img" src="" alt="">
+        <video class="lightbox-video" id="lb-vid" controls style="display:none;"></video>
         <button class="lightbox-next" id="lb-next"><i class="fa-solid fa-chevron-right"></i></button>
         <div class="lightbox-caption" id="lb-cap"></div>
     </div>
@@ -488,57 +429,101 @@
             }
         });
 
-        // Lightbox Gallery Logic
+        // Hybrid Lightbox Gallery Logic
         const lightbox = document.getElementById('lightbox');
         const lbImg = document.getElementById('lb-img');
+        const lbVid = document.getElementById('lb-vid');
         const lbCap = document.getElementById('lb-cap');
-        const triggers = document.querySelectorAll('.gallery-trigger');
+        
         let currentIndex = 0;
         let galleryItems = [];
 
-        if(triggers.length > 0) {
-            triggers.forEach((trigger, index) => {
-                const img = trigger.querySelector('img');
-                const cap = trigger.querySelector('.card-caption').innerText;
-                galleryItems.push({ src: img.src, alt: img.alt, caption: cap });
+        // 1. Process Standard Site Gallery Triggers
+        document.querySelectorAll('.gallery-trigger').forEach((trigger) => {
+            const img = trigger.querySelector('img');
+            let cap = '';
+            const capEl = trigger.querySelector('.card-caption');
+            if (capEl) cap = capEl.innerText;
+            
+            const index = galleryItems.length;
+            galleryItems.push({ type: 'image', src: img.src, alt: img.alt, caption: cap });
 
-                trigger.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    currentIndex = index;
-                    updateLightbox();
-                    lightbox.classList.add('active');
-                });
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentIndex = index;
+                updateLightbox();
+                lightbox.classList.add('active');
             });
-        }
+        });
+
+        // 2. Process Native Facebook Feed Triggers
+        document.querySelectorAll('.fb-media-trigger').forEach((trigger) => {
+            const type = trigger.getAttribute('data-type');
+            const src = trigger.getAttribute('data-src');
+            const cap = trigger.getAttribute('data-caption');
+            const img = trigger.querySelector('img');
+            const alt = img ? img.alt : 'Media';
+
+            const index = galleryItems.length;
+            galleryItems.push({ type: type, src: src, alt: alt, caption: cap });
+
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentIndex = index;
+                updateLightbox();
+                lightbox.classList.add('active');
+            });
+        });
 
         function updateLightbox() {
-            lbImg.src = galleryItems[currentIndex].src;
-            lbImg.alt = galleryItems[currentIndex].alt;
-            lbCap.innerText = galleryItems[currentIndex].caption;
+            const item = galleryItems[currentIndex];
+            lbCap.innerText = item.caption || '';
+            
+            if (item.type === 'video') {
+                lbImg.style.display = 'none';
+                lbVid.style.display = 'block';
+                lbVid.src = item.src;
+                lbVid.play().catch(e => console.log("Auto-play prevented", e));
+            } else {
+                lbVid.style.display = 'none';
+                lbVid.pause();
+                lbVid.removeAttribute('src'); // Prevents background downloading
+                lbImg.style.display = 'block';
+                lbImg.src = item.src;
+                lbImg.alt = item.alt;
+            }
         }
 
         function nextImg() {
+            if(galleryItems.length === 0) return;
             currentIndex = (currentIndex + 1) % galleryItems.length;
             updateLightbox();
         }
 
         function prevImg() {
+            if(galleryItems.length === 0) return;
             currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
             updateLightbox();
         }
 
-        document.getElementById('lb-close').addEventListener('click', () => lightbox.classList.remove('active'));
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            lbVid.pause();
+            lbVid.removeAttribute('src');
+        }
+
+        document.getElementById('lb-close').addEventListener('click', closeLightbox);
         document.getElementById('lb-next').addEventListener('click', (e) => { e.stopPropagation(); nextImg(); });
         document.getElementById('lb-prev').addEventListener('click', (e) => { e.stopPropagation(); prevImg(); });
 
         lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) lightbox.classList.remove('active');
+            if (e.target === lightbox) closeLightbox();
         });
 
         // Swipe & Keyboard support
         document.addEventListener('keydown', (e) => {
             if (!lightbox.classList.contains('active')) return;
-            if (e.key === 'Escape') lightbox.classList.remove('active');
+            if (e.key === 'Escape') closeLightbox();
             if (e.key === 'ArrowRight') nextImg();
             if (e.key === 'ArrowLeft') prevImg();
         });
