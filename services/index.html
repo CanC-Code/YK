@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yard Keepers - Yard Keepers</title>
 
-    <!-- Advanced SEO & Indexing Metadata -->
     <meta name="description" content="">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://yardkeepers.ca/services/">
@@ -13,7 +12,6 @@
     <meta name="geo.region" content="CA-AB">
     <meta name="geo.placename" content="Central Alberta">
 
-    <!-- Open Graph / Social Sharing Data -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://yardkeepers.ca/services/">
     <meta property="og:title" content="Yard Keepers - Yard Keepers">
@@ -122,10 +120,9 @@
         /* Native Facebook Feed Styles */
         .native-fb-feed { display: flex; flex-direction: column; gap: 32px; margin: 30px auto; max-width: 600px; width: 100%; }
         
-        /* Black Frame Border around Posts */
         .native-fb-post { 
             background-color: var(--surface-color); 
-            border: 4px solid #000000; /* Distinct Black Frame */
+            border: 4px solid #000000; 
             border-radius: 12px; 
             padding: 20px; 
             box-shadow: 0 6px 18px rgba(0,0,0,0.5); 
@@ -137,7 +134,6 @@
         
         .fb-post-meta { display: flex; flex-direction: column; }
         
-        /* Clickable Author Name */
         .fb-author-link { color: #ffffff !important; text-decoration: none !important; transition: color 0.2s; }
         .fb-author-link:hover { color: var(--primary-color) !important; }
         .fb-post-author { font-weight: 600; font-size: 1.05rem; }
@@ -154,11 +150,11 @@
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch; /* Momentum scrolling on iOS */
-            scrollbar-width: none; /* Firefox */
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
             gap: 10px;
         }
-        .fb-carousel-inner::-webkit-scrollbar { display: none; /* Chrome/Safari */ }
+        .fb-carousel-inner::-webkit-scrollbar { display: none; }
         
         .fb-carousel-item {
             flex: 0 0 100%;
@@ -173,7 +169,6 @@
         .fb-media-trigger { cursor: pointer; position: relative; transition: transform 0.2s, box-shadow 0.2s; }
         .fb-media-trigger:hover { transform: scale(1.01); box-shadow: 0 8px 20px rgba(0,0,0,0.6); }
         
-        /* Carousel Dots */
         .fb-carousel-indicators { display: flex; justify-content: center; gap: 6px; margin-top: 10px; }
         .fb-dot { width: 8px; height: 8px; background-color: rgba(255, 255, 255, 0.3); border-radius: 50%; transition: background-color 0.3s; }
         .fb-dot.active { background-color: var(--primary-color); }
@@ -184,18 +179,6 @@
             text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); transition: color 0.2s, transform 0.2s;
         }
         .fb-media-trigger:hover .video-play-icon { color: var(--primary-color); transform: translate(-50%, -50%) scale(1.1); }
-
-        .map-btn {
-            background: none; border: none; color: var(--primary-color); font-size: 1.05rem; font-weight: 600; cursor: pointer; padding: 2px 0; text-align: left; text-decoration: underline dotted; transition: color 0.2s;
-        }
-        .map-btn:hover { color: #ffffff; text-decoration: underline solid; }
-
-        .quote-box { background-color: var(--surface-color); border-left: 4px solid var(--primary-color); border: 1px solid var(--border-color) 1px solid var(--border-color) 1px solid var(--border-color); padding: 20px; border-radius: 0 8px 8px 0; margin: 30px 0; }
-        .quote-box h3 { margin-top: 0 !important; }
-        .quote-box p { margin-bottom: 0 !important; }
-
-        .map-container { width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); background-color: var(--surface-color); margin: 20px 0; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); }
-        .map-container iframe { display: block; filter: grayscale(0.2) invert(0.9) hue-rotate(60deg); }
 
         .social-grid { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; list-style: none !important; padding-left: 0 !important; }
         .social-link { display: flex; align-items: center; gap: 15px; background-color: var(--surface-color); border: 1px solid var(--border-color); padding: 12px 20px; border-radius: 8px; color: var(--text-color) !important; text-decoration: none !important; font-weight: 500; transition: background-color 0.2s, transform 0.2s; }
@@ -307,7 +290,6 @@
 <p>Return to the <a href="/">Home Page</a>.</p></article>
     </main>
 
-    <!-- Hybrid Lightbox Modal DOM -->
     <div id="lightbox" class="lightbox">
         <span class="lightbox-close" id="lb-close">&times;</span>
         <button class="lightbox-prev" id="lb-prev"><i class="fa-solid fa-chevron-left"></i></button>
@@ -318,7 +300,6 @@
     </div>
 
     <script>
-        // Drawer Menu Logic
         const menuToggle = document.getElementById('menuToggle');
         const sideNav = document.getElementById('sideNav');
 
@@ -334,7 +315,6 @@
             }
         });
 
-        // Swipe Carousel Dot Logic (Updates dots as user scrolls)
         const carousels = document.querySelectorAll('.fb-carousel-inner');
         carousels.forEach(carousel => {
             const dots = carousel.parentElement.querySelectorAll('.fb-dot');
@@ -349,7 +329,6 @@
             }
         });
 
-        // Hybrid Lightbox Gallery Logic
         const lightbox = document.getElementById('lightbox');
         const lbImg = document.getElementById('lb-img');
         const lbVid = document.getElementById('lb-vid');
@@ -358,7 +337,6 @@
         let currentIndex = 0;
         let galleryItems = [];
 
-        // 1. Process Standard Site Gallery Triggers
         document.querySelectorAll('.gallery-trigger').forEach((trigger) => {
             const img = trigger.querySelector('img');
             let cap = '';
@@ -376,7 +354,6 @@
             });
         });
 
-        // 2. Process Native Facebook Feed Triggers
         document.querySelectorAll('.fb-media-trigger').forEach((trigger) => {
             const type = trigger.getAttribute('data-type');
             const src = trigger.getAttribute('data-src');
@@ -407,7 +384,7 @@
             } else {
                 lbVid.style.display = 'none';
                 lbVid.pause();
-                lbVid.removeAttribute('src'); // Prevents background downloading
+                lbVid.removeAttribute('src');
                 lbImg.style.display = 'block';
                 lbImg.src = item.src;
                 lbImg.alt = item.alt;
@@ -440,7 +417,6 @@
             if (e.target === lightbox) closeLightbox();
         });
 
-        // Swipe & Keyboard support
         document.addEventListener('keydown', (e) => {
             if (!lightbox.classList.contains('active')) return;
             if (e.key === 'Escape') closeLightbox();
