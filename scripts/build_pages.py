@@ -4,6 +4,7 @@ import json
 import urllib.request
 from datetime import datetime
 import markdown
+import shutil
 
 try:
     from dotenv import load_dotenv
@@ -156,6 +157,10 @@ def compile_pages():
 
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
+
+    # Copy the static assets folder into the build directory
+    if os.path.exists('./assets'):
+        shutil.copytree('./assets', os.path.join(output_dir, 'assets'), dirs_exist_ok=True)
 
     md_files = []
     for root, _, files in os.walk(content_dir):
