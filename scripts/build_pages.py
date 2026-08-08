@@ -147,6 +147,7 @@ def compile_pages():
     content_dir = './content'
     template_path = './templates/base.html'
     output_dir = './docs'
+    base_domain = "https://yardkeepers.ca"
 
     if not os.path.exists(template_path):
         print(f"Template not found at {template_path}")
@@ -167,6 +168,8 @@ def compile_pages():
         for file in files:
             if file.endswith('.md'):
                 md_files.append(os.path.join(root, file))
+
+    sitemap_urls = []
 
     for md_file in md_files:
         with open(md_file, 'r', encoding='utf-8') as f:
@@ -199,15 +202,25 @@ def compile_pages():
         rel_path = os.path.relpath(md_file, content_dir)
         html_path = os.path.join(output_dir, rel_path.replace('.md', '.html'))
         
+        # Build the URL path for sitemap
         if os.path.basename(html_path) == 'content.html':
             html_path = os.path.join(os.path.dirname(html_path), 'index.html')
+            url_path = '/' + os.path.dirname(rel_path) + '/'
         elif os.path.basename(html_path) != 'index.html':
             name_without_ext = os.path.splitext(os.path.basename(html_path))[0]
             html_path = os.path.join(os.path.dirname(html_path), name_without_ext, 'index.html')
-
+            url_path = '/' + os.path.dirname(rel_path) + '/' + name_without_ext + '/'
+        else:
+            url_path = '/' + os.path.dirname(rel_path) + '/'
+        
+        # Clean up double slashes and leading ./ 
+        url_path = url_path.replace('//', '/').replace('./', '')
+        if url_path == '':
+            url_path = '/'
+        
         os.makedirs(os.path.dirname(html_path), exist_ok=True)
 
-        canonical_url = f"https://yardkeepers.ca/{os.path.dirname(rel_path)}/" if os.path.dirname(rel_path) else "https://yardkeepers.ca/"
+        canonical_url = f"{base_domain}/{os.path.dirname(rel_path)}/" if os.path.dirname(rel_path) else f"{base_domain}/"
         
         final_html = template.replace('{{title}}', title)
         final_html = final_html.replace('{{description}}', description)
@@ -219,7 +232,38 @@ def compile_pages():
         with open(html_path, 'w', encoding='utf-8') as f:
             f.write(final_html)
 
-    print("Pages compiled successfully.")
+        # Add to sitemap
+        full_url = base_domain + url_path
+        sitemap_urls.append(full_url)
+
+    # --- Generate sitemap.xml ---
+    today = datetime.now().strftime('%Y-%m-%d')
+    xml_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    xml_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    for url in sorted(set(sitemap_urls)):
+        xml_content += '  <url>\n'
+        xml_content += f'    <loc>{url}</loc>\n'
+        xml_content += f'    <lastmod>{today}</lastmod>\n'
+        xml_content += '    <changefreq>weekly</changefreq>\n'
+        xml_content += '    <priority>0.8</priority>\n'
+        xml_content += '  </url>\n'
+    xml_content += '</urlset>\n'
+
+    sitemap_path = os.path.join(output_dir, 'sitemap.xml')
+    with open(sitemap_path, 'w', encoding='utf-8') as sf:
+        sf.write(xml_content)
+
+    # --- Generate robots.txt ---
+    robots_path = os.path.join(output_dir, 'robots.txt')
+    robots_content = (
+        "User-agent: *\n"
+        "Allow: /\n\n"
+        f"Sitemap: {base_domain}/sitemap.xml\n"
+    )
+    with open(robots_path, 'w', encoding='utf-8') as rf:
+        rf.write(robots_content)
+
+    print(f"Pages compiled successfully. Sitemap ({len(set(sitemap_urls))} URLs) and robots.txt generated.")
 
 if __name__ == "__main__":
     compile_pages()
