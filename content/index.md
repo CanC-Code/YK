@@ -1,5 +1,3 @@
-# Welcome to Yard Keepers
-
 We specialize in comprehensive property services, including **lawn maintenance, hedge trimming, ornamental plant care, and hardscaping** across Central Alberta. 
 
 Since **2018**, Yard Keepers has delivered reliable, detail-oriented property preservation services. Our operational focus is on maintaining your outdoor environments so that they remain clean, healthy, and manicured year-round. Whether cutting back overgrowth or executing routine grooming, our methods prioritize the structural integrity of your landscape.
