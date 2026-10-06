@@ -178,7 +178,19 @@ def compile_pages():
         title = "Yard Keepers"
         description = ""
         tags_html = ""
-        
+
+        # --- Load meta.json (primary source of metadata) ---
+        meta_path = os.path.join(os.path.dirname(md_file), 'meta.json')
+        if os.path.exists(meta_path):
+            with open(meta_path, 'r', encoding='utf-8') as mf:
+                meta = json.load(mf)
+            title = meta.get('title', title)
+            description = meta.get('description', description)
+            tags = meta.get('tags', [])
+            if tags:
+                tags_html = '<ul class="tags">' + ''.join([f'<li>{t}</li>' for t in tags]) + '</ul>'
+
+        # --- Optional YAML frontmatter (fallback / override) ---
         if content.startswith('---'):
             parts = content.split('---', 2)
             if len(parts) >= 3:
