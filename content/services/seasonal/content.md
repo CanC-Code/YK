@@ -1,5 +1,7 @@
 Our commitment to property preservation extends year-round. When the growing season ends, we transition to winter maintenance, ensuring your commercial and residential access points remain safe and clear of snow and ice. Click any image to view the gallery.
 
+**Snow removal is currently offered in Castor and the immediate surrounding area only.**
+
 ---
 
 ## Residential & Commercial Snow Clearing

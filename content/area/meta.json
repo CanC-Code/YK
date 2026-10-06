@@ -1,5 +1,9 @@
 {
   "title": "Service Area",
-  "description": "Regions, counties, and towns serviced by Yard Keepers across Central Alberta.",
-  "tags": ["service area", "locations", "alberta"]
+  "description": "Yard Keepers serves Central Alberta from Consort to Red Deer and Lacombe — including Castor, Stettler, Ponoka, and all communities in between.",
+  "tags": [
+    "service area",
+    "locations",
+    "alberta"
+  ]
 }
